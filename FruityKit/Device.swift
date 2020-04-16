@@ -26,5 +26,3 @@ public protocol Device {
     
     var driver: Driver { get }
 }
-
-

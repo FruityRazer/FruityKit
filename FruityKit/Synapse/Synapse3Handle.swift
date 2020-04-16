@@ -8,7 +8,6 @@
 
 import Foundation
 
-
 public struct Synapse3Handle: SynapseHandle {
     public enum Mode {
         case raw

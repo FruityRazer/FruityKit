@@ -22,14 +22,14 @@
 		A01649222448D0B50017FF4B /* razerchromacommon.h in Headers */ = {isa = PBXBuildFile; fileRef = A01649162448D0B50017FF4B /* razerchromacommon.h */; settings = {ATTRIBUTES = (Private, ); }; };
 		A01649392448D1150017FF4B /* FruityRazer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A01649382448D1150017FF4B /* FruityRazer.swift */; };
 		A016493C2448D86F0017FF4B /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = A016493B2448D86F0017FF4B /* Color.swift */; };
-		A016493E2448DD590017FF4B /* Synapse2.swift in Sources */ = {isa = PBXBuildFile; fileRef = A016493D2448DD590017FF4B /* Synapse2.swift */; };
-		A01649412448DDD60017FF4B /* Synapse3.swift in Sources */ = {isa = PBXBuildFile; fileRef = A01649402448DDD60017FF4B /* Synapse3.swift */; };
+		A016493E2448DD590017FF4B /* Synapse2Handle.swift in Sources */ = {isa = PBXBuildFile; fileRef = A016493D2448DD590017FF4B /* Synapse2Handle.swift */; };
+		A01649412448DDD60017FF4B /* Synapse3Handle.swift in Sources */ = {isa = PBXBuildFile; fileRef = A01649402448DDD60017FF4B /* Synapse3Handle.swift */; };
 		A01649432448DEAE0017FF4B /* Direction.swift in Sources */ = {isa = PBXBuildFile; fileRef = A01649422448DEAE0017FF4B /* Direction.swift */; };
 		A01649452448DEDB0017FF4B /* Device.swift in Sources */ = {isa = PBXBuildFile; fileRef = A01649442448DEDB0017FF4B /* Device.swift */; };
 		A01649472448E2650017FF4B /* RazerDevice.swift in Sources */ = {isa = PBXBuildFile; fileRef = A01649462448E2650017FF4B /* RazerDevice.swift */; };
 		A01649502448EC990017FF4B /* FruityKitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A016494F2448EC990017FF4B /* FruityKitTests.swift */; };
 		A01649522448EC990017FF4B /* FruityKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A01648FE2448D0910017FF4B /* FruityKit.framework */; };
-		A01649592448EEE70017FF4B /* Synapse.swift in Sources */ = {isa = PBXBuildFile; fileRef = A01649582448EEE70017FF4B /* Synapse.swift */; };
+		A01649592448EEE70017FF4B /* SynapseHandle.swift in Sources */ = {isa = PBXBuildFile; fileRef = A01649582448EEE70017FF4B /* SynapseHandle.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,15 +61,15 @@
 		A01649382448D1150017FF4B /* FruityRazer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FruityRazer.swift; sourceTree = "<group>"; };
 		A016493A2448D2170017FF4B /* FruityKit.modulemap */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.module-map"; path = FruityKit.modulemap; sourceTree = "<group>"; };
 		A016493B2448D86F0017FF4B /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
-		A016493D2448DD590017FF4B /* Synapse2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Synapse2.swift; sourceTree = "<group>"; };
-		A01649402448DDD60017FF4B /* Synapse3.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Synapse3.swift; sourceTree = "<group>"; };
+		A016493D2448DD590017FF4B /* Synapse2Handle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Synapse2Handle.swift; sourceTree = "<group>"; };
+		A01649402448DDD60017FF4B /* Synapse3Handle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Synapse3Handle.swift; sourceTree = "<group>"; };
 		A01649422448DEAE0017FF4B /* Direction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Direction.swift; sourceTree = "<group>"; };
 		A01649442448DEDB0017FF4B /* Device.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Device.swift; sourceTree = "<group>"; };
 		A01649462448E2650017FF4B /* RazerDevice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RazerDevice.swift; sourceTree = "<group>"; };
 		A016494D2448EC990017FF4B /* FruityKitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FruityKitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A016494F2448EC990017FF4B /* FruityKitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FruityKitTests.swift; sourceTree = "<group>"; };
 		A01649512448EC990017FF4B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		A01649582448EEE70017FF4B /* Synapse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Synapse.swift; sourceTree = "<group>"; };
+		A01649582448EEE70017FF4B /* SynapseHandle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SynapseHandle.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -154,9 +154,9 @@
 		A016493F2448DDC50017FF4B /* Synapse */ = {
 			isa = PBXGroup;
 			children = (
-				A01649582448EEE70017FF4B /* Synapse.swift */,
-				A016493D2448DD590017FF4B /* Synapse2.swift */,
-				A01649402448DDD60017FF4B /* Synapse3.swift */,
+				A01649582448EEE70017FF4B /* SynapseHandle.swift */,
+				A016493D2448DD590017FF4B /* Synapse2Handle.swift */,
+				A01649402448DDD60017FF4B /* Synapse3Handle.swift */,
 			);
 			path = Synapse;
 			sourceTree = "<group>";
@@ -303,12 +303,12 @@
 				A01649202448D0B50017FF4B /* razerkbd_driver.c in Sources */,
 				A01649472448E2650017FF4B /* RazerDevice.swift in Sources */,
 				A016491B2448D0B50017FF4B /* USBCommon.c in Sources */,
-				A01649592448EEE70017FF4B /* Synapse.swift in Sources */,
-				A01649412448DDD60017FF4B /* Synapse3.swift in Sources */,
+				A01649592448EEE70017FF4B /* SynapseHandle.swift in Sources */,
+				A01649412448DDD60017FF4B /* Synapse3Handle.swift in Sources */,
 				A01649432448DEAE0017FF4B /* Direction.swift in Sources */,
 				A016493C2448D86F0017FF4B /* Color.swift in Sources */,
 				A016491F2448D0B50017FF4B /* razerchromacommon.c in Sources */,
-				A016493E2448DD590017FF4B /* Synapse2.swift in Sources */,
+				A016493E2448DD590017FF4B /* Synapse2Handle.swift in Sources */,
 				A016491E2448D0B50017FF4B /* razercommon.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

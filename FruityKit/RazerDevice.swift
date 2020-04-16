@@ -51,6 +51,4 @@ extension RazerDevice {
             throw InitializationError.invalidSynapseVersion
         }
     }
-    
-    
 }
