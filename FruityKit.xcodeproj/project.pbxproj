@@ -8,12 +8,51 @@
 
 /* Begin PBXBuildFile section */
 		A01649032448D0910017FF4B /* FruityKit.h in Headers */ = {isa = PBXBuildFile; fileRef = A01649012448D0910017FF4B /* FruityKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		A01649172448D0B50017FF4B /* RazerSoftwareChroma.h in Headers */ = {isa = PBXBuildFile; fileRef = A016490A2448D0B50017FF4B /* RazerSoftwareChroma.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		A01649182448D0B50017FF4B /* DeviceQuery.c in Sources */ = {isa = PBXBuildFile; fileRef = A016490B2448D0B50017FF4B /* DeviceQuery.c */; };
+		A01649192448D0B50017FF4B /* USBCommon.h in Headers */ = {isa = PBXBuildFile; fileRef = A016490C2448D0B50017FF4B /* USBCommon.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		A016491A2448D0B50017FF4B /* RazerSoftwareChroma.c in Sources */ = {isa = PBXBuildFile; fileRef = A016490D2448D0B50017FF4B /* RazerSoftwareChroma.c */; };
+		A016491B2448D0B50017FF4B /* USBCommon.c in Sources */ = {isa = PBXBuildFile; fileRef = A016490E2448D0B50017FF4B /* USBCommon.c */; };
+		A016491C2448D0B50017FF4B /* DeviceQuery.h in Headers */ = {isa = PBXBuildFile; fileRef = A016490F2448D0B50017FF4B /* DeviceQuery.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		A016491D2448D0B50017FF4B /* razerkbd_driver.h in Headers */ = {isa = PBXBuildFile; fileRef = A01649112448D0B50017FF4B /* razerkbd_driver.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		A016491E2448D0B50017FF4B /* razercommon.c in Sources */ = {isa = PBXBuildFile; fileRef = A01649122448D0B50017FF4B /* razercommon.c */; };
+		A016491F2448D0B50017FF4B /* razerchromacommon.c in Sources */ = {isa = PBXBuildFile; fileRef = A01649132448D0B50017FF4B /* razerchromacommon.c */; };
+		A01649202448D0B50017FF4B /* razerkbd_driver.c in Sources */ = {isa = PBXBuildFile; fileRef = A01649142448D0B50017FF4B /* razerkbd_driver.c */; };
+		A01649212448D0B50017FF4B /* razercommon.h in Headers */ = {isa = PBXBuildFile; fileRef = A01649152448D0B50017FF4B /* razercommon.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		A01649222448D0B50017FF4B /* razerchromacommon.h in Headers */ = {isa = PBXBuildFile; fileRef = A01649162448D0B50017FF4B /* razerchromacommon.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		A01649392448D1150017FF4B /* FruityRazer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A01649382448D1150017FF4B /* FruityRazer.swift */; };
+		A016493C2448D86F0017FF4B /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = A016493B2448D86F0017FF4B /* Color.swift */; };
+		A016493E2448DD590017FF4B /* Synapse2.swift in Sources */ = {isa = PBXBuildFile; fileRef = A016493D2448DD590017FF4B /* Synapse2.swift */; };
+		A01649412448DDD60017FF4B /* Synapse3.swift in Sources */ = {isa = PBXBuildFile; fileRef = A01649402448DDD60017FF4B /* Synapse3.swift */; };
+		A01649432448DEAE0017FF4B /* Direction.swift in Sources */ = {isa = PBXBuildFile; fileRef = A01649422448DEAE0017FF4B /* Direction.swift */; };
+		A01649452448DEDB0017FF4B /* Device.swift in Sources */ = {isa = PBXBuildFile; fileRef = A01649442448DEDB0017FF4B /* Device.swift */; };
+		A01649472448E2650017FF4B /* RazerDevice.swift in Sources */ = {isa = PBXBuildFile; fileRef = A01649462448E2650017FF4B /* RazerDevice.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		A01648FE2448D0910017FF4B /* FruityKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = FruityKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A01649012448D0910017FF4B /* FruityKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FruityKit.h; sourceTree = "<group>"; };
 		A01649022448D0910017FF4B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A016490A2448D0B50017FF4B /* RazerSoftwareChroma.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RazerSoftwareChroma.h; sourceTree = "<group>"; };
+		A016490B2448D0B50017FF4B /* DeviceQuery.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = DeviceQuery.c; sourceTree = "<group>"; };
+		A016490C2448D0B50017FF4B /* USBCommon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = USBCommon.h; sourceTree = "<group>"; };
+		A016490D2448D0B50017FF4B /* RazerSoftwareChroma.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = RazerSoftwareChroma.c; sourceTree = "<group>"; };
+		A016490E2448D0B50017FF4B /* USBCommon.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = USBCommon.c; sourceTree = "<group>"; };
+		A016490F2448D0B50017FF4B /* DeviceQuery.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DeviceQuery.h; sourceTree = "<group>"; };
+		A01649112448D0B50017FF4B /* razerkbd_driver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = razerkbd_driver.h; sourceTree = "<group>"; };
+		A01649122448D0B50017FF4B /* razercommon.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = razercommon.c; sourceTree = "<group>"; };
+		A01649132448D0B50017FF4B /* razerchromacommon.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = razerchromacommon.c; sourceTree = "<group>"; };
+		A01649142448D0B50017FF4B /* razerkbd_driver.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = razerkbd_driver.c; sourceTree = "<group>"; };
+		A01649152448D0B50017FF4B /* razercommon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = razercommon.h; sourceTree = "<group>"; };
+		A01649162448D0B50017FF4B /* razerchromacommon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = razerchromacommon.h; sourceTree = "<group>"; };
+		A01649382448D1150017FF4B /* FruityRazer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FruityRazer.swift; sourceTree = "<group>"; };
+		A016493A2448D2170017FF4B /* FruityKit.modulemap */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.module-map"; path = FruityKit.modulemap; sourceTree = "<group>"; };
+		A016493B2448D86F0017FF4B /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
+		A016493D2448DD590017FF4B /* Synapse2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Synapse2.swift; sourceTree = "<group>"; };
+		A01649402448DDD60017FF4B /* Synapse3.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Synapse3.swift; sourceTree = "<group>"; };
+		A01649422448DEAE0017FF4B /* Direction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Direction.swift; sourceTree = "<group>"; };
+		A01649442448DEDB0017FF4B /* Device.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Device.swift; sourceTree = "<group>"; };
+		A01649462448E2650017FF4B /* RazerDevice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RazerDevice.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -46,10 +85,62 @@
 		A01649002448D0910017FF4B /* FruityKit */ = {
 			isa = PBXGroup;
 			children = (
-				A01649012448D0910017FF4B /* FruityKit.h */,
-				A01649022448D0910017FF4B /* Info.plist */,
+				A01649092448D0B50017FF4B /* Core */,
+				A016493F2448DDC50017FF4B /* Synapse */,
+				A016493B2448D86F0017FF4B /* Color.swift */,
+				A01649422448DEAE0017FF4B /* Direction.swift */,
+				A01649442448DEDB0017FF4B /* Device.swift */,
+				A01649462448E2650017FF4B /* RazerDevice.swift */,
+				A01649382448D1150017FF4B /* FruityRazer.swift */,
+				A01649482448E27A0017FF4B /* Supporting Files */,
 			);
 			path = FruityKit;
+			sourceTree = "<group>";
+		};
+		A01649092448D0B50017FF4B /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				A01649102448D0B50017FF4B /* openrazer */,
+				A016490A2448D0B50017FF4B /* RazerSoftwareChroma.h */,
+				A016490B2448D0B50017FF4B /* DeviceQuery.c */,
+				A016490C2448D0B50017FF4B /* USBCommon.h */,
+				A016490D2448D0B50017FF4B /* RazerSoftwareChroma.c */,
+				A016490E2448D0B50017FF4B /* USBCommon.c */,
+				A016490F2448D0B50017FF4B /* DeviceQuery.h */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		A01649102448D0B50017FF4B /* openrazer */ = {
+			isa = PBXGroup;
+			children = (
+				A01649112448D0B50017FF4B /* razerkbd_driver.h */,
+				A01649122448D0B50017FF4B /* razercommon.c */,
+				A01649132448D0B50017FF4B /* razerchromacommon.c */,
+				A01649142448D0B50017FF4B /* razerkbd_driver.c */,
+				A01649152448D0B50017FF4B /* razercommon.h */,
+				A01649162448D0B50017FF4B /* razerchromacommon.h */,
+			);
+			path = openrazer;
+			sourceTree = "<group>";
+		};
+		A016493F2448DDC50017FF4B /* Synapse */ = {
+			isa = PBXGroup;
+			children = (
+				A016493D2448DD590017FF4B /* Synapse2.swift */,
+				A01649402448DDD60017FF4B /* Synapse3.swift */,
+			);
+			path = Synapse;
+			sourceTree = "<group>";
+		};
+		A01649482448E27A0017FF4B /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				A01649022448D0910017FF4B /* Info.plist */,
+				A01649012448D0910017FF4B /* FruityKit.h */,
+				A016493A2448D2170017FF4B /* FruityKit.modulemap */,
+			);
+			path = "Supporting Files";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -59,7 +150,13 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A01649172448D0B50017FF4B /* RazerSoftwareChroma.h in Headers */,
+				A016491C2448D0B50017FF4B /* DeviceQuery.h in Headers */,
+				A01649212448D0B50017FF4B /* razercommon.h in Headers */,
+				A016491D2448D0B50017FF4B /* razerkbd_driver.h in Headers */,
 				A01649032448D0910017FF4B /* FruityKit.h in Headers */,
+				A01649222448D0B50017FF4B /* razerchromacommon.h in Headers */,
+				A01649192448D0B50017FF4B /* USBCommon.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -95,6 +192,7 @@
 				TargetAttributes = {
 					A01648FD2448D0910017FF4B = {
 						CreatedOnToolsVersion = 11.4;
+						LastSwiftMigration = 1140;
 					};
 				};
 			};
@@ -131,6 +229,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A01649182448D0B50017FF4B /* DeviceQuery.c in Sources */,
+				A01649392448D1150017FF4B /* FruityRazer.swift in Sources */,
+				A016491A2448D0B50017FF4B /* RazerSoftwareChroma.c in Sources */,
+				A01649452448DEDB0017FF4B /* Device.swift in Sources */,
+				A01649202448D0B50017FF4B /* razerkbd_driver.c in Sources */,
+				A01649472448E2650017FF4B /* RazerDevice.swift in Sources */,
+				A016491B2448D0B50017FF4B /* USBCommon.c in Sources */,
+				A01649412448DDD60017FF4B /* Synapse3.swift in Sources */,
+				A01649432448DEAE0017FF4B /* Direction.swift in Sources */,
+				A016493C2448D86F0017FF4B /* Color.swift in Sources */,
+				A016491F2448D0B50017FF4B /* razerchromacommon.c in Sources */,
+				A016493E2448DD590017FF4B /* Synapse2.swift in Sources */,
+				A016491E2448D0B50017FF4B /* razercommon.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -259,6 +370,7 @@
 		A01649072448D0910017FF4B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEFINES_MODULE = YES;
@@ -266,16 +378,18 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = FruityKit/Info.plist;
+				INFOPLIST_FILE = "FruityKit/Supporting Files/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 					"@loader_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = io.edr.FruityKit;
+				MODULEMAP_FILE = "$SRCROOT/FruityKit/Supporting Files/FruityKit.modulemap";
+				PRODUCT_BUNDLE_IDENTIFIER = io.edr.fruitykit;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
@@ -283,6 +397,7 @@
 		A01649082448D0910017FF4B /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEFINES_MODULE = YES;
@@ -290,14 +405,15 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = FruityKit/Info.plist;
+				INFOPLIST_FILE = "FruityKit/Supporting Files/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 					"@loader_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = io.edr.FruityKit;
+				MODULEMAP_FILE = "$SRCROOT/FruityKit/Supporting Files/FruityKit.modulemap";
+				PRODUCT_BUNDLE_IDENTIFIER = io.edr.fruitykit;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 5.0;
