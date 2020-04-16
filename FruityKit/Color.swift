@@ -50,13 +50,13 @@ public struct Color {
         b = UInt8(strtoul(String(blueComponent), nil, 16))
     }
     
-    var rgbArray: UnsafeMutablePointer<Int8> {
+    var rgbArray: UnsafeMutablePointer<UInt8> {
         get {
-            let ptr = UnsafeMutablePointer<Int8>.allocate(capacity: 3)
+            let ptr = UnsafeMutablePointer<UInt8>.allocate(capacity: 3)
             
-            ptr.pointee = Int8(r)
-            ptr.advanced(by: 1).pointee = Int8(g)
-            ptr.advanced(by: 2).pointee = Int8(b)
+            ptr.pointee = r
+            ptr.advanced(by: 1).pointee = g
+            ptr.advanced(by: 2).pointee = b
             
             return ptr
         }

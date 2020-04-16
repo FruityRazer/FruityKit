@@ -8,7 +8,7 @@
 
 import Foundation
 
-enum Direction: Int {
+public enum Direction: Int {
     case left = 0x32
     case right = 0x31
 }

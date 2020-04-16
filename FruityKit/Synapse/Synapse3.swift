@@ -8,14 +8,19 @@
 
 import Foundation
 
-enum Synapse3Mode {
-    case raw
-}
 
-protocol Synapse3Device {
-    func write(mode: Synapse3Mode)
-}
-
-extension Synapse3Device {
+public struct Synapse3Handle: SynapseHandle {
+    public enum Mode {
+        case raw
+    }
     
+    public let usbId: Int32
+    
+    public func read() {
+            
+    }
+        
+    public func write(mode: Mode) {
+        
+    }
 }

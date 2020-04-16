@@ -8,18 +8,22 @@
 
 import Foundation
 
-struct RazerDevice: Device {
-    let shortName: String
-    let fullName: String
-    let usbId: Int
-    let type: DeviceType
+public struct RazerDevice: Device {
+    public let shortName: String
+    public let fullName: String
+    public let type: DeviceType
+    
+    public let driver: Driver
 }
 
 extension RazerDevice {
-    init(device: razer_device) {
+    enum InitializationError: Error {
+        case invalidSynapseVersion
+    }
+    
+    init(device: razer_device) throws {
         shortName = String(cString: device.shortName)
         fullName = String(cString: device.fullName)
-        usbId = Int(device.usbId)
         
         switch device.type.rawValue {
         case 0:
@@ -37,9 +41,16 @@ extension RazerDevice {
         default:
             type = .other(type: "unknown")
         }
+        
+        switch device.synapse.rawValue {
+        case 2:
+            driver = .v2(driver: Synapse2Handle(usbId: Int32(device.usbId)))
+        case 3:
+            driver = .v3(driver: Synapse3Handle(usbId: Int32(device.usbId)))
+        default:
+            throw InitializationError.invalidSynapseVersion
+        }
     }
     
-    var connected: Bool {
-        dq_check_device_connected(Int32(usbId))
-    }
+    
 }

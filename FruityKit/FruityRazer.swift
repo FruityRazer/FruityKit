@@ -9,15 +9,19 @@
 import FruityKit.FruityKitC
 
 public struct FruityRazer {
-    static var devices: [RazerDevice] {
+    public static var devices: [RazerDevice] {
         let deviceList = dq_get_device_list()
         
-        return (0..<deviceList.length).map { i -> RazerDevice in
+        return (0..<deviceList.length).compactMap { i -> RazerDevice in
             let device = deviceList.devices.advanced(by: Int(i)).pointee
-            
-            return RazerDevice(device: device)
+            //  wrong
+            return try! RazerDevice(device: device)
         }
     }
+    
+//    public static var synapse2devices: [Synapse2Device] {
+//        
+//    }
 }
 
 

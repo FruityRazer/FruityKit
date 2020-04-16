@@ -27,7 +27,20 @@
 		A01649432448DEAE0017FF4B /* Direction.swift in Sources */ = {isa = PBXBuildFile; fileRef = A01649422448DEAE0017FF4B /* Direction.swift */; };
 		A01649452448DEDB0017FF4B /* Device.swift in Sources */ = {isa = PBXBuildFile; fileRef = A01649442448DEDB0017FF4B /* Device.swift */; };
 		A01649472448E2650017FF4B /* RazerDevice.swift in Sources */ = {isa = PBXBuildFile; fileRef = A01649462448E2650017FF4B /* RazerDevice.swift */; };
+		A01649502448EC990017FF4B /* FruityKitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A016494F2448EC990017FF4B /* FruityKitTests.swift */; };
+		A01649522448EC990017FF4B /* FruityKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A01648FE2448D0910017FF4B /* FruityKit.framework */; };
+		A01649592448EEE70017FF4B /* Synapse.swift in Sources */ = {isa = PBXBuildFile; fileRef = A01649582448EEE70017FF4B /* Synapse.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		A01649532448EC990017FF4B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A01648F52448D0910017FF4B /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A01648FD2448D0910017FF4B;
+			remoteInfo = FruityKit;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		A01648FE2448D0910017FF4B /* FruityKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = FruityKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -53,6 +66,10 @@
 		A01649422448DEAE0017FF4B /* Direction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Direction.swift; sourceTree = "<group>"; };
 		A01649442448DEDB0017FF4B /* Device.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Device.swift; sourceTree = "<group>"; };
 		A01649462448E2650017FF4B /* RazerDevice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RazerDevice.swift; sourceTree = "<group>"; };
+		A016494D2448EC990017FF4B /* FruityKitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FruityKitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		A016494F2448EC990017FF4B /* FruityKitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FruityKitTests.swift; sourceTree = "<group>"; };
+		A01649512448EC990017FF4B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A01649582448EEE70017FF4B /* Synapse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Synapse.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +80,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		A016494A2448EC990017FF4B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A01649522448EC990017FF4B /* FruityKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -70,6 +95,7 @@
 			isa = PBXGroup;
 			children = (
 				A01649002448D0910017FF4B /* FruityKit */,
+				A016494E2448EC990017FF4B /* FruityKitTests */,
 				A01648FF2448D0910017FF4B /* Products */,
 			);
 			sourceTree = "<group>";
@@ -78,6 +104,7 @@
 			isa = PBXGroup;
 			children = (
 				A01648FE2448D0910017FF4B /* FruityKit.framework */,
+				A016494D2448EC990017FF4B /* FruityKitTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -127,6 +154,7 @@
 		A016493F2448DDC50017FF4B /* Synapse */ = {
 			isa = PBXGroup;
 			children = (
+				A01649582448EEE70017FF4B /* Synapse.swift */,
 				A016493D2448DD590017FF4B /* Synapse2.swift */,
 				A01649402448DDD60017FF4B /* Synapse3.swift */,
 			);
@@ -141,6 +169,15 @@
 				A016493A2448D2170017FF4B /* FruityKit.modulemap */,
 			);
 			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		A016494E2448EC990017FF4B /* FruityKitTests */ = {
+			isa = PBXGroup;
+			children = (
+				A016494F2448EC990017FF4B /* FruityKitTests.swift */,
+				A01649512448EC990017FF4B /* Info.plist */,
+			);
+			path = FruityKitTests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -181,18 +218,40 @@
 			productReference = A01648FE2448D0910017FF4B /* FruityKit.framework */;
 			productType = "com.apple.product-type.framework";
 		};
+		A016494C2448EC990017FF4B /* FruityKitTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A01649572448EC990017FF4B /* Build configuration list for PBXNativeTarget "FruityKitTests" */;
+			buildPhases = (
+				A01649492448EC990017FF4B /* Sources */,
+				A016494A2448EC990017FF4B /* Frameworks */,
+				A016494B2448EC990017FF4B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				A01649542448EC990017FF4B /* PBXTargetDependency */,
+			);
+			name = FruityKitTests;
+			productName = FruityKitTests;
+			productReference = A016494D2448EC990017FF4B /* FruityKitTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
 		A01648F52448D0910017FF4B /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastSwiftUpdateCheck = 1140;
 				LastUpgradeCheck = 1140;
 				ORGANIZATIONNAME = "Eduardo Almeida";
 				TargetAttributes = {
 					A01648FD2448D0910017FF4B = {
 						CreatedOnToolsVersion = 11.4;
 						LastSwiftMigration = 1140;
+					};
+					A016494C2448EC990017FF4B = {
+						CreatedOnToolsVersion = 11.4;
 					};
 				};
 			};
@@ -210,12 +269,20 @@
 			projectRoot = "";
 			targets = (
 				A01648FD2448D0910017FF4B /* FruityKit */,
+				A016494C2448EC990017FF4B /* FruityKitTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
 		A01648FC2448D0910017FF4B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A016494B2448EC990017FF4B /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -236,6 +303,7 @@
 				A01649202448D0B50017FF4B /* razerkbd_driver.c in Sources */,
 				A01649472448E2650017FF4B /* RazerDevice.swift in Sources */,
 				A016491B2448D0B50017FF4B /* USBCommon.c in Sources */,
+				A01649592448EEE70017FF4B /* Synapse.swift in Sources */,
 				A01649412448DDD60017FF4B /* Synapse3.swift in Sources */,
 				A01649432448DEAE0017FF4B /* Direction.swift in Sources */,
 				A016493C2448D86F0017FF4B /* Color.swift in Sources */,
@@ -245,7 +313,23 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		A01649492448EC990017FF4B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A01649502448EC990017FF4B /* FruityKitTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		A01649542448EC990017FF4B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = A01648FD2448D0910017FF4B /* FruityKit */;
+			targetProxy = A01649532448EC990017FF4B /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		A01649042448D0910017FF4B /* Debug */ = {
@@ -420,6 +504,42 @@
 			};
 			name = Release;
 		};
+		A01649552448EC990017FF4B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = 3D7R27DBRZ;
+				INFOPLIST_FILE = FruityKitTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = io.edr.FruityKitTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		A01649562448EC990017FF4B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = 3D7R27DBRZ;
+				INFOPLIST_FILE = FruityKitTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = io.edr.FruityKitTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -437,6 +557,15 @@
 			buildConfigurations = (
 				A01649072448D0910017FF4B /* Debug */,
 				A01649082448D0910017FF4B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A01649572448EC990017FF4B /* Build configuration list for PBXNativeTarget "FruityKitTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A01649552448EC990017FF4B /* Debug */,
+				A01649562448EC990017FF4B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

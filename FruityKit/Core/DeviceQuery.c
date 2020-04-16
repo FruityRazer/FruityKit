@@ -117,7 +117,89 @@ razer_device __DQ_DEVICES_SYNAPSE_3[] = {
 };
 
 razer_device __DQ_DEVICES[] = {
-    
+    //  Headphones
+    {
+        .shortName = "manowar",
+        .fullName = "Razer ManO' War",
+        .usbId = 0x0A02,
+        .synapse = synapse2,
+        .type = headphones
+    },
+    //  Mice
+    {
+        .shortName = "mamba",
+        .fullName = "Razer Mamba",
+        .usbId = 0x0045,
+        .synapse = synapse2,
+        .type = mouse
+    },
+    //  Mousepads
+    {
+        .shortName = "firefly",
+        .fullName = "Razer Firefly",
+        .usbId = 0x0C00,
+        .synapse = synapse2,
+        .type = mousepad
+    },
+    //  Keyboards
+    //  ...
+    {
+        .shortName = "blackwidow_ultimate_2012",
+        .fullName = "Razer BlackWidow Ultimate 2012",
+        .usbId = 0x0,
+        .synapse = synapse2,
+        .type = keyboard
+    },
+    {
+        .shortName = "blackwidow_stealth",
+        .fullName = "Razer BlackWidow Stealth",
+        .usbId = 0x0,
+        .synapse = synapse2,
+        .type = keyboard
+    },
+    {
+        .shortName = "anansi",
+        .fullName = "Razer Anansi",
+        .usbId = 0x0,
+        .synapse = synapse2,
+        .type = keyboard
+    },
+    {
+        .shortName = "nostromo",
+        .fullName = "Razer Nostromo",
+        .usbId = 0x0,
+        .synapse = synapse2,
+        .type = keyboard
+    },
+    //  ...
+    {
+        .shortName = "huntsman_elite_hw",
+        .fullName = "Razer Huntsman Elite",
+        .usbId = 0x0226,
+        .synapse = synapse2,
+        .type = keyboard
+    },
+    {
+        .shortName = "hyperflux",
+        .fullName = "Razer Mamba Hyperflux",
+        .usbId = 0x0068,
+        .synapse = synapse3,
+        .type = misc_hyperflux
+    },
+    {
+        .shortName = "huntsman_elite_sw",
+        .fullName = "Razer Huntsman Elite",
+        .usbId = 0x0226,
+        .synapse = synapse3,
+        .type = keyboard
+    },
+    {
+        .shortName = "base_station",
+        .fullName = "Razer Base Station Chroma",
+        .usbId = 0x0F08,
+        .synapse = synapse3,
+        .type = misc_basestation
+    },
 };
 
 razer_device_r dq_get_device_list() {

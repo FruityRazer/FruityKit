@@ -32,8 +32,8 @@
 #include <IOKit/usb/IOUSBLib.h>
 
 typedef enum razer_synapse_version {
-    synapse2,
-    synapse3
+    synapse2 = 2,
+    synapse3 = 3
 } razer_synapse_version;
 
 typedef enum device_type {
