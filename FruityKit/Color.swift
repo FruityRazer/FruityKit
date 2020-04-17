@@ -9,6 +9,7 @@
 import Foundation
 
 public struct Color {
+    
     public enum InitializationError: Error {
         case invalidHexData
         case invalidHexLength
@@ -50,15 +51,28 @@ public struct Color {
         b = UInt8(strtoul(String(blueComponent), nil, 16))
     }
     
-    var rgbArray: UnsafeMutablePointer<UInt8> {
-        get {
-            let ptr = UnsafeMutablePointer<UInt8>.allocate(capacity: 3)
-            
-            ptr.pointee = r
-            ptr.advanced(by: 1).pointee = g
-            ptr.advanced(by: 2).pointee = b
-            
-            return ptr
-        }
+    var cArray: UnsafeMutablePointer<UInt8> {
+        let ptr = UnsafeMutablePointer<UInt8>.allocate(capacity: 3)
+        
+        ptr.pointee = r
+        ptr.advanced(by: 1).pointee = g
+        ptr.advanced(by: 2).pointee = b
+        
+        return ptr
+    }
+    
+    var razerRGB: razer_rgb {
+        return razer_rgb(r: r, g: g, b: b)
+    }
+}
+
+extension Color {
+    
+    static var black: Color {
+        Color(red: 0, green: 0, blue: 0)
+    }
+    
+    static var white: Color {
+        Color(red: 255, green: 255, blue: 255)
     }
 }

@@ -9,6 +9,7 @@
 import Foundation
 
 public struct RazerDevice: Device {
+    
     public let shortName: String
     public let fullName: String
     public let type: DeviceType
@@ -17,11 +18,8 @@ public struct RazerDevice: Device {
 }
 
 extension RazerDevice {
-    enum InitializationError: Error {
-        case invalidSynapseVersion
-    }
     
-    init(device: razer_device) throws {
+    init(device: razer_device) {
         shortName = String(cString: device.shortName)
         fullName = String(cString: device.fullName)
         
@@ -42,13 +40,6 @@ extension RazerDevice {
             type = .other(type: "unknown")
         }
         
-        switch device.synapse.rawValue {
-        case 2:
-            driver = .v2(driver: Synapse2Handle(usbId: Int32(device.usbId)))
-        case 3:
-            driver = .v3(driver: Synapse3Handle(usbId: Int32(device.usbId)))
-        default:
-            throw InitializationError.invalidSynapseVersion
-        }
+        driver = Driver.handle(for: device)
     }
 }

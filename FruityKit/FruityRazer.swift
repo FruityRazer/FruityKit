@@ -9,13 +9,14 @@
 import FruityKit.FruityKitC
 
 public struct FruityRazer {
+    
     public static var devices: [RazerDevice] {
         let deviceList = dq_get_device_list()
         
         return (0..<deviceList.length).compactMap { i -> RazerDevice? in
             let device = deviceList.devices.advanced(by: Int(i)).pointee
             
-            return try? RazerDevice(device: device)
+            return RazerDevice(device: device)
         }
     }
 }

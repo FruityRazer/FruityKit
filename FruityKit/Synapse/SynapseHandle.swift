@@ -7,8 +7,10 @@
 //
 
 import Foundation
+import IOKit
 
 public protocol SynapseHandle {
+    
     associatedtype SynapseMode
     
     var usbId: Int32 { get }
@@ -20,6 +22,7 @@ public protocol SynapseHandle {
 }
 
 extension SynapseHandle {
+    
     public var connected: Bool {
         dq_check_device_connected(Int32(usbId))
     }

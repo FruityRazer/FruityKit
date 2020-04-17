@@ -9,6 +9,7 @@
 import Foundation
 
 public struct Synapse2Handle: SynapseHandle {
+    
     public enum Mode {
         case wave(direction: Direction)
         case spectrum
@@ -24,23 +25,39 @@ public struct Synapse2Handle: SynapseHandle {
     }
     
     public func write(mode: Mode) {
-        let deviceInterface = dq_get_device(Int32(usbId))
-                
+        let deviceInterface = dq_get_device(usbId)
+        
+        defer {
+            dq_close_device(deviceInterface)
+        }
+        
         razer_set_device_mode(deviceInterface, 0x00, 0x00)
         
         switch mode {
         case .wave(let direction):
             razer_attr_write_mode_wave(deviceInterface, UnsafePointer<Int8>(bitPattern: direction.rawValue), 1)
+            
         case .spectrum:
             razer_attr_write_mode_spectrum(deviceInterface)
-        case .reactive(_, _):
-//            razer_attr_write_mode_reactive(deviceInterface, color, 4)
-            ()
+            
+        case .reactive(let speed, let color):
+            let colorPtr = color.cArray
+            
+            let intermediatePtr = UnsafeMutablePointer<UInt8>.allocate(capacity: 4)
+            intermediatePtr.pointee = UInt8(speed)
+            intermediatePtr.advanced(by: 1).pointee = colorPtr.pointee
+            intermediatePtr.advanced(by: 2).pointee = colorPtr.advanced(by: 1).pointee
+            intermediatePtr.advanced(by: 3).pointee = colorPtr.advanced(by: 2).pointee
+            
+            let ptr = UnsafeRawPointer(intermediatePtr).assumingMemoryBound(to: Int8.self)
+            razer_attr_write_mode_reactive(deviceInterface, ptr, 4)
+            
         case .`static`(let color):
-            let ptr = UnsafeRawPointer(color.rgbArray).assumingMemoryBound(to: Int8.self)
+            let ptr = UnsafeRawPointer(color.cArray).assumingMemoryBound(to: Int8.self)
             razer_attr_write_mode_static(deviceInterface, ptr, 3)
+            
         case .breath(let color):
-            let ptr = UnsafeRawPointer(color.rgbArray).assumingMemoryBound(to: Int8.self)
+            let ptr = UnsafeRawPointer(color.cArray).assumingMemoryBound(to: Int8.self)
             razer_attr_write_mode_breath(deviceInterface, ptr, 3)
         }
     }
