@@ -27,95 +27,6 @@
 
 #import "DeviceQuery.h"
 
-razer_device __DQ_DEVICES_SYNAPSE_2[] = {
-    //  Headphones
-    {
-        .shortName = "manowar",
-        .fullName = "Razer ManO' War",
-        .usbId = 0x0A02,
-        .synapse = synapse2,
-        .type = headphones
-    },
-    //  Mice
-    {
-        .shortName = "mamba",
-        .fullName = "Razer Mamba",
-        .usbId = 0x0045,
-        .synapse = synapse2,
-        .type = mouse
-    },
-    //  Mousepads
-    {
-        .shortName = "firefly",
-        .fullName = "Razer Firefly",
-        .usbId = 0x0C00,
-        .synapse = synapse2,
-        .type = mousepad
-    },
-    //  Keyboards
-    //  ...
-    {
-        .shortName = "blackwidow_ultimate_2012",
-        .fullName = "Razer BlackWidow Ultimate 2012",
-        .usbId = 0x0,
-        .synapse = synapse2,
-        .type = keyboard
-    },
-    {
-        .shortName = "blackwidow_stealth",
-        .fullName = "Razer BlackWidow Stealth",
-        .usbId = 0x0,
-        .synapse = synapse2,
-        .type = keyboard
-    },
-    {
-        .shortName = "anansi",
-        .fullName = "Razer Anansi",
-        .usbId = 0x0,
-        .synapse = synapse2,
-        .type = keyboard
-    },
-    {
-        .shortName = "nostromo",
-        .fullName = "Razer Nostromo",
-        .usbId = 0x0,
-        .synapse = synapse2,
-        .type = keyboard
-    },
-    //  ...
-    {
-        .shortName = "huntsman_elite_hw",
-        .fullName = "Razer Huntsman Elite",
-        .usbId = 0x0226,
-        .synapse = synapse2,
-        .type = keyboard
-    },
-};
-
-razer_device __DQ_DEVICES_SYNAPSE_3[] = {
-    {
-        .shortName = "hyperflux",
-        .fullName = "Razer Mamba Hyperflux",
-        .usbId = 0x0068,
-        .synapse = synapse3,
-        .type = misc_hyperflux
-    },
-    {
-        .shortName = "huntsman_elite_sw",
-        .fullName = "Razer Huntsman Elite",
-        .usbId = 0x0226,
-        .synapse = synapse3,
-        .type = keyboard
-    },
-    {
-        .shortName = "base_station",
-        .fullName = "Razer Base Station Chroma",
-        .usbId = 0x0F08,
-        .synapse = synapse3,
-        .type = misc_basestation
-    },
-};
-
 razer_device __DQ_DEVICES[] = {
     //  Headphones
     {
@@ -146,28 +57,49 @@ razer_device __DQ_DEVICES[] = {
     {
         .shortName = "blackwidow_ultimate_2012",
         .fullName = "Razer BlackWidow Ultimate 2012",
-        .usbId = 0x0,
+        .usbId = 0x010D,
         .synapse = synapse2,
         .type = keyboard
     },
     {
-        .shortName = "blackwidow_stealth",
-        .fullName = "Razer BlackWidow Stealth",
-        .usbId = 0x0,
+        .shortName = "blackwidow_stealth_edition",
+        .fullName = "Razer BlackWidow Stealth Edition",
+        .usbId = 0x010E,
         .synapse = synapse2,
         .type = keyboard
     },
     {
         .shortName = "anansi",
         .fullName = "Razer Anansi",
-        .usbId = 0x0,
+        .usbId = 0x010F,
         .synapse = synapse2,
         .type = keyboard
     },
     {
         .shortName = "nostromo",
         .fullName = "Razer Nostromo",
-        .usbId = 0x0,
+        .usbId = 0x0111,
+        .synapse = synapse2,
+        .type = keyboard
+    },
+    {
+        .shortName = "orbweaver",
+        .fullName = "Razer Orbweaver",
+        .usbId = 0x0113,
+        .synapse = synapse2,
+        .type = keyboard
+    },
+    {
+        .shortName = "blackwidow_ultimate_2013",
+        .fullName = "BlackWidow Ultimate 2013",
+        .usbId = 0x011A,
+        .synapse = synapse2,
+        .type = keyboard
+    },
+    {
+        .shortName = "blackwidow_stealth",
+        .fullName = "Razer BlackWidow Stealth",
+        .usbId = 0x011B,
         .synapse = synapse2,
         .type = keyboard
     },
