@@ -21,30 +21,36 @@ public final class RazerHuntsmanEliteHandle: Synapse3Handle {
             return
         }
         
-        for row in 0...8 {
-            let parts = UnsafeMutablePointer<UInt8>.allocate(capacity: 26)
+        for rowIdx in 0...8 {
+            let parts = UnsafeMutablePointer<UInt8>.allocate(capacity: 24 * 3)
             parts.initialize(to: 0)
             
-            for key in 0...24 {
+            defer {
+                parts.deallocate()
+            }
+            
+            for keyIdx in 0...24 {
                 let current: UnsafeMutablePointer<UInt8>
                 
-                if rows.count > row && rows[row].count > key {
-                    current = rows[row][key].cArray
+                defer {
+                    current.deallocate()
+                }
+                
+                if rows.count > rowIdx && rows[rowIdx].count > keyIdx {
+                    current = rows[rowIdx][keyIdx].cArray
                 } else {
                     current = Color.black.cArray
                 }
                 
-                parts.advanced(by: (key * 3)).pointee = current.pointee
-                parts.advanced(by: (key * 3) + 1).pointee = current.advanced(by: 1).pointee
-                parts.advanced(by: (key * 3) + 2).pointee = current.advanced(by: 2).pointee
+                parts.advanced(by: (keyIdx * 3)).pointee = current.pointee
+                parts.advanced(by: (keyIdx * 3) + 1).pointee = current.advanced(by: 1).pointee
+                parts.advanced(by: (keyIdx * 3) + 2).pointee = current.advanced(by: 2).pointee
             }
             
             razer_huntsman_set_row_raw(deviceInterface,
-                                       Int8(row),
+                                       Int8(rowIdx),
                                        UnsafeMutableRawPointer(parts).assumingMemoryBound(to: Int8.self),
                                        25)
-            
-            parts.deallocate()
         }
     }
 }

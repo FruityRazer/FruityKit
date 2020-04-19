@@ -20,12 +20,20 @@ public final class RazerBaseStationHandle: Synapse3Handle {
         let parts = UnsafeMutablePointer<UInt8>.allocate(capacity: 78)
         parts.initialize(to: 0)
         
+        defer {
+            parts.deallocate()
+        }
+        
         guard case let Mode.raw(colors) = mode else {
             return
         }
         
         for i in 0..<14 {
             let current: UnsafeMutablePointer<UInt8>
+            
+            defer {
+                current.deallocate()
+            }
             
             if i < colors.count {
                 current = colors[i].cArray
