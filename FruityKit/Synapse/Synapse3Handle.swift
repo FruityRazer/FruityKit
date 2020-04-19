@@ -12,6 +12,7 @@ public class Synapse3Handle: SynapseHandle {
     
     public enum Mode {
         case raw(colors: [Color])
+        case rawRows(colors: [[Color]])
     }
     
     public let usbId: Int32

@@ -18,6 +18,7 @@ public final class RazerBaseStationHandle: Synapse3Handle {
         }
         
         let parts = UnsafeMutablePointer<UInt8>.allocate(capacity: 78)
+        parts.initialize(to: 0)
         
         guard case let Mode.raw(colors) = mode else {
             return

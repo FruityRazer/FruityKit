@@ -31,25 +31,25 @@
 
 IOReturn razer_huntsman_set_row_raw(IOUSBDeviceInterface **dev, char row_number, char *keys, int len) {
     struct razer_report report = get_razer_report(0x1f, 0x0f, 0x03, 0x4a);
-    
+
     report.arguments[0] = 0x00;
     report.arguments[1] = 0x00;
     report.arguments[2] = row_number;
     report.arguments[3] = 0x00;
     report.arguments[4] = 0x16;
-    
+
     int key_count = len;
-    
+
     for (int i = 0; i <= key_count; i++) {
         int key = (i * 3);
-        
+
         report.arguments[5 + key + 0] = keys[key + 0];
         report.arguments[5 + key + 1] = keys[key + 1];
         report.arguments[5 + key + 2] = keys[key + 2];
     }
-    
+
     report.crc = razer_calculate_crc(&report);
-    
+
     return perform_razer_usb_call(dev, &report, 0x02);
 }
 

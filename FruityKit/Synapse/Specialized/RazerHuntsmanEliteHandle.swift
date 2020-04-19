@@ -17,29 +17,34 @@ public final class RazerHuntsmanEliteHandle: Synapse3Handle {
             dq_close_device(deviceInterface)
         }
         
-        guard case let Mode.raw(colors) = mode else {
+        guard case let Mode.rawRows(rows) = mode else {
             return
         }
         
-        for row in 0..<8 {
-            for i in (row * 25)..<max(colors.count, (row * 25) + 25) {
-                let parts = UnsafeMutablePointer<UInt8>.allocate(capacity: 78)
-                parts.initialize(to: 0)
-                
+        for row in 0...8 {
+            let parts = UnsafeMutablePointer<UInt8>.allocate(capacity: 26)
+            parts.initialize(to: 0)
+            
+            for key in 0...24 {
                 let current: UnsafeMutablePointer<UInt8>
                 
-                if i < colors.count {
-                    current = colors[i].cArray
+                if rows.count > row && rows[row].count > key {
+                    current = rows[row][key].cArray
                 } else {
                     current = Color.black.cArray
                 }
                 
-                parts.advanced(by: i % 25).pointee = current.pointee
-                parts.advanced(by: (i + 1) % 25).pointee = current.advanced(by: 1).pointee
-                parts.advanced(by: (i + 2) % 25).pointee = current.advanced(by: 2).pointee
-                
-                razer_huntsman_set_row_raw(deviceInterface, Int8(row), UnsafeMutableRawPointer(parts).assumingMemoryBound(to: Int8.self), 25)
+                parts.advanced(by: (key * 3)).pointee = current.pointee
+                parts.advanced(by: (key * 3) + 1).pointee = current.advanced(by: 1).pointee
+                parts.advanced(by: (key * 3) + 2).pointee = current.advanced(by: 2).pointee
             }
+            
+            razer_huntsman_set_row_raw(deviceInterface,
+                                       Int8(row),
+                                       UnsafeMutableRawPointer(parts).assumingMemoryBound(to: Int8.self),
+                                       25)
+            
+            parts.deallocate()
         }
     }
 }
