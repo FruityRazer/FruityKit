@@ -10,8 +10,8 @@ import XCTest
 @testable import FruityKit
 
 class Synapse2Tests: XCTestCase {
-
-    func testHuntsmanElite_white() {
+    
+    var huntsmanEliteHWDriver: Synapse2Handle {
         let devices = FruityRazer.devices
         
         let huntsmanEliteHardware = devices.filter { $0.shortName == "huntsman_elite_hw" }[0]
@@ -19,13 +19,29 @@ class Synapse2Tests: XCTestCase {
         guard case let Driver.v2(driver: driver) = huntsmanEliteHardware.driver else {
             XCTFail("Huntsman Elite not recognized as Synapse 2!")
             
-            return
+            fatalError()
         }
         
-        do {
-            try driver.write(mode: .static(color: Color(hex: "#ffffff")))
-        } catch {
-            XCTFail("Unable to write to keyboard!")
-        }
+        return driver
+    }
+    
+    func testHuntsmanElite_wave() {
+        huntsmanEliteHWDriver.write(mode: .wave(direction: .right))
+    }
+    
+    func testHuntsmanElite_spectrum() {
+        huntsmanEliteHWDriver.write(mode: .spectrum)
+    }
+    
+    func testHuntsmanElite_reactive() {
+        huntsmanEliteHWDriver.write(mode: .wave(direction: .right))
+    }
+    
+    func testHuntsmanElite_static() {
+        huntsmanEliteHWDriver.write(mode: .static(color: .white))
+    }
+    
+    func testHuntsmanElite_breath() {
+        huntsmanEliteHWDriver.write(mode: .breath(color: .white))
     }
 }
