@@ -32,6 +32,9 @@
 		A01649592448EEE70017FF4B /* SynapseHandle.swift in Sources */ = {isa = PBXBuildFile; fileRef = A01649582448EEE70017FF4B /* SynapseHandle.swift */; };
 		A0AC448D244CAB8C003CEDB4 /* Synapse2Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0AC448C244CAB8C003CEDB4 /* Synapse2Tests.swift */; };
 		A0AC448F244CAB93003CEDB4 /* Synapse3Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0AC448E244CAB93003CEDB4 /* Synapse3Tests.swift */; };
+		A0ADA487244D22DA00FEAA12 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0ADA486244D22DA00FEAA12 /* Extensions.swift */; };
+		A0ADA489244D23CA00FEAA12 /* RazerSoftwareSingleRowHandle.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0ADA488244D23CA00FEAA12 /* RazerSoftwareSingleRowHandle.swift */; };
+		A0ADA48B244D262800FEAA12 /* RazerMambaHyperfluxHandle.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0ADA48A244D262800FEAA12 /* RazerMambaHyperfluxHandle.swift */; };
 		A0D36DBF2449241C00276551 /* RazerHuntsmanEliteHandle.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0D36DBE2449241C00276551 /* RazerHuntsmanEliteHandle.swift */; };
 		A0D36DC1244929A900276551 /* RazerBaseStationHandle.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0D36DC0244929A900276551 /* RazerBaseStationHandle.swift */; };
 /* End PBXBuildFile section */
@@ -76,6 +79,9 @@
 		A01649582448EEE70017FF4B /* SynapseHandle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SynapseHandle.swift; sourceTree = "<group>"; };
 		A0AC448C244CAB8C003CEDB4 /* Synapse2Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Synapse2Tests.swift; sourceTree = "<group>"; };
 		A0AC448E244CAB93003CEDB4 /* Synapse3Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Synapse3Tests.swift; sourceTree = "<group>"; };
+		A0ADA486244D22DA00FEAA12 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		A0ADA488244D23CA00FEAA12 /* RazerSoftwareSingleRowHandle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RazerSoftwareSingleRowHandle.swift; sourceTree = "<group>"; };
+		A0ADA48A244D262800FEAA12 /* RazerMambaHyperfluxHandle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RazerMambaHyperfluxHandle.swift; sourceTree = "<group>"; };
 		A0D36DBE2449241C00276551 /* RazerHuntsmanEliteHandle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RazerHuntsmanEliteHandle.swift; sourceTree = "<group>"; };
 		A0D36DC0244929A900276551 /* RazerBaseStationHandle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RazerBaseStationHandle.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -183,6 +189,7 @@
 		A016494E2448EC990017FF4B /* FruityKitTests */ = {
 			isa = PBXGroup;
 			children = (
+				A0ADA486244D22DA00FEAA12 /* Extensions.swift */,
 				A016494F2448EC990017FF4B /* FruityKitTests.swift */,
 				A0AC448C244CAB8C003CEDB4 /* Synapse2Tests.swift */,
 				A0AC448E244CAB93003CEDB4 /* Synapse3Tests.swift */,
@@ -191,11 +198,21 @@
 			path = FruityKitTests;
 			sourceTree = "<group>";
 		};
+		A0ADA48C244D262F00FEAA12 /* Synapse 3 Types */ = {
+			isa = PBXGroup;
+			children = (
+				A0ADA488244D23CA00FEAA12 /* RazerSoftwareSingleRowHandle.swift */,
+			);
+			path = "Synapse 3 Types";
+			sourceTree = "<group>";
+		};
 		A0D36DC2244929AE00276551 /* Specialized */ = {
 			isa = PBXGroup;
 			children = (
+				A0ADA48C244D262F00FEAA12 /* Synapse 3 Types */,
 				A0D36DC0244929A900276551 /* RazerBaseStationHandle.swift */,
 				A0D36DBE2449241C00276551 /* RazerHuntsmanEliteHandle.swift */,
+				A0ADA48A244D262800FEAA12 /* RazerMambaHyperfluxHandle.swift */,
 			);
 			path = Specialized;
 			sourceTree = "<group>";
@@ -317,11 +334,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				A01649182448D0B50017FF4B /* DeviceQuery.c in Sources */,
+				A0ADA48B244D262800FEAA12 /* RazerMambaHyperfluxHandle.swift in Sources */,
 				A0D36DBF2449241C00276551 /* RazerHuntsmanEliteHandle.swift in Sources */,
 				A01649392448D1150017FF4B /* FruityRazer.swift in Sources */,
 				A016491A2448D0B50017FF4B /* RazerSoftwareChroma.c in Sources */,
 				A0D36DC1244929A900276551 /* RazerBaseStationHandle.swift in Sources */,
 				A01649452448DEDB0017FF4B /* Device.swift in Sources */,
+				A0ADA489244D23CA00FEAA12 /* RazerSoftwareSingleRowHandle.swift in Sources */,
 				A01649202448D0B50017FF4B /* razerkbd_driver.c in Sources */,
 				A01649472448E2650017FF4B /* RazerDevice.swift in Sources */,
 				A016491B2448D0B50017FF4B /* USBCommon.c in Sources */,
@@ -342,6 +361,7 @@
 				A0AC448D244CAB8C003CEDB4 /* Synapse2Tests.swift in Sources */,
 				A01649502448EC990017FF4B /* FruityKitTests.swift in Sources */,
 				A0AC448F244CAB93003CEDB4 /* Synapse3Tests.swift in Sources */,
+				A0ADA487244D22DA00FEAA12 /* Extensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

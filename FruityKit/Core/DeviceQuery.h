@@ -39,9 +39,11 @@ typedef enum razer_synapse_version {
 typedef enum device_type {
     headphones,
     keyboard,
-    mouse,
+    keypad,
+    laptop,
     misc_basestation,
     misc_hyperflux,
+    mouse,
     mousepad
 } razer_device_type;
 

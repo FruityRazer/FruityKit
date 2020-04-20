@@ -51,19 +51,10 @@ class Synapse3Tests: XCTestCase {
             return
         }
         
-        specializedDriver.write(mode: .rawRows(colors:
-            [
-                [.white, .white, .white, .white, .white, .white, .white, .white, .white, .white, .white, .white, .white, .white, .white, .white, .white, .white, .white, .white, .white, .white, .white, .white],
-                [.white, .white, .white, .white, .white, .white, .white, .white, .white, .white, .white, .white, .white, .white, .white, .white, .white, .white, .white, .white, .white, .white, .white, .white],
-                [.white, .white, .white, .white, .white, .white, .white, .white, .white, .white, .white, .white, .white, .white, .white, .white, .white, .white, .white, .white, .white, .white, .white, .white],
-                [.white, .white, .white, .white, .white, .white, .white, .white, .white, .white, .white, .white, .white, .white, .white, .white, .white, .white, .white, .white, .white, .white, .white, .white],
-                [.white, .white, .white, .white, .white, .white, .white, .white, .white, .white, .white, .white, .white, .white, .white, .white, .white, .white, .white, .white, .white, .white, .white, .white],
-                [.white, .white, .white, .white, .white, .white, .white, .white, .white, .white, .white, .white, .white, .white, .white, .white, .white, .white, .white, .white, .white, .white, .white, .white],
-                [.white, .white, .white, .white, .white, .white, .white, .white, .white, .white, .white, .white, .white, .white, .white, .white, .white, .white, .white, .white, .white, .white, .white, .white],
-                [.white, .white, .white, .white, .white, .white, .white, .white, .white, .white, .white, .white, .white, .white, .white, .white, .white, .white, .white, .white, .white, .white, .white, .white],
-                [.white, .white, .white, .white, .white, .white, .white, .white, .white, .white, .white, .white, .white, .white, .white, .white, .white, .white, .white, .white, .white, .white, .white, .white]
-            ]
-        ))
+        let rowArray: [Color] = Color.white.repeated(24)
+        let fullArray: [[Color]] = rowArray.repeated(9)
+        
+        specializedDriver.write(mode: .rawRows(colors: fullArray))
     }
     
     func testSpecialized_baseStation() {
@@ -83,8 +74,26 @@ class Synapse3Tests: XCTestCase {
             return
         }
         
-        specializedDriver.write(mode: .raw(colors: [
-            .white, .white, .white, .white, .white, .white, .white, .white, .white, .white, .white, .white, .white, .white
-        ]))
+        specializedDriver.write(mode: .raw(colors: try! Color(hex: "#00FF00").repeated(14)))
+    }
+    
+    func testSpecialized_mambaHyperflux() {
+        let devices = FruityRazer.devices
+        
+        let baseStation = devices.filter { $0.shortName == "mamba_hyperflux" }[0]
+        
+        guard case let Driver.v3(driver: driver) = baseStation.driver else {
+            XCTFail("Mamba Hyperflux not recognized as Synapse 3!")
+            
+            return
+        }
+        
+        guard let specializedDriver = driver as? RazerMambaHyperfluxHandle else {
+            XCTFail("Not a specialized mamba hyperflux driver!")
+            
+            return
+        }
+        
+        specializedDriver.write(mode: .raw(colors: try! Color(hex: "#00FF00").repeated(14)))
     }
 }

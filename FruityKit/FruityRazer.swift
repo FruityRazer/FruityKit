@@ -26,6 +26,7 @@ public struct FruityRazer {
 }
 
 extension RazerDevice {
+    
     var connected: Bool {
         switch driver {
         case .v2(driver: let d):

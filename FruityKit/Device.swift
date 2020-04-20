@@ -10,7 +10,13 @@ import Foundation
 
 public enum DeviceType {
     
-    case keyboard
+    public enum KeyboardType {
+        case normal
+        case keypad
+        case laptop
+    }
+    
+    case keyboard(type: KeyboardType)
     case mouse
     case other(type: String)
 }
@@ -42,8 +48,21 @@ extension Driver {
             return .v3(driver: RazerBaseStationHandle(usbId: Int32(device.usbId)))
         case "huntsman_elite_sw":
             return .v3(driver: RazerHuntsmanEliteHandle(usbId: Int32(device.usbId)))
+        case "mamba_hyperflux":
+            return .v3(driver: RazerMambaHyperfluxHandle(usbId: Int32(device.usbId)))
         default:
             return .v3(driver: Synapse3Handle(usbId: Int32(device.usbId)))
         }
+    }
+}
+
+public extension Driver {
+    
+    var synapseVersion: Int {
+        if case Driver.v2 = self {
+            return 2
+        }
+
+        return 3
     }
 }

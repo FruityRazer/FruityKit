@@ -27,14 +27,18 @@ extension RazerDevice {
         case 0:
             type = .other(type: "headphones")
         case 1:
-            type = .keyboard
+            type = .keyboard(type: .normal)
         case 2:
-            type = .mouse
+            type = .keyboard(type: .keypad)
         case 3:
-            type = .other(type: "misc_basestation")
+            type = .keyboard(type: .laptop)
         case 4:
-            type = .other(type: "misc_hyperflux")
+            type = .other(type: "misc_basestation")
         case 5:
+            type = .other(type: "misc_hyperflux")
+        case 6:
+            type = .mouse
+        case 7:
             type = .other(type: "mousepad")
         default:
             type = .other(type: "unknown")
