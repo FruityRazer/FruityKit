@@ -47,3 +47,15 @@ extension RazerDevice {
         driver = Driver.handle(for: device)
     }
 }
+
+public extension RazerDevice {
+    
+    var connected: Bool {
+        switch driver {
+        case .v2(driver: let d):
+            return d.connected
+        case .v3(driver: let d):
+            return d.connected
+        }
+    }
+}
