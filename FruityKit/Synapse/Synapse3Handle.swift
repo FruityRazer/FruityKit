@@ -22,10 +22,10 @@ public class Synapse3Handle: SynapseHandle {
     }
     
     public func read() {
-        
+        fatalError("This function should be overidden.")
     }
         
     public func write(mode: Mode) {
-        
+        fatalError("This function should be overidden.")
     }
 }

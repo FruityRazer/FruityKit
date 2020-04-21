@@ -35,7 +35,10 @@ public struct Synapse2Handle: SynapseHandle {
         
         switch mode {
         case .wave(let direction):
-            razer_attr_write_mode_wave(deviceInterface, UnsafePointer<Int8>(bitPattern: direction.rawValue), 1)
+            let ptr = UnsafeMutablePointer<Int8>.allocate(capacity: 1)
+            ptr.pointee = Int8(direction.rawValue)
+            
+            razer_attr_write_mode_wave(deviceInterface, ptr, 1)
             
         case .spectrum:
             razer_attr_write_mode_spectrum(deviceInterface)
@@ -56,9 +59,8 @@ public struct Synapse2Handle: SynapseHandle {
             
             let ptr = UnsafeRawPointer(intermediatePtr).assumingMemoryBound(to: Int8.self)
             
-            defer {
-                ptr.deallocate()
-            }
+            //  No need to deallocate `ptr` since we aren't allocating anything, just
+            //  changing the type of `intermediatePtr`.
             
             razer_attr_write_mode_reactive(deviceInterface, ptr, 4)
             
