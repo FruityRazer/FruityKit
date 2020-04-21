@@ -16,7 +16,7 @@ Synapse 2 Mode is based on `openrazer`, Synapse 3 Mode was programmed for this p
  - Razer Anansi
  - Razer Nostromo
  - Razer Orbweaver
- - BlackWidow Ultimate (2013)
+ - Razer BlackWidow Ultimate (2013)
  - Razer BlackWidow Stealth
  - Razer Tartarus
  - Razer Deathstalker Expert

@@ -91,7 +91,7 @@ razer_device __DQ_DEVICES[] = {
     },
     {
         .shortName = "blackwidow_ultimate_2013",
-        .fullName = "BlackWidow Ultimate (2013)",
+        .fullName = "Razer BlackWidow Ultimate (2013)",
         .usbId = 0x011A,
         .synapse = synapse2,
         .type = keyboard
