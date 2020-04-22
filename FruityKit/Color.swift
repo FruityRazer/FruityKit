@@ -8,7 +8,7 @@
 
 import Foundation
 
-public struct Color {
+public struct Color: Hashable {
     
     public enum InitializationError: Error {
         case invalidHexData

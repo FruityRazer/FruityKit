@@ -84,3 +84,7 @@ public struct Synapse2Handle: SynapseHandle {
         }
     }
 }
+
+extension Synapse2Handle: Hashable {
+    
+}

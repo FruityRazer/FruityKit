@@ -10,7 +10,7 @@ import Foundation
 
 public class Synapse3Handle: SynapseHandle {
     
-    public enum Mode {
+    public enum Mode: Hashable {
         case raw(colors: [Color])
         case rawRows(colors: [[Color]])
     }
@@ -27,5 +27,15 @@ public class Synapse3Handle: SynapseHandle {
         
     public func write(mode: Mode) {
         fatalError("This function should be overidden.")
+    }
+}
+
+extension Synapse3Handle: Hashable {
+    public static func == (lhs: Synapse3Handle, rhs: Synapse3Handle) -> Bool {
+        return true
+    }
+    
+    public func hash(into hasher: inout Hasher) {
+        hasher.combine(usbId)
     }
 }

@@ -8,7 +8,7 @@
 
 import Foundation
 
-public enum DeviceType {
+public enum DeviceType: Hashable {
     
     public enum KeyboardType {
         case normal
@@ -21,7 +21,7 @@ public enum DeviceType {
     case other(type: String)
 }
 
-public enum Driver {
+public enum Driver: Hashable {
     
     case v2(driver: Synapse2Handle)
     case v3(driver: Synapse3Handle)
