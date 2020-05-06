@@ -74,6 +74,7 @@ Synapse 2 Mode is based on `openrazer`, Synapse 3 Mode was programmed for this p
  - Razer Mamba Hyperflux
  - Razer Huntsman Elite
  - Razer Base Station Chroma
+ - Razer Black Widow Elite
 
 ## Compiling
 
