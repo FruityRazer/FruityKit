@@ -18,6 +18,14 @@ class FruityKitTests: XCTestCase {
         XCTAssertEqual(FruityRazer.connectedDevices.filter { $0.driver.synapseVersion == 3 } .count, 3)
     }
     
+    func testGroupedDeviceEnumeration() {
+        XCTAssertEqual(FruityRazer.groupedConnectedDevices.count, 4)
+        
+        XCTAssertEqual(FruityRazer.groupedConnectedDevices.filter { guard case VersionedRazerDevice.v2 = $0 else { return false }; return true }.count, 1)
+        XCTAssertEqual(FruityRazer.groupedConnectedDevices.filter { guard case VersionedRazerDevice.v3 = $0 else { return false }; return true }.count, 2)
+        XCTAssertEqual(FruityRazer.groupedConnectedDevices.filter { guard case VersionedRazerDevice.both = $0 else { return false }; return true }.count, 1)
+    }
+    
     func testSynapseDriverAssignment() {
         let devices = FruityRazer.devices
         
