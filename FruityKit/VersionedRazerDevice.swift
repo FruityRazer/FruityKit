@@ -8,19 +8,31 @@
 
 import Foundation
 
-public enum VersionedRazerDevice: Hashable {
+public enum VersionedRazerDevice: Device, Hashable {
     
     case v2(RazerDevice)
     case v3(RazerDevice)
     case both(v2: RazerDevice, v3: RazerDevice)
     
-    public var shortName: String {
+    private var device: Device {
         switch self {
         case let .v2(device),
              let .v3(device),
              let .both(v2: device, v3: _):
-            return String(device.shortName.dropLast(3))
+            return device
         }
+    }
+    
+    public var shortName: String {
+        device.shortName
+    }
+    
+    public var fullName: String {
+        device.fullName
+    }
+    
+    public var type: DeviceType {
+        device.type
     }
     
     public var connected: Bool {

@@ -32,6 +32,9 @@ public protocol Device {
     var shortName: String { get }
     var fullName: String { get }
     var type: DeviceType { get }
+}
+
+public protocol HasDriver {
     
     var driver: Driver { get }
 }

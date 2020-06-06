@@ -8,7 +8,7 @@
 
 import Foundation
 
-public struct RazerDevice: Device, Hashable {
+public struct RazerDevice: Device, HasDriver, Hashable {
     
     public let shortName: String
     public let fullName: String
