@@ -25,5 +25,3 @@ extension Repeatable {
 
 extension Array: Repeatable {}
 extension Color: Repeatable {}
-
-
