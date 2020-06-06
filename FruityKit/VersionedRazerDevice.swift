@@ -8,7 +8,7 @@
 
 import Foundation
 
-public enum VersionedRazerDevice {
+public enum VersionedRazerDevice: Hashable {
     
     case v2(RazerDevice)
     case v3(RazerDevice)
