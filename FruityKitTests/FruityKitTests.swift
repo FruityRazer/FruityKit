@@ -26,6 +26,19 @@ class FruityKitTests: XCTestCase {
         XCTAssertEqual(FruityRazer.groupedConnectedDevices.filter { guard case VersionedRazerDevice.both = $0 else { return false }; return true }.count, 1)
     }
     
+    func testGroupedDeviceAssignment() {
+        let dualDriverDevice = FruityRazer.groupedConnectedDevices.filter { guard case VersionedRazerDevice.both = $0 else { return false }; return true }.first!
+        
+        guard case let VersionedRazerDevice.both(v2: v2, v3: v3) = dualDriverDevice else {
+            XCTFail("Dual driver device somehow stopped being a dual driver device!")
+            
+            return
+        }
+        
+        XCTAssertEqual(String(v2.shortName.suffix(3)), "_hw")
+        XCTAssertEqual(String(v3.shortName.suffix(3)), "_sw")
+    }
+    
     func testSynapseDriverAssignment() {
         let devices = FruityRazer.devices
         

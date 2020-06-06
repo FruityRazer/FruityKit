@@ -29,7 +29,8 @@ public struct FruityRazer {
             if currentDevice.shortName.contains("_hw") {
                 return
             } else if currentDevice.shortName.contains("_sw") {
-                let hwShortName = currentDevice.shortName.dropLast(3).appending("_sw")
+                let hwShortName = currentDevice.shortName.dropLast(3).appending("_hw")
+                
                 guard let hwDevice = devices.first(where: { $0.shortName == hwShortName }) else {
                     preconditionFailure("Found `_sw` device without no `_hw` counterpart!")
                 }
