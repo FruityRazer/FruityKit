@@ -14,7 +14,16 @@ public enum VersionedRazerDevice: Hashable {
     case v3(RazerDevice)
     case both(v2: RazerDevice, v3: RazerDevice)
     
-    internal var connected: Bool {
+    public var shortName: String {
+        switch self {
+        case let .v2(device),
+             let .v3(device),
+             let .both(v2: device, v3: _):
+            return String(device.shortName.dropLast(3))
+        }
+    }
+    
+    public var connected: Bool {
         switch self {
         case .v2(let device):
             return device.connected
