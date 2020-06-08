@@ -1,40 +1,17 @@
 //
-//  Synapse3Tests.swift
+//  LightsOutTests.swift
 //  FruityKitTests
 //
-//  Created by Eduardo Almeida on 19/04/2020.
+//  Created by Eduardo Almeida on 08/06/2020.
 //  Copyright © 2020 Eduardo Almeida. All rights reserved.
 //
 
 import XCTest
 @testable import FruityKit
 
-class Synapse3Tests: XCTestCase {
-
-    func testSpecialized_huntsmanElite_fakeWave() {
-        let devices = FruityRazer.devices
-        
-        let huntsmanEliteSoftware = devices.filter { $0.shortName == "huntsman_elite_sw" }[0]
-        
-        guard case let Driver.v3(driver: driver) = huntsmanEliteSoftware.driver else {
-            XCTFail("Huntsman Elite not recognized as Synapse 3!")
-            
-            return
-        }
-        
-        guard let specializedDriver = driver as? RazerHuntsmanEliteHandle else {
-            XCTFail("Not a specialized huntsman driver!")
-            
-            return
-        }
-        
-        try! specializedDriver.fakeWave(color: Color(hex: "#FF0000"))
-        try! specializedDriver.fakeWave(color: Color(hex: "#00FF00"))
-        try! specializedDriver.fakeWave(color: Color(hex: "#0000FF"))
-        try! specializedDriver.fakeWave(color: Color(hex: "#FFFFFF"))
-    }
+class LightsOutTests: XCTestCase {
     
-    func testSpecialized_huntsmanElite_fullWhite() {
+    func testSpecialized_huntsmanElite() {
         let devices = FruityRazer.devices
         
         let huntsmanEliteSoftware = devices.filter { $0.shortName == "huntsman_elite_sw" }[0]
@@ -51,10 +28,7 @@ class Synapse3Tests: XCTestCase {
             return
         }
         
-        let rowArray: [Color] = Color.white.repeated(24)
-        let fullArray: [[Color]] = rowArray.repeated(9)
-        
-        XCTAssertTrue(specializedDriver.write(mode: .rawRows(colors: fullArray)))
+        XCTAssertTrue(specializedDriver.write(mode: .off))
     }
     
     func testSpecialized_baseStation() {
@@ -74,7 +48,7 @@ class Synapse3Tests: XCTestCase {
             return
         }
         
-        XCTAssertTrue(specializedDriver.write(mode: .raw(colors: try! Color(hex: "#00FF00").repeated(14))))
+        XCTAssertTrue(specializedDriver.write(mode: .off))
     }
     
     func testSpecialized_mambaHyperflux() {
@@ -94,6 +68,6 @@ class Synapse3Tests: XCTestCase {
             return
         }
         
-        XCTAssertTrue(specializedDriver.write(mode: .raw(colors: try! Color(hex: "#00FF00").repeated(14))))
+        XCTAssertTrue(specializedDriver.write(mode: .off))
     }
 }

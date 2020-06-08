@@ -11,6 +11,7 @@ import Foundation
 public class Synapse3Handle: SynapseHandle {
     
     public enum Mode: Hashable {
+        case off
         case raw(colors: [Color])
         case rawRows(colors: [[Color]])
     }
@@ -25,7 +26,7 @@ public class Synapse3Handle: SynapseHandle {
         fatalError("This function should be overidden.")
     }
         
-    public func write(mode: Mode) {
+    public func write(mode: Mode) -> Bool {
         fatalError("This function should be overidden.")
     }
 }

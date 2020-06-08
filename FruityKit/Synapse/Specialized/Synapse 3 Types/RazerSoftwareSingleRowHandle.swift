@@ -22,7 +22,7 @@ public class RazerSoftwareSingleRowHandle: Synapse3Handle {
         super.init(usbId: usbId)
     }
     
-    override public func write(mode: Mode) {
+    override public func write(mode: Mode) -> Bool {
         let deviceInterface = dq_get_device(usbId)
         
         defer {
@@ -36,30 +36,49 @@ public class RazerSoftwareSingleRowHandle: Synapse3Handle {
             parts.deallocate()
         }
         
-        guard case let Mode.raw(colors) = mode else {
-            return
-        }
-        
-        for i in 0..<colors.count {
-            let current: UnsafeMutablePointer<UInt8>
-            
-            defer {
-                current.deallocate()
+        switch mode {
+        case .off:
+            for i in 0..<13 {
+                let current: UnsafeMutablePointer<UInt8> = Color.black.cArray
+                
+                defer {
+                    current.deallocate()
+                }
+                
+                let base = i * 3
+                
+                parts.advanced(by: base).pointee = Color.black.cArray.pointee
+                parts.advanced(by: base + 1).pointee = Color.black.cArray.advanced(by: 1).pointee
+                parts.advanced(by: base + 2).pointee = Color.black.cArray.advanced(by: 2).pointee
             }
             
-            if i < colors.count {
-                current = colors[i].cArray
-            } else {
-                current = Color.black.cArray
+        case .raw(colors: let colors):
+            for i in 0..<colors.count {
+                let current: UnsafeMutablePointer<UInt8>
+                
+                defer {
+                    current.deallocate()
+                }
+                
+                if i < colors.count {
+                    current = colors[i].cArray
+                } else {
+                    current = Color.black.cArray
+                }
+                
+                let base = i * 3
+                
+                parts.advanced(by: base).pointee = current.pointee
+                parts.advanced(by: base + 1).pointee = current.advanced(by: 1).pointee
+                parts.advanced(by: base + 2).pointee = current.advanced(by: 2).pointee
             }
             
-            let base = i * 3
-            
-            parts.advanced(by: base).pointee = current.pointee
-            parts.advanced(by: base + 1).pointee = current.advanced(by: 1).pointee
-            parts.advanced(by: base + 2).pointee = current.advanced(by: 2).pointee
+        case .rawRows(_):
+            return false
         }
         
         commitFunction(deviceInterface, UnsafeMutableRawPointer(parts).assumingMemoryBound(to: Int8.self))
+        
+        return true
     }
 }

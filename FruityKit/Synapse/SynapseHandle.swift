@@ -18,7 +18,7 @@ public protocol SynapseHandle {
     var connected: Bool { get }
     
     func read()
-    func write(mode: SynapseMode)
+    func write(mode: SynapseMode) -> Bool
 }
 
 extension SynapseHandle {

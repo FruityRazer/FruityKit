@@ -36,6 +36,7 @@
 		A0ADA487244D22DA00FEAA12 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0ADA486244D22DA00FEAA12 /* Extensions.swift */; };
 		A0ADA489244D23CA00FEAA12 /* RazerSoftwareSingleRowHandle.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0ADA488244D23CA00FEAA12 /* RazerSoftwareSingleRowHandle.swift */; };
 		A0ADA48B244D262800FEAA12 /* RazerMambaHyperfluxHandle.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0ADA48A244D262800FEAA12 /* RazerMambaHyperfluxHandle.swift */; };
+		A0B1FDD4248ECCCC00E07C79 /* LightsOutTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0B1FDD3248ECCCC00E07C79 /* LightsOutTests.swift */; };
 		A0D36DBF2449241C00276551 /* RazerHuntsmanEliteHandle.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0D36DBE2449241C00276551 /* RazerHuntsmanEliteHandle.swift */; };
 		A0D36DC1244929A900276551 /* RazerBaseStationHandle.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0D36DC0244929A900276551 /* RazerBaseStationHandle.swift */; };
 /* End PBXBuildFile section */
@@ -84,6 +85,7 @@
 		A0ADA486244D22DA00FEAA12 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		A0ADA488244D23CA00FEAA12 /* RazerSoftwareSingleRowHandle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RazerSoftwareSingleRowHandle.swift; sourceTree = "<group>"; };
 		A0ADA48A244D262800FEAA12 /* RazerMambaHyperfluxHandle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RazerMambaHyperfluxHandle.swift; sourceTree = "<group>"; };
+		A0B1FDD3248ECCCC00E07C79 /* LightsOutTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LightsOutTests.swift; sourceTree = "<group>"; };
 		A0D36DBE2449241C00276551 /* RazerHuntsmanEliteHandle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RazerHuntsmanEliteHandle.swift; sourceTree = "<group>"; };
 		A0D36DC0244929A900276551 /* RazerBaseStationHandle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RazerBaseStationHandle.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -159,10 +161,10 @@
 			isa = PBXGroup;
 			children = (
 				A01649112448D0B50017FF4B /* razerkbd_driver.h */,
-				A01649122448D0B50017FF4B /* razercommon.c */,
-				A01649132448D0B50017FF4B /* razerchromacommon.c */,
 				A01649142448D0B50017FF4B /* razerkbd_driver.c */,
 				A01649152448D0B50017FF4B /* razercommon.h */,
+				A01649122448D0B50017FF4B /* razercommon.c */,
+				A01649132448D0B50017FF4B /* razerchromacommon.c */,
 				A01649162448D0B50017FF4B /* razerchromacommon.h */,
 			);
 			path = openrazer;
@@ -194,6 +196,7 @@
 			children = (
 				A0ADA486244D22DA00FEAA12 /* Extensions.swift */,
 				A016494F2448EC990017FF4B /* FruityKitTests.swift */,
+				A0B1FDD3248ECCCC00E07C79 /* LightsOutTests.swift */,
 				A0AC448C244CAB8C003CEDB4 /* Synapse2Tests.swift */,
 				A0AC448E244CAB93003CEDB4 /* Synapse3Tests.swift */,
 				A01649512448EC990017FF4B /* Info.plist */,
@@ -366,6 +369,7 @@
 				A01649502448EC990017FF4B /* FruityKitTests.swift in Sources */,
 				A0AC448F244CAB93003CEDB4 /* Synapse3Tests.swift in Sources */,
 				A0ADA487244D22DA00FEAA12 /* Extensions.swift in Sources */,
+				A0B1FDD4248ECCCC00E07C79 /* LightsOutTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -505,6 +509,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 6;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = 3D7R27DBRZ;
 				DYLIB_COMPATIBILITY_VERSION = 1;
@@ -518,6 +523,7 @@
 					"@loader_path/Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				MARKETING_VERSION = 2.0;
 				MODULEMAP_FILE = "$SRCROOT/FruityKit/Supporting Files/FruityKit.modulemap";
 				PRODUCT_BUNDLE_IDENTIFIER = io.edr.fruitykit;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
@@ -533,6 +539,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 6;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = 3D7R27DBRZ;
 				DYLIB_COMPATIBILITY_VERSION = 1;
@@ -546,6 +553,7 @@
 					"@loader_path/Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				MARKETING_VERSION = 2.0;
 				MODULEMAP_FILE = "$SRCROOT/FruityKit/Supporting Files/FruityKit.modulemap";
 				PRODUCT_BUNDLE_IDENTIFIER = io.edr.fruitykit;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";

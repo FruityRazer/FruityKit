@@ -24,7 +24,7 @@ public struct Synapse2Handle: SynapseHandle {
         
     }
     
-    public func write(mode: Mode) {
+    public func write(mode: Mode) -> Bool {
         let deviceInterface = dq_get_device(usbId)
         
         defer {
@@ -82,6 +82,8 @@ public struct Synapse2Handle: SynapseHandle {
             
             razer_attr_write_mode_breath(deviceInterface, ptr, 3)
         }
+        
+        return true
     }
 }
 

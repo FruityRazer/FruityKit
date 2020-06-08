@@ -26,22 +26,22 @@ class Synapse2Tests: XCTestCase {
     }
     
     func testHuntsmanElite_wave() {
-        huntsmanEliteHWDriver.write(mode: .wave(direction: .right))
+        XCTAssertTrue(huntsmanEliteHWDriver.write(mode: .wave(direction: .right)))
     }
     
     func testHuntsmanElite_spectrum() {
-        huntsmanEliteHWDriver.write(mode: .spectrum)
+        XCTAssertTrue(huntsmanEliteHWDriver.write(mode: .spectrum))
     }
     
     func testHuntsmanElite_reactive() {
-        huntsmanEliteHWDriver.write(mode: .reactive(speed: 100, color: .white))
+        XCTAssertTrue(huntsmanEliteHWDriver.write(mode: .reactive(speed: 100, color: .white)))
     }
     
     func testHuntsmanElite_static() {
-        huntsmanEliteHWDriver.write(mode: .static(color: .white))
+        XCTAssertTrue(huntsmanEliteHWDriver.write(mode: .static(color: .white)))
     }
     
     func testHuntsmanElite_breath() {
-        huntsmanEliteHWDriver.write(mode: .breath(color: .white))
+        XCTAssertTrue(huntsmanEliteHWDriver.write(mode: .breath(color: .white)))
     }
 }
