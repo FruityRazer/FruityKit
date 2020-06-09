@@ -24,7 +24,12 @@ public enum VersionedRazerDevice: Device, Hashable {
     }
     
     public var shortName: String {
-        device.shortName
+        switch self {
+        case let .v2(device), let .v3(device):
+            return device.shortName
+        case let .both(v2: device, v3: _):
+            return String(device.shortName.dropLast(3))
+        }
     }
     
     public var fullName: String {
