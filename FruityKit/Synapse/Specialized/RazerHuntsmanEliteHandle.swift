@@ -30,9 +30,9 @@ public final class RazerHuntsmanEliteHandle: Synapse3Handle {
                 for keyIdx in 0..<26 {
                     let current: UnsafeMutablePointer<UInt8> = Color.black.cArray
                     
-//                    defer {
-//                        current.deallocate()
-//                    }
+                    defer {
+                        current.deallocate()
+                    }
                     
                     let base = keyIdx * 3
                     
