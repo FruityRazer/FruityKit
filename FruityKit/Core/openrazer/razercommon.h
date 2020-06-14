@@ -113,4 +113,7 @@ unsigned char razer_calculate_crc(struct razer_report *report);
 unsigned char clamp_u8(unsigned char value, unsigned char min, unsigned char max);
 unsigned short clamp_u16(unsigned short value, unsigned short min, unsigned short max);
 
+bool is_blade_laptop(IOUSBDeviceInterface **usb_dev);
+void razer_set_device_mode(IOUSBDeviceInterface **dev, unsigned char mode, unsigned char param);
+
 #endif

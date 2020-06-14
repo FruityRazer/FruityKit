@@ -21,47 +21,17 @@
 #include "razerchromacommon.h"
 #include "razercommon.h"
 
-int razer_get_report(IOUSBDeviceInterface **usb_dev, struct razer_report *request_report, struct razer_report *response_report);
-struct razer_report razer_send_payload(IOUSBDeviceInterface **dev, struct razer_report *request_report);
-static UInt16 get_device_id(IOUSBDeviceInterface **dev);
+#include "USBCommon.h"
+#include "USBDeviceIdentifiers.h"
 
-bool is_blade_laptop(IOUSBDeviceInterface **usb_dev) {
-    UInt16 product = -1;
-    (*usb_dev)->GetDeviceProduct(usb_dev, &product);
-    
-    switch (product) {
-        case USB_DEVICE_ID_RAZER_BLADE_STEALTH:
-        case USB_DEVICE_ID_RAZER_BLADE_STEALTH_LATE_2016:
-        case USB_DEVICE_ID_RAZER_BLADE_PRO_LATE_2016:
-        case USB_DEVICE_ID_RAZER_BLADE_2018:
-        case USB_DEVICE_ID_RAZER_BLADE_2018_MERCURY:
-        case USB_DEVICE_ID_RAZER_BLADE_2018_BASE:
-        case USB_DEVICE_ID_RAZER_BLADE_2019_ADV:
-        case USB_DEVICE_ID_RAZER_BLADE_MID_2019_MERCURY:
-        case USB_DEVICE_ID_RAZER_BLADE_STUDIO_EDITION_2019:
-        case USB_DEVICE_ID_RAZER_BLADE_QHD:
-        case USB_DEVICE_ID_RAZER_BLADE_LATE_2016:
-        case USB_DEVICE_ID_RAZER_BLADE_STEALTH_MID_2017:
-        case USB_DEVICE_ID_RAZER_BLADE_STEALTH_LATE_2017:
-        case USB_DEVICE_ID_RAZER_BLADE_STEALTH_2019:
-        case USB_DEVICE_ID_RAZER_BLADE_PRO_2017:
-        case USB_DEVICE_ID_RAZER_BLADE_PRO_2017_FULLHD:
-        case USB_DEVICE_ID_RAZER_BLADE_2019_BASE:
-        case USB_DEVICE_ID_RAZER_BLADE_STEALTH_LATE_2019:
-        case USB_DEVICE_ID_RAZER_BLADE_PRO_2019:
-        case USB_DEVICE_ID_RAZER_BLADE_PRO_LATE_2019:
-            return true;
-    }
-    
-    return false;
-}
+
 
 /**
  * Write device file "mode_pulsate"
  *
  * The brightness oscillates between fully on and fully off generating a pulsing effect
  */
-int razer_attr_write_mode_pulsate(IOUSBDeviceInterface **usb_dev, const char *buf, int count) {
+size_t razer_kbd_attr_write_mode_pulsate(IOUSBDeviceInterface **usb_dev, const char *buf, size_t count) {
     struct razer_report report = razer_chroma_standard_set_led_effect(VARSTORE, BACKLIGHT_LED, 0x02);
     razer_send_payload(usb_dev, &report);
     
@@ -73,7 +43,7 @@ int razer_attr_write_mode_pulsate(IOUSBDeviceInterface **usb_dev, const char *bu
  *
  * Returns a string
  */
-int razer_attr_read_mode_pulsate(IOUSBDeviceInterface **usb_dev, char *buf) {
+size_t razer_kbd_attr_read_mode_pulsate(IOUSBDeviceInterface **usb_dev, char *buf) {
     struct razer_report report = razer_chroma_standard_get_led_effect(VARSTORE, LOGO_LED);
     struct razer_report response = razer_send_payload(usb_dev, &report);
     
@@ -87,7 +57,7 @@ int razer_attr_read_mode_pulsate(IOUSBDeviceInterface **usb_dev, char *buf) {
  *
  * Returns a string
  */
-int razer_attr_read_tartarus_profile_led_red(IOUSBDeviceInterface **usb_dev, char *buf) {
+size_t razer_kbd_attr_read_tartarus_profile_led_red(IOUSBDeviceInterface **usb_dev, char *buf) {
     struct razer_report report = razer_chroma_standard_get_led_state(VARSTORE, RED_PROFILE_LED);
     struct razer_report response = razer_send_payload(usb_dev, &report);
     
@@ -99,7 +69,7 @@ int razer_attr_read_tartarus_profile_led_red(IOUSBDeviceInterface **usb_dev, cha
  *
  * Returns a string
  */
-int razer_attr_read_tartarus_profile_led_green(IOUSBDeviceInterface **usb_dev, char *buf) {
+size_t razer_kbd_attr_read_tartarus_profile_led_green(IOUSBDeviceInterface **usb_dev, char *buf) {
     struct razer_report report = razer_chroma_standard_get_led_state(VARSTORE, GREEN_PROFILE_LED);
     struct razer_report response = razer_send_payload(usb_dev, &report);
     
@@ -111,7 +81,7 @@ int razer_attr_read_tartarus_profile_led_green(IOUSBDeviceInterface **usb_dev, c
  *
  * Returns a string
  */
-int razer_attr_read_tartarus_profile_led_blue(IOUSBDeviceInterface **usb_dev, char *buf) {
+size_t razer_kbd_attr_read_tartarus_profile_led_blue(IOUSBDeviceInterface **usb_dev, char *buf) {
     struct razer_report report = razer_chroma_standard_get_led_state(VARSTORE, BLUE_PROFILE_LED);
     struct razer_report response = razer_send_payload(usb_dev, &report);
     
@@ -123,7 +93,7 @@ int razer_attr_read_tartarus_profile_led_blue(IOUSBDeviceInterface **usb_dev, ch
  *
  * No keyboard effect is activated whenever this file is written to
  */
-int razer_attr_write_mode_none(IOUSBDeviceInterface **usb_dev, const char *buf, int count) {
+size_t razer_kbd_attr_write_mode_none(IOUSBDeviceInterface **usb_dev, const char *buf, size_t count) {
     struct razer_report report;
     razer_chroma_standard_matrix_effect_none(VARSTORE, BACKLIGHT_LED);
     
@@ -140,7 +110,7 @@ int razer_attr_write_mode_none(IOUSBDeviceInterface **usb_dev, const char *buf, 
  *
  * For the extended its 0x00 and 0x01
  */
-int razer_attr_write_mode_wave(IOUSBDeviceInterface **usb_dev, const char *buf, int count) {
+size_t razer_kbd_attr_write_mode_wave(IOUSBDeviceInterface **usb_dev, const char *buf, size_t count) {
     unsigned char direction = (unsigned char)strtol(buf, NULL, 10);
     struct razer_report report;
     
@@ -181,7 +151,7 @@ int razer_attr_write_mode_wave(IOUSBDeviceInterface **usb_dev, const char *buf, 
  *
  * Specrum effect mode is activated whenever the file is written to
  */
-int razer_attr_write_mode_spectrum(IOUSBDeviceInterface **usb_dev) {
+size_t razer_kbd_attr_write_mode_spectrum(IOUSBDeviceInterface **usb_dev) {
     struct razer_report report;
     
     switch(get_device_id(usb_dev)) {
@@ -222,7 +192,7 @@ int razer_attr_write_mode_spectrum(IOUSBDeviceInterface **usb_dev) {
     }
     razer_send_payload(usb_dev, &report);
 
-    return 0;
+    return true;
 }
 
 /**
@@ -230,7 +200,7 @@ int razer_attr_write_mode_spectrum(IOUSBDeviceInterface **usb_dev) {
  *
  * Sets reactive mode when this file is written to. A speed byte and 3 RGB bytes should be written
  */
-int razer_attr_write_mode_reactive(IOUSBDeviceInterface **usb_dev, const char *buf, int count) {
+size_t razer_kbd_attr_write_mode_reactive(IOUSBDeviceInterface **usb_dev, const char *buf, size_t count) {
     struct razer_report report;
     
     if(count == 4) {
@@ -264,9 +234,10 @@ int razer_attr_write_mode_reactive(IOUSBDeviceInterface **usb_dev, const char *b
         razer_send_payload(usb_dev, &report);
 
     } else {
-//        printk(KERN_WARNING "razerkbd: Reactive only accepts Speed, RGB (4byte)");
+        return false;
     }
-    return count;
+    
+    return true;
 }
 
 /**
@@ -274,7 +245,7 @@ int razer_attr_write_mode_reactive(IOUSBDeviceInterface **usb_dev, const char *b
  *
  * Set the keyboard to mode when 3 RGB bytes are written
  */
-int razer_attr_write_mode_static(IOUSBDeviceInterface **usb_dev, const char *buf, int count) {
+size_t razer_kbd_attr_write_mode_static(IOUSBDeviceInterface **usb_dev, const char *buf, size_t count) {
     struct razer_report report;
 
     switch(get_device_id(usb_dev)) {
@@ -406,7 +377,7 @@ int razer_attr_write_mode_static(IOUSBDeviceInterface **usb_dev, const char *buf
  * 4 bytes, speed, rgb
  * 1 byte, speed
  */
-int razer_attr_write_mode_starlight(IOUSBDeviceInterface **usb_dev, const char *buf, int count) {
+size_t razer_kbd_attr_write_mode_starlight(IOUSBDeviceInterface **usb_dev, const char *buf, size_t count) {
     struct razer_rgb rgb1 = {.r = 0x00, .g = 0xFF, .b = 0x00};
     struct razer_report report;
     
@@ -416,7 +387,7 @@ int razer_attr_write_mode_starlight(IOUSBDeviceInterface **usb_dev, const char *
             report = razer_chroma_extended_matrix_effect_starlight_single(VARSTORE, BACKLIGHT_LED, buf[0], (struct razer_rgb*)&buf[1]);
             razer_send_payload(usb_dev, &report);
         } else {
-//            printk(KERN_WARNING "razerkbd: Starlight only accepts Speed (1byte). Speed, RGB (4byte). Speed, RGB, RGB (7byte)");
+            return false;
         }
         break;
 
@@ -436,7 +407,7 @@ int razer_attr_write_mode_starlight(IOUSBDeviceInterface **usb_dev, const char *
             report = razer_chroma_extended_matrix_effect_starlight_random(VARSTORE, BACKLIGHT_LED, buf[0]);
             razer_send_payload(usb_dev, &report);
         } else {
-//            printk(KERN_WARNING "razerkbd: Starlight only accepts Speed (1byte). Speed, RGB (4byte). Speed, RGB, RGB (7byte)");
+            return false;
         }
         break;
 
@@ -448,8 +419,7 @@ int razer_attr_write_mode_starlight(IOUSBDeviceInterface **usb_dev, const char *
         } else if(count == 1) {
             report = razer_chroma_extended_matrix_effect_starlight_random(VARSTORE, BACKLIGHT_LED, buf[0]);
         } else {
-//            printk(KERN_WARNING "razerkbd: Starlight only accepts Speed (1byte). Speed, RGB (4byte). Speed, RGB, RGB (7byte)");
-            break;
+            return false;
         }
         report.transaction_id.id = 0x1F;
         razer_send_payload(usb_dev, &report);
@@ -469,7 +439,7 @@ int razer_attr_write_mode_starlight(IOUSBDeviceInterface **usb_dev, const char *
             report.transaction_id.id = 0x3F;  // TODO move to a usb_device variable
             razer_send_payload(usb_dev, &report);
         } else {
-//            printk(KERN_WARNING "razerkbd: Starlight only accepts Speed (1byte). Speed, RGB (4byte). Speed, RGB, RGB (7byte)");
+            return false;
         }
         break;
 
@@ -486,7 +456,7 @@ int razer_attr_write_mode_starlight(IOUSBDeviceInterface **usb_dev, const char *
 /**
  * Write device file "mode_breath"
  */
-int razer_attr_write_mode_breath(IOUSBDeviceInterface **usb_dev, const char *buf, int count) {
+size_t razer_kbd_attr_write_mode_breath(IOUSBDeviceInterface **usb_dev, const char *buf, size_t count) {
     struct razer_report report;
 
     switch(get_device_id(usb_dev)) {
@@ -627,7 +597,7 @@ int razer_attr_write_mode_breath(IOUSBDeviceInterface **usb_dev, const char *buf
  *
  * Sets the brightness to the ASCII number written to this file.
  */
-int razer_attr_write_set_brightness(IOUSBDeviceInterface **usb_dev, const char *buf, int count) {
+size_t razer_kbd_attr_write_set_brightness(IOUSBDeviceInterface **usb_dev, const char *buf, size_t count) {
     unsigned char brightness = (unsigned char)strtol(buf, NULL, 10);
     struct razer_report report;
     
@@ -673,7 +643,7 @@ int razer_attr_write_set_brightness(IOUSBDeviceInterface **usb_dev, const char *
  *
  * Returns a string
  */
-int razer_attr_read_set_brightness(IOUSBDeviceInterface **usb_dev, char *buf) {
+size_t razer_kbd_attr_read_set_brightness(IOUSBDeviceInterface **usb_dev, char *buf) {
     unsigned char brightness = 0;
     struct razer_report report;
     struct razer_report response;
@@ -720,95 +690,5 @@ int razer_attr_read_set_brightness(IOUSBDeviceInterface **usb_dev, char *buf) {
         brightness = response.arguments[2];
     }
 
-
     return sprintf(buf, "%d\n", brightness);
-}
-
-/**
- * Send report to the keyboard
- */
-int razer_get_report(IOUSBDeviceInterface **usb_dev, struct razer_report *request_report, struct razer_report *response_report) {
-    UInt16 product = -1;
-    (*usb_dev)->GetDeviceProduct(usb_dev, &product);
-    
-    uint report_index;
-    uint response_index;
-    
-    switch (product) {
-        case USB_DEVICE_ID_RAZER_ANANSI:
-            report_index = 0x02;
-            response_index = 0x02;
-            break;
-        default:
-            report_index = 0x01;
-            response_index = 0x01;
-            break;
-    }
-    
-    return razer_get_usb_response(usb_dev, report_index, request_report, response_index, response_report);
-}
-
-/**
- * Function to send to device, get response, and actually check the response
- */
-struct razer_report razer_send_payload(IOUSBDeviceInterface **dev, struct razer_report *request_report) {
-    IOReturn retval = -1;
-    
-    struct razer_report response_report = {0};
-    request_report->crc = razer_calculate_crc(request_report);
-    
-    retval = razer_get_report(dev, request_report, &response_report);
-    
-    if (retval == kIOReturnSuccess) {
-        // Check the packet number, class and command are the same
-        if(response_report.remaining_packets != request_report->remaining_packets ||
-           response_report.command_class != request_report->command_class ||
-           response_report.command_id.id != request_report->command_id.id) {
-            printf("Response doesnt match request\n");
-        } else if (response_report.status == RAZER_CMD_BUSY) {
-            printf("Device is busy\n");
-        } else if (response_report.status == RAZER_CMD_FAILURE) {
-            printf("Command failed\n");
-        } else if (response_report.status == RAZER_CMD_NOT_SUPPORTED) {
-            printf("Command not supported\n");
-        } else if (response_report.status == RAZER_CMD_TIMEOUT) {
-            printf("Command timed out\n");
-        }
-    } else {
-        printf("Invalid Report Length");
-    }
-    
-    return response_report;
-}
-
-void razer_set_device_mode(IOUSBDeviceInterface **dev, unsigned char mode, unsigned char param)
-{
-    struct razer_report report = razer_chroma_standard_set_device_mode(mode, param);
-
-    if (is_blade_laptop(dev)) {
-        return;
-    }
-    
-    UInt16 product = get_device_id(dev);
-
-    switch(product) {
-    case USB_DEVICE_ID_RAZER_BLACKWIDOW_LITE:
-    case USB_DEVICE_ID_RAZER_ORNATA:
-    case USB_DEVICE_ID_RAZER_ORNATA_CHROMA:
-    case USB_DEVICE_ID_RAZER_CYNOSA_CHROMA:
-        report.transaction_id.id = 0x3F;
-        break;
-    case USB_DEVICE_ID_RAZER_BLACKWIDOW_ELITE:
-        report.transaction_id.id = 0x1F;
-        break;
-    }
-
-    razer_send_payload(dev, &report);
-}
-
-static UInt16 get_device_id(IOUSBDeviceInterface **dev) {
-    UInt16 product = -1;
-    (*dev)->GetDeviceProduct(dev, &product);
-    
-    return product;
 }

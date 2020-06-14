@@ -1,6 +1,6 @@
 //
 //  DeviceQuery.m
-//  fruityrazer
+//  FruityKit
 //
 //  Created by Eduardo Almeida on 07/07/18.
 //  Copyright © 2018 Eduardo Almeida. All rights reserved.

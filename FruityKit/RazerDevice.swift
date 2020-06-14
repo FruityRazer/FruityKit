@@ -44,7 +44,7 @@ extension RazerDevice {
             type = .other(type: "unknown")
         }
         
-        driver = Driver.handle(for: device)
+        driver = Driver.handle(for: device, type: type)
     }
 }
 

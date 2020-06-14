@@ -1,5 +1,5 @@
 //
-//  FruityRazer.swift
+//  FruityKit.swift
 //  FruityKit
 //
 //  Created by Eduardo Almeida on 16/04/2020.

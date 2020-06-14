@@ -44,4 +44,10 @@ class Synapse2Tests: XCTestCase {
     func testHuntsmanElite_breath() {
         XCTAssertTrue(huntsmanEliteHWDriver.write(mode: .breath(color: .white)))
     }
+    
+    func testHuntsmanElite_starlight() {
+        XCTAssertTrue(huntsmanEliteHWDriver.write(mode: .starlight(speed: 100,
+                                                                   color1: .white,
+                                                                   color2: .red)))
+    }
 }
