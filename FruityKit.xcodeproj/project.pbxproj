@@ -549,7 +549,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 7;
+				CURRENT_PROJECT_VERSION = 8;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = 3D7R27DBRZ;
 				DYLIB_COMPATIBILITY_VERSION = 1;
@@ -563,7 +563,7 @@
 					"@loader_path/Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.9;
-				MARKETING_VERSION = 3.0;
+				MARKETING_VERSION = 4.0;
 				MODULEMAP_FILE = "$SRCROOT/FruityKit/Supporting Files/FruityKit.modulemap";
 				PRODUCT_BUNDLE_IDENTIFIER = io.edr.fruitykit;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
@@ -579,7 +579,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 7;
+				CURRENT_PROJECT_VERSION = 8;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = 3D7R27DBRZ;
 				DYLIB_COMPATIBILITY_VERSION = 1;
@@ -593,7 +593,7 @@
 					"@loader_path/Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.9;
-				MARKETING_VERSION = 3.0;
+				MARKETING_VERSION = 4.0;
 				MODULEMAP_FILE = "$SRCROOT/FruityKit/Supporting Files/FruityKit.modulemap";
 				PRODUCT_BUNDLE_IDENTIFIER = io.edr.fruitykit;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
