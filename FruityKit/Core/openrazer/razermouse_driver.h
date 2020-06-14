@@ -15,16 +15,16 @@
 #include <IOKit/IOKitLib.h>
 #include <IOKit/usb/IOUSBLib.h>
 
-size_t razer_mouse_attr_write_mode_none(IOUSBDeviceInterface **dev, const char *buf, size_t count);
-size_t razer_mouse_attr_write_mode_custom(IOUSBDeviceInterface **dev, const char *buf, size_t count);
-size_t razer_mouse_attr_write_mode_static(IOUSBDeviceInterface **dev, const char *buf, size_t count);
-size_t razer_mouse_attr_write_mode_wave(IOUSBDeviceInterface **dev, const char *buf, size_t count);
-size_t razer_mouse_attr_write_mode_spectrum(IOUSBDeviceInterface **dev, const char *buf, size_t count);
-size_t razer_mouse_attr_write_mode_reactive(IOUSBDeviceInterface **dev, const char *buf, size_t count);
-size_t razer_mouse_attr_write_mode_breath(IOUSBDeviceInterface **dev, const char *buf, size_t count);
-size_t razer_mouse_attr_write_set_charging_effect(IOUSBDeviceInterface **dev, const char *buf, size_t count);
-size_t razer_mouse_attr_write_set_charging_colour(IOUSBDeviceInterface **dev, const char *buf, size_t count);
-size_t razer_mouse_attr_write_matrix_brightness(IOUSBDeviceInterface **dev, const char *buf, size_t count);
-size_t razer_mouse_attr_write_set_low_battery_threshold(IOUSBDeviceInterface **dev, const char *buf, size_t count);
+bool razer_mouse_attr_write_mode_none(IOUSBDeviceInterface **dev, const char *buf, size_t count);
+bool razer_mouse_attr_write_mode_custom(IOUSBDeviceInterface **dev, const char *buf, size_t count);
+bool razer_mouse_attr_write_mode_static(IOUSBDeviceInterface **dev, const char *buf, size_t count);
+bool razer_mouse_attr_write_mode_wave(IOUSBDeviceInterface **dev, const char *buf, size_t count);
+bool razer_mouse_attr_write_mode_spectrum(IOUSBDeviceInterface **dev);
+bool razer_mouse_attr_write_mode_reactive(IOUSBDeviceInterface **dev, const char *buf, size_t count);
+bool razer_mouse_attr_write_mode_breath(IOUSBDeviceInterface **dev, const char *buf, size_t count);
+bool razer_mouse_attr_write_set_charging_effect(IOUSBDeviceInterface **dev, const char *buf, size_t count);
+bool razer_mouse_attr_write_set_charging_colour(IOUSBDeviceInterface **dev, const char *buf, size_t count);
+bool razer_mouse_attr_write_matrix_brightness(IOUSBDeviceInterface **dev, const char *buf, size_t count);
+bool razer_mouse_attr_write_set_low_battery_threshold(IOUSBDeviceInterface **dev, const char *buf, size_t count);
 
 #endif

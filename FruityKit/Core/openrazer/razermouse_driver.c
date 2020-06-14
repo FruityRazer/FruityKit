@@ -29,7 +29,7 @@
  *
  * No effect is activated whenever this file is written to
  */
-size_t razer_mouse_attr_write_mode_none(IOUSBDeviceInterface **dev, const char *buf, size_t count)
+bool razer_mouse_attr_write_mode_none(IOUSBDeviceInterface **dev, const char *buf, size_t count)
 {
     UInt16 product = -1;
     (*dev)->GetDeviceProduct(dev, &product);
@@ -47,8 +47,7 @@ size_t razer_mouse_attr_write_mode_none(IOUSBDeviceInterface **dev, const char *
         break;
     }
 
-    razer_send_payload(dev, &report);
-    return count;
+    return razer_send_payload(dev, &report, NULL);
 }
 
 /**
@@ -56,7 +55,7 @@ size_t razer_mouse_attr_write_mode_none(IOUSBDeviceInterface **dev, const char *
  *
  * Sets the mouse to custom mode whenever the file is written to
  */
-size_t razer_mouse_attr_write_mode_custom(IOUSBDeviceInterface **dev, const char *buf, size_t count)
+bool razer_mouse_attr_write_mode_custom(IOUSBDeviceInterface **dev, const char *buf, size_t count)
 {
     UInt16 product = -1;
     (*dev)->GetDeviceProduct(dev, &product);
@@ -94,9 +93,7 @@ size_t razer_mouse_attr_write_mode_custom(IOUSBDeviceInterface **dev, const char
         break;
     }
 
-    razer_send_payload(dev, &report);
-
-    return count;
+    return razer_send_payload(dev, &report, NULL);
 }
 
 /**
@@ -104,7 +101,7 @@ size_t razer_mouse_attr_write_mode_custom(IOUSBDeviceInterface **dev, const char
  *
  * Set the mouse to static mode when 3 RGB bytes are written
  */
-size_t razer_mouse_attr_write_mode_static(IOUSBDeviceInterface **dev, const char *buf, size_t count)
+bool razer_mouse_attr_write_mode_static(IOUSBDeviceInterface **dev, const char *buf, size_t count)
 {
     UInt16 product = -1;
     (*dev)->GetDeviceProduct(dev, &product);
@@ -133,7 +130,7 @@ size_t razer_mouse_attr_write_mode_static(IOUSBDeviceInterface **dev, const char
             report.arguments[5] = 0x00;
             report.transaction_id.id = 0x1f;
 
-            razer_send_payload(dev, &report);
+            razer_send_payload(dev, &report, NULL);
 
             report = razer_naga_trinity_effect_static((struct razer_rgb*)&buf[0]);
             break;
@@ -143,12 +140,10 @@ size_t razer_mouse_attr_write_mode_static(IOUSBDeviceInterface **dev, const char
             break;
         }
 
-        razer_send_payload(dev, &report);
-    } else {
-        printf("razermouse: Static mode only accepts RGB (3byte)");
+        return razer_send_payload(dev, &report, NULL);
     }
 
-    return count;
+    return false;
 }
 
 /**
@@ -157,13 +152,12 @@ size_t razer_mouse_attr_write_mode_static(IOUSBDeviceInterface **dev, const char
  * When 1 is written (as a character, 0x31) the wave effect is displayed moving up the mouse
  * if 2 is written (0x32) then the wave effect goes down
  */
-size_t razer_mouse_attr_write_mode_wave(IOUSBDeviceInterface **dev, const char *buf, size_t count)
+bool razer_mouse_attr_write_mode_wave(IOUSBDeviceInterface **dev, const char *buf, size_t count)
 {
     unsigned char direction = (unsigned char)strtol(buf, NULL, 10);
     struct razer_report report = razer_chroma_standard_matrix_effect_wave(VARSTORE, BACKLIGHT_LED, direction);
 
-    razer_send_payload(dev, &report);
-    return count;
+    return razer_send_payload(dev, &report, NULL);
 }
 
 /**
@@ -171,7 +165,7 @@ size_t razer_mouse_attr_write_mode_wave(IOUSBDeviceInterface **dev, const char *
  *
  * Spectrum effect mode is activated whenever the file is written to
  */
-size_t razer_mouse_attr_write_mode_spectrum(IOUSBDeviceInterface **dev, const char *buf, size_t count)
+bool razer_mouse_attr_write_mode_spectrum(IOUSBDeviceInterface **dev)
 {
     UInt16 product = -1;
     (*dev)->GetDeviceProduct(dev, &product);
@@ -189,9 +183,7 @@ size_t razer_mouse_attr_write_mode_spectrum(IOUSBDeviceInterface **dev, const ch
         break;
     }
 
-    razer_send_payload(dev, &report);
-
-    return count;
+    return razer_send_payload(dev, &report, NULL);
 }
 
 /**
@@ -199,7 +191,7 @@ size_t razer_mouse_attr_write_mode_spectrum(IOUSBDeviceInterface **dev, const ch
  *
  * Sets reactive mode when this file is written to. A speed byte and 3 RGB bytes should be written
  */
-size_t razer_mouse_attr_write_mode_reactive(IOUSBDeviceInterface **dev, const char *buf, size_t count)
+bool razer_mouse_attr_write_mode_reactive(IOUSBDeviceInterface **dev, const char *buf, size_t count)
 {
     UInt16 product = -1;
     (*dev)->GetDeviceProduct(dev, &product);
@@ -220,12 +212,11 @@ size_t razer_mouse_attr_write_mode_reactive(IOUSBDeviceInterface **dev, const ch
             break;
         }
 
-        razer_send_payload(dev, &report);
+        return razer_send_payload(dev, &report, NULL);
 
-    } else {
-        printf("razermouse: Reactive only accepts Speed, RGB (4byte)");
     }
-    return count;
+    
+    return false;
 }
 
 /**
@@ -233,7 +224,7 @@ size_t razer_mouse_attr_write_mode_reactive(IOUSBDeviceInterface **dev, const ch
  *
  * Sets breathing mode by writing 1, 3 or 6 bytes
  */
-size_t razer_mouse_attr_write_mode_breath(IOUSBDeviceInterface **dev, const char *buf, size_t count)
+bool razer_mouse_attr_write_mode_breath(IOUSBDeviceInterface **dev, const char *buf, size_t count)
 {
     UInt16 product = -1;
     (*dev)->GetDeviceProduct(dev, &product);
@@ -275,9 +266,7 @@ size_t razer_mouse_attr_write_mode_breath(IOUSBDeviceInterface **dev, const char
         break;
     }
 
-    razer_send_payload(dev, &report);
-
-    return count;
+    return razer_send_payload(dev, &report, NULL);
 }
 
 /**
@@ -285,7 +274,7 @@ size_t razer_mouse_attr_write_mode_breath(IOUSBDeviceInterface **dev, const char
  *
  * Sets charging effect.
  */
-size_t razer_mouse_attr_write_set_charging_effect(IOUSBDeviceInterface **dev, const char *buf, size_t count)
+bool razer_mouse_attr_write_set_charging_effect(IOUSBDeviceInterface **dev, const char *buf, size_t count)
 {
     UInt16 product = -1;
     (*dev)->GetDeviceProduct(dev, &product);
@@ -294,11 +283,10 @@ size_t razer_mouse_attr_write_set_charging_effect(IOUSBDeviceInterface **dev, co
 
     if(count == 1) {
         report = razer_chroma_misc_set_dock_charge_type(buf[0]);
-        razer_send_payload(dev, &report);
+        return razer_send_payload(dev, &report, NULL);
     } else {
-        printf("razermouse: Incorrect number of bytes for setting the charging effect\n");
+        return false;
     }
-    return count;
 }
 
 /**
@@ -306,24 +294,22 @@ size_t razer_mouse_attr_write_set_charging_effect(IOUSBDeviceInterface **dev, co
  *
  * Sets charging colour using 3 RGB bytes
  */
-size_t razer_mouse_attr_write_set_charging_colour(IOUSBDeviceInterface **dev, const char *buf, size_t count)
+bool razer_mouse_attr_write_set_charging_colour(IOUSBDeviceInterface **dev, const char *buf, size_t count)
 {
     UInt16 product = -1;
     (*dev)->GetDeviceProduct(dev, &product);
 
     // First enable static charging effect
     struct razer_report report = razer_chroma_misc_set_dock_charge_type(0x01);
-    razer_send_payload(dev, &report);
+    razer_send_payload(dev, &report, NULL);
 
 
     if(count == 3) {
         report = razer_chroma_standard_set_led_rgb(NOSTORE, BATTERY_LED, (struct razer_rgb*)&buf[0]);
-        razer_send_payload(dev, &report);
+        return razer_send_payload(dev, &report, NULL);
     } else {
-        printf("razermouse: Charging colour mode only accepts RGB (3byte)");
+        return false;
     }
-
-    return count;
 }
 
 /**
@@ -332,7 +318,7 @@ size_t razer_mouse_attr_write_set_charging_colour(IOUSBDeviceInterface **dev, co
  * Sets the brightness to the ASCII number written to this file.
  */
 
-size_t razer_mouse_attr_write_matrix_brightness(IOUSBDeviceInterface **dev, const char *buf, size_t count)
+bool razer_mouse_attr_write_matrix_brightness(IOUSBDeviceInterface **dev, const char *buf, size_t count)
 {
     UInt16 product = -1;
     (*dev)->GetDeviceProduct(dev, &product);
@@ -369,9 +355,8 @@ size_t razer_mouse_attr_write_matrix_brightness(IOUSBDeviceInterface **dev, cons
         report = razer_chroma_standard_set_led_brightness(VARSTORE, BACKLIGHT_LED, brightness);
         break;
     }
-    razer_send_payload(dev, &report);
-
-    return count;
+    
+    return razer_send_payload(dev, &report, NULL);
 }
 
 /**
@@ -379,7 +364,7 @@ size_t razer_mouse_attr_write_matrix_brightness(IOUSBDeviceInterface **dev, cons
  *
  * Sets the low battery blink threshold to the ASCII number written to this file.
  */
-size_t razer_mouse_attr_write_set_low_battery_threshold(IOUSBDeviceInterface **dev, const char *buf, size_t count)
+bool razer_mouse_attr_write_set_low_battery_threshold(IOUSBDeviceInterface **dev, const char *buf, size_t count)
 {
     UInt16 product = -1;
     (*dev)->GetDeviceProduct(dev, &product);
@@ -387,6 +372,5 @@ size_t razer_mouse_attr_write_set_low_battery_threshold(IOUSBDeviceInterface **d
     unsigned char threshold = (unsigned char)strtol(buf, NULL, 10);
     struct razer_report report = razer_chroma_misc_set_low_battery_threshold(threshold);
 
-    razer_send_payload(dev, &report);
-    return count;
+    return razer_send_payload(dev, &report, NULL);
 }

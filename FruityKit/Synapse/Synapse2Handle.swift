@@ -6,6 +6,10 @@
 //  Copyright © 2020 Eduardo Almeida. All rights reserved.
 //
 
+//  TODO: Investigate the `speed` parameter on both `reactive`
+//  and `starlight`. It doesn't appear to be doing anything
+//  (and, worse, appears to need to be 1 on reactive).
+
 import Foundation
 
 public class Synapse2Handle: SynapseHandle {
@@ -50,6 +54,12 @@ public class Synapse2Handle: SynapseHandle {
     }
     
     public let usbId: Int32
+    
+    var supportedModes: [BasicMode] {
+        assertionFailure("This class must be overidden.")
+        
+        return []
+    }
     
     public func read() {
         fatalError("Not implemented.")
@@ -105,11 +115,35 @@ public class Synapse2Handle: SynapseHandle {
             return write(mode: BasicMode(mode: mode), deviceInterface: deviceInterface, data: ptr, count: 3)
             
         case .starlight(let speed, let color1, let color2):
-            return false
+            let color1Ptr = color1.cArray
+            let color2Ptr = color2.cArray
+            
+            let intermediatePtr = UnsafeMutablePointer<UInt8>.allocate(capacity: 7)
+            
+            defer {
+                intermediatePtr.deallocate()
+            }
+            
+            intermediatePtr.pointee = UInt8(speed)
+            intermediatePtr.advanced(by: 1).pointee = color1Ptr.pointee
+            intermediatePtr.advanced(by: 2).pointee = color1Ptr.advanced(by: 1).pointee
+            intermediatePtr.advanced(by: 3).pointee = color1Ptr.advanced(by: 2).pointee
+            intermediatePtr.advanced(by: 4).pointee = color2Ptr.pointee
+            intermediatePtr.advanced(by: 5).pointee = color2Ptr.advanced(by: 1).pointee
+            intermediatePtr.advanced(by: 6).pointee = color2Ptr.advanced(by: 2).pointee
+            
+            let ptr = UnsafeRawPointer(intermediatePtr).assumingMemoryBound(to: Int8.self)
+            
+            //  No need to deallocate `ptr` since we aren't allocating anything, just
+            //  changing the type of `intermediatePtr`.
+            
+            return write(mode: BasicMode(mode: mode), deviceInterface: deviceInterface, data: ptr, count: 7)
         }
     }
     
     func write(mode: BasicMode, deviceInterface: UnsafeMutablePointer<UnsafeMutablePointer<IOUSBDeviceInterface>?>?, data: UnsafePointer<Int8>!, count: Int) -> Bool {
+        assertionFailure("This class must be overidden.")
+        
         return false
     }
 }

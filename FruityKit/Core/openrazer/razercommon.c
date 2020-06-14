@@ -200,5 +200,5 @@ void razer_set_device_mode(IOUSBDeviceInterface **dev, unsigned char mode, unsig
         break;
     }
 
-    razer_send_payload(dev, &report);
+    razer_send_payload(dev, &report, NULL);
 }

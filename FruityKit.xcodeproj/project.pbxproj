@@ -29,6 +29,7 @@
 		A01649522448EC990017FF4B /* FruityKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A01648FE2448D0910017FF4B /* FruityKit.framework */; };
 		A01649592448EEE70017FF4B /* SynapseHandle.swift in Sources */ = {isa = PBXBuildFile; fileRef = A01649582448EEE70017FF4B /* SynapseHandle.swift */; };
 		A0569E41247746B000D98B41 /* VersionedRazerDevice.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0569E40247746B000D98B41 /* VersionedRazerDevice.swift */; };
+		A08E1F68249640EF00D13454 /* DeviceQuery+Devices.h in Headers */ = {isa = PBXBuildFile; fileRef = A08E1F67249640EF00D13454 /* DeviceQuery+Devices.h */; settings = {ATTRIBUTES = (Private, ); }; };
 		A0AC448D244CAB8C003CEDB4 /* Synapse2Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0AC448C244CAB8C003CEDB4 /* Synapse2Tests.swift */; };
 		A0AC448F244CAB93003CEDB4 /* Synapse3Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0AC448E244CAB93003CEDB4 /* Synapse3Tests.swift */; };
 		A0ADA487244D22DA00FEAA12 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0ADA486244D22DA00FEAA12 /* Extensions.swift */; };
@@ -85,6 +86,7 @@
 		A01649512448EC990017FF4B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A01649582448EEE70017FF4B /* SynapseHandle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SynapseHandle.swift; sourceTree = "<group>"; };
 		A0569E40247746B000D98B41 /* VersionedRazerDevice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VersionedRazerDevice.swift; sourceTree = "<group>"; };
+		A08E1F67249640EF00D13454 /* DeviceQuery+Devices.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "DeviceQuery+Devices.h"; sourceTree = "<group>"; };
 		A0AC448C244CAB8C003CEDB4 /* Synapse2Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Synapse2Tests.swift; sourceTree = "<group>"; };
 		A0AC448E244CAB93003CEDB4 /* Synapse3Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Synapse3Tests.swift; sourceTree = "<group>"; };
 		A0ADA486244D22DA00FEAA12 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
@@ -162,6 +164,7 @@
 			isa = PBXGroup;
 			children = (
 				A01649102448D0B50017FF4B /* openrazer */,
+				A08E1F67249640EF00D13454 /* DeviceQuery+Devices.h */,
 				A016490F2448D0B50017FF4B /* DeviceQuery.h */,
 				A016490B2448D0B50017FF4B /* DeviceQuery.c */,
 				A016490A2448D0B50017FF4B /* RazerSoftwareChroma.h */,
@@ -260,6 +263,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A0C838582495B3C1009A4912 /* USBDeviceIdentifiers.h in Headers */,
+				A08E1F68249640EF00D13454 /* DeviceQuery+Devices.h in Headers */,
 				A01649172448D0B50017FF4B /* RazerSoftwareChroma.h in Headers */,
 				A016491C2448D0B50017FF4B /* DeviceQuery.h in Headers */,
 				A0C838622495B8EA009A4912 /* razermouse_driver.h in Headers */,

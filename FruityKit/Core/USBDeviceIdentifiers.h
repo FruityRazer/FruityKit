@@ -28,6 +28,8 @@
 #ifndef USBDeviceIdentifiers_h
 #define USBDeviceIdentifiers_h
 
+//  Keyboards
+
 #define USB_DEVICE_ID_RAZER_BLACKWIDOW_ULTIMATE_2012 0x010D
 // 2011 or so edition, see https://web.archive.org/web/20111113132427/http://store.razerzone.com:80/store/razerusa/en_US/pd/productID.235228400/categoryId.49136200/parentCategoryId.35156900
 #define USB_DEVICE_ID_RAZER_BLACKWIDOW_STEALTH_EDITION 0x010E
@@ -80,6 +82,8 @@
 #define USB_DEVICE_ID_RAZER_BLADE_STEALTH_LATE_2019 0x024a
 #define USB_DEVICE_ID_RAZER_BLADE_PRO_LATE_2019 0x024C
 #define USB_DEVICE_ID_RAZER_BLADE_STUDIO_EDITION_2019 0x024d
+
+//  Mice
 
 #define USB_DEVICE_ID_RAZER_OROCHI_2011 0x0013
 #define USB_DEVICE_ID_RAZER_DEATHADDER_3_5G 0x0016

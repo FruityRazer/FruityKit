@@ -10,6 +10,7 @@ framework module FruityKit {
         private header "USBCommon.h"
         private header "USBDeviceIdentifiers.h"
         private header "DeviceQuery.h"
+        private header "DeviceQuery+Devices.h"
     }
     
     export *

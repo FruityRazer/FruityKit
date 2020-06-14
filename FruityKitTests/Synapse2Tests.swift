@@ -34,7 +34,7 @@ class Synapse2Tests: XCTestCase {
     }
     
     func testHuntsmanElite_reactive() {
-        XCTAssertTrue(huntsmanEliteHWDriver.write(mode: .reactive(speed: 100, color: .white)))
+        XCTAssertTrue(huntsmanEliteHWDriver.write(mode: .reactive(speed: 1, color: .white)))
     }
     
     func testHuntsmanElite_static() {

@@ -53,34 +53,42 @@ IOReturn razer_get_report(IOUSBDeviceInterface **dev, struct razer_report *reque
     return razer_get_usb_response(dev, 0x00, request_report, 0x00, response_report);
 }
 
-struct razer_report razer_send_payload(IOUSBDeviceInterface **dev, struct razer_report *request_report) {
+bool razer_send_payload(IOUSBDeviceInterface **dev, struct razer_report *request_report, struct razer_report *response_report) {
     IOReturn retval = -1;
     
-    struct razer_report response_report = {0};
+    struct razer_report *loc_response_report = (struct razer_report *)malloc(sizeof(struct razer_report));
+    memset(loc_response_report, 0, sizeof(struct razer_report));
+    
     request_report->crc = razer_calculate_crc(request_report);
     
-    retval = razer_get_report(dev, request_report, &response_report);
+    retval = razer_get_report(dev, request_report, loc_response_report);
     
     if (retval == kIOReturnSuccess) {
         // Check the packet number, class and command are the same
-        if(response_report.remaining_packets != request_report->remaining_packets ||
-           response_report.command_class != request_report->command_class ||
-           response_report.command_id.id != request_report->command_id.id) {
-            printf("Response doesnt match request\n");
-        } else if (response_report.status == RAZER_CMD_BUSY) {
-            printf("Device is busy\n");
-        } else if (response_report.status == RAZER_CMD_FAILURE) {
-            printf("Command failed\n");
-        } else if (response_report.status == RAZER_CMD_NOT_SUPPORTED) {
-            printf("Command not supported\n");
-        } else if (response_report.status == RAZER_CMD_TIMEOUT) {
-            printf("Command timed out\n");
+        if(request_report->remaining_packets != loc_response_report->remaining_packets ||
+           request_report->command_class != loc_response_report->command_class ||
+           request_report->command_id.id != loc_response_report->command_id.id) {
+            return false;
+        } else if (loc_response_report->status == RAZER_CMD_BUSY) {
+            return false;
+        } else if (loc_response_report->status == RAZER_CMD_FAILURE) {
+            return false;
+        } else if (loc_response_report->status == RAZER_CMD_NOT_SUPPORTED) {
+            return false;
+        } else if (loc_response_report->status == RAZER_CMD_TIMEOUT) {
+            return false;
         }
     } else {
-        printf("Invalid Report Length");
+        return false;
     }
     
-    return response_report;
+    if (response_report != NULL) {
+        response_report = loc_response_report;
+    } else {
+        free(loc_response_report);
+    }
+    
+    return true;
 }
 
 UInt16 get_device_id(IOUSBDeviceInterface **dev) {
