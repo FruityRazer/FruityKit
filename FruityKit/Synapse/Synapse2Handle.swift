@@ -23,7 +23,7 @@ public class Synapse2Handle: SynapseHandle {
         case wave(direction: Direction)
     }
     
-    enum BasicMode {
+    public enum BasicMode {
         case breath
         case reactive
         case spectrum
@@ -55,7 +55,7 @@ public class Synapse2Handle: SynapseHandle {
     
     public let usbId: Int32
     
-    var supportedModes: [BasicMode] {
+    public var supportedModes: [BasicMode] {
         assertionFailure("This class must be overidden.")
         
         return []
