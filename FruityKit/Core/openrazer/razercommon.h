@@ -36,6 +36,8 @@
 #define RED_PROFILE_LED   0x0E
 #define GREEN_PROFILE_LED 0x0C
 #define BLUE_PROFILE_LED  0x0D
+#define RIGHT_SIDE_LED    0x10
+#define LEFT_SIDE_LED     0x11
 
 // LED STORAGE Options
 #define NOSTORE          0x00

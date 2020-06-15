@@ -34,7 +34,8 @@
 
 IOReturn perform_razer_usb_call(IOUSBDeviceInterface **dev, void *data, uint report_index);
 IOReturn razer_get_report(IOUSBDeviceInterface **dev, struct razer_report *request_report, struct razer_report *response_report);
-bool razer_send_payload(IOUSBDeviceInterface **dev, struct razer_report *request_report, struct razer_report *response_report);
+bool razer_send_payload(IOUSBDeviceInterface **dev, struct razer_report *request_report);
+bool razer_send_payload3(IOUSBDeviceInterface **dev, struct razer_report *request_report, struct razer_report *response_report);
 UInt16 get_device_id(IOUSBDeviceInterface **dev);
 
 #endif /* USBCommon_h */

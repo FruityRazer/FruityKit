@@ -189,16 +189,33 @@ void razer_set_device_mode(IOUSBDeviceInterface **dev, unsigned char mode, unsig
     }
 
     switch(product) {
-    case USB_DEVICE_ID_RAZER_BLACKWIDOW_LITE:
-    case USB_DEVICE_ID_RAZER_ORNATA:
-    case USB_DEVICE_ID_RAZER_ORNATA_CHROMA:
-    case USB_DEVICE_ID_RAZER_CYNOSA_CHROMA:
-        report.transaction_id.id = 0x3F;
-        break;
-    case USB_DEVICE_ID_RAZER_BLACKWIDOW_ELITE:
-        report.transaction_id.id = 0x1F;
-        break;
+        case USB_DEVICE_ID_RAZER_BLACKWIDOW_LITE:
+        case USB_DEVICE_ID_RAZER_ORNATA:
+        case USB_DEVICE_ID_RAZER_ORNATA_CHROMA:
+        case USB_DEVICE_ID_RAZER_CYNOSA_CHROMA:
+        case USB_DEVICE_ID_RAZER_NAGA_HEX_V2:
+        case USB_DEVICE_ID_RAZER_DEATHADDER_ELITE:
+        case USB_DEVICE_ID_RAZER_LANCEHEAD_WIRED:
+        case USB_DEVICE_ID_RAZER_LANCEHEAD_WIRELESS:
+        case USB_DEVICE_ID_RAZER_LANCEHEAD_TE_WIRED:
+        case USB_DEVICE_ID_RAZER_LANCEHEAD_WIRELESS_RECEIVER:
+        case USB_DEVICE_ID_RAZER_LANCEHEAD_WIRELESS_WIRED:
+        case USB_DEVICE_ID_RAZER_MAMBA_WIRELESS_RECEIVER:
+        case USB_DEVICE_ID_RAZER_MAMBA_WIRELESS_WIRED:
+        case USB_DEVICE_ID_RAZER_BASILISK:
+        case USB_DEVICE_ID_RAZER_DEATHADDER_V2:
+            report.transaction_id.id = 0x3F;
+            break;
+            
+        case USB_DEVICE_ID_RAZER_BLACKWIDOW_ELITE:
+        case USB_DEVICE_ID_RAZER_MAMBA_ELITE:
+            report.transaction_id.id = 0x1F;
+            break;
+            
+        case USB_DEVICE_ID_RAZER_OROCHI_2011:  // Doesn't have device mode
+        case USB_DEVICE_ID_RAZER_DEATHADDER_3_5G: // Doesn't support device mode, exit early
+            return;
     }
 
-    razer_send_payload(dev, &report, NULL);
+    razer_send_payload(dev, &report);
 }

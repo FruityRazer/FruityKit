@@ -53,7 +53,11 @@ IOReturn razer_get_report(IOUSBDeviceInterface **dev, struct razer_report *reque
     return razer_get_usb_response(dev, 0x00, request_report, 0x00, response_report);
 }
 
-bool razer_send_payload(IOUSBDeviceInterface **dev, struct razer_report *request_report, struct razer_report *response_report) {
+bool razer_send_payload(IOUSBDeviceInterface **dev, struct razer_report *request_report) {
+    return razer_send_payload3(dev, request_report, NULL);
+}
+
+bool razer_send_payload3(IOUSBDeviceInterface **dev, struct razer_report *request_report, struct razer_report *response_report) {
     IOReturn retval = -1;
     
     struct razer_report *loc_response_report = (struct razer_report *)malloc(sizeof(struct razer_report));
@@ -69,8 +73,8 @@ bool razer_send_payload(IOUSBDeviceInterface **dev, struct razer_report *request
            request_report->command_class != loc_response_report->command_class ||
            request_report->command_id.id != loc_response_report->command_id.id) {
             return false;
-        } else if (loc_response_report->status == RAZER_CMD_BUSY) {
-            return false;
+//        } else if (loc_response_report->status == RAZER_CMD_BUSY) {
+//            return false;
         } else if (loc_response_report->status == RAZER_CMD_FAILURE) {
             return false;
         } else if (loc_response_report->status == RAZER_CMD_NOT_SUPPORTED) {

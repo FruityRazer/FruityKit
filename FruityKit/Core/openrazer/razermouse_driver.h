@@ -18,6 +18,8 @@
 bool razer_mouse_attr_write_mode_none(IOUSBDeviceInterface **dev, const char *buf, size_t count);
 bool razer_mouse_attr_write_mode_custom(IOUSBDeviceInterface **dev, const char *buf, size_t count);
 bool razer_mouse_attr_write_mode_static(IOUSBDeviceInterface **dev, const char *buf, size_t count);
+bool razer_mouse_attr_write_logo_led_effect(IOUSBDeviceInterface **usb_dev, const char *buf, size_t count);
+bool razer_mouse_attr_write_logo_led_rgb(IOUSBDeviceInterface **usb_dev, const char *buf, size_t count);
 bool razer_mouse_attr_write_mode_wave(IOUSBDeviceInterface **dev, const char *buf, size_t count);
 bool razer_mouse_attr_write_mode_spectrum(IOUSBDeviceInterface **dev);
 bool razer_mouse_attr_write_mode_reactive(IOUSBDeviceInterface **dev, const char *buf, size_t count);
@@ -26,5 +28,40 @@ bool razer_mouse_attr_write_set_charging_effect(IOUSBDeviceInterface **dev, cons
 bool razer_mouse_attr_write_set_charging_colour(IOUSBDeviceInterface **dev, const char *buf, size_t count);
 bool razer_mouse_attr_write_matrix_brightness(IOUSBDeviceInterface **dev, const char *buf, size_t count);
 bool razer_mouse_attr_write_set_low_battery_threshold(IOUSBDeviceInterface **dev, const char *buf, size_t count);
+
+//
+
+bool razer_mouse_attr_write_scroll_mode_wave(IOUSBDeviceInterface **usb_dev, const char *buf, size_t count);
+bool razer_mouse_attr_write_scroll_mode_static(IOUSBDeviceInterface **usb_dev, const char *buf, size_t count);
+bool razer_mouse_attr_write_scroll_mode_spectrum(IOUSBDeviceInterface **usb_dev, const char *buf, size_t count);
+bool razer_mouse_attr_write_scroll_mode_reactive(IOUSBDeviceInterface **usb_dev, const char *buf, size_t count);
+bool razer_mouse_attr_write_scroll_mode_breath(IOUSBDeviceInterface **usb_dev, const char *buf, size_t count);
+bool razer_mouse_attr_write_scroll_mode_none(IOUSBDeviceInterface **usb_dev, const char *buf, size_t count);
+
+bool razer_mouse_attr_write_logo_mode_wave(IOUSBDeviceInterface **usb_dev, const char *buf, size_t count);
+bool razer_mouse_attr_write_logo_mode_spectrum(IOUSBDeviceInterface **usb_dev, const char *buf, size_t count);
+bool razer_mouse_attr_write_logo_mode_reactive(IOUSBDeviceInterface **usb_dev, const char *buf, size_t count);
+bool razer_mouse_attr_write_logo_mode_breath(IOUSBDeviceInterface **usb_dev, const char *buf, size_t count);
+bool razer_mouse_attr_write_logo_mode_static(IOUSBDeviceInterface **usb_dev, const char *buf, size_t count);
+bool razer_mouse_attr_write_logo_mode_none(IOUSBDeviceInterface **usb_dev, const char *buf, size_t count);
+
+bool razer_mouse_attr_write_side_mode_wave(IOUSBDeviceInterface **usb_dev, const char *buf, size_t count, int side);
+bool razer_mouse_attr_write_left_mode_wave(IOUSBDeviceInterface **usb_dev, const char *buf, size_t count);
+bool razer_mouse_attr_write_right_mode_wave(IOUSBDeviceInterface **usb_dev, const char *buf, size_t count);
+bool razer_mouse_attr_write_side_mode_spectrum(IOUSBDeviceInterface **usb_dev, const char *buf, size_t count, int side);
+bool razer_mouse_attr_write_left_mode_spectrum(IOUSBDeviceInterface **usb_dev, const char *buf, size_t count);
+bool razer_mouse_attr_write_right_mode_spectrum(IOUSBDeviceInterface **usb_dev, const char *buf, size_t count);
+bool razer_mouse_attr_write_side_mode_reactive(IOUSBDeviceInterface **usb_dev, const char *buf, size_t count, int side);
+bool razer_mouse_attr_write_left_mode_reactive(IOUSBDeviceInterface **usb_dev, const char *buf, size_t count);
+bool razer_mouse_attr_write_right_mode_reactive(IOUSBDeviceInterface **usb_dev, const char *buf, size_t count);
+bool razer_mouse_attr_write_side_mode_breath(IOUSBDeviceInterface **usb_dev, const char *buf, size_t count, int side);
+bool razer_mouse_attr_write_left_mode_breath(IOUSBDeviceInterface **usb_dev, const char *buf, size_t count);
+bool razer_mouse_attr_write_right_mode_breath(IOUSBDeviceInterface **usb_dev, const char *buf, size_t count);
+bool razer_mouse_attr_write_side_mode_static(IOUSBDeviceInterface **usb_dev, const char *buf, size_t count, int side);
+bool razer_mouse_attr_write_left_mode_static(IOUSBDeviceInterface **usb_dev, const char *buf, size_t count);
+bool razer_mouse_attr_write_right_mode_static(IOUSBDeviceInterface **usb_dev, const char *buf, size_t count);
+bool razer_mouse_attr_write_side_mode_none(IOUSBDeviceInterface **usb_dev, const char *buf, size_t count, int side);
+bool razer_mouse_attr_write_left_mode_none(IOUSBDeviceInterface **usb_dev, const char *buf, size_t count);
+bool razer_mouse_attr_write_right_mode_none(IOUSBDeviceInterface **usb_dev, const char *buf, size_t count);
 
 #endif
