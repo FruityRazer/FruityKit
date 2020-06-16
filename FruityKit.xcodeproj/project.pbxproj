@@ -30,6 +30,8 @@
 		A01649592448EEE70017FF4B /* SynapseHandle.swift in Sources */ = {isa = PBXBuildFile; fileRef = A01649582448EEE70017FF4B /* SynapseHandle.swift */; };
 		A0569E41247746B000D98B41 /* VersionedRazerDevice.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0569E40247746B000D98B41 /* VersionedRazerDevice.swift */; };
 		A08E1F68249640EF00D13454 /* DeviceQuery+Devices.h in Headers */ = {isa = PBXBuildFile; fileRef = A08E1F67249640EF00D13454 /* DeviceQuery+Devices.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		A0A091A42498AEDD00BE8AE7 /* PerformClosures.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0A091A32498AEDD00BE8AE7 /* PerformClosures.swift */; };
+		A0A091A62498AF0200BE8AE7 /* PerformClosuresTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0A091A52498AF0200BE8AE7 /* PerformClosuresTests.swift */; };
 		A0AC448D244CAB8C003CEDB4 /* Synapse2Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0AC448C244CAB8C003CEDB4 /* Synapse2Tests.swift */; };
 		A0AC448F244CAB93003CEDB4 /* Synapse3Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0AC448E244CAB93003CEDB4 /* Synapse3Tests.swift */; };
 		A0ADA487244D22DA00FEAA12 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0ADA486244D22DA00FEAA12 /* Extensions.swift */; };
@@ -87,6 +89,8 @@
 		A01649582448EEE70017FF4B /* SynapseHandle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SynapseHandle.swift; sourceTree = "<group>"; };
 		A0569E40247746B000D98B41 /* VersionedRazerDevice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VersionedRazerDevice.swift; sourceTree = "<group>"; };
 		A08E1F67249640EF00D13454 /* DeviceQuery+Devices.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "DeviceQuery+Devices.h"; sourceTree = "<group>"; };
+		A0A091A32498AEDD00BE8AE7 /* PerformClosures.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PerformClosures.swift; sourceTree = "<group>"; };
+		A0A091A52498AF0200BE8AE7 /* PerformClosuresTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PerformClosuresTests.swift; sourceTree = "<group>"; };
 		A0AC448C244CAB8C003CEDB4 /* Synapse2Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Synapse2Tests.swift; sourceTree = "<group>"; };
 		A0AC448E244CAB93003CEDB4 /* Synapse3Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Synapse3Tests.swift; sourceTree = "<group>"; };
 		A0ADA486244D22DA00FEAA12 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
@@ -153,6 +157,7 @@
 				A01649442448DEDB0017FF4B /* Device.swift */,
 				A0C838652495BA6C009A4912 /* Driver.swift */,
 				A01649382448D1150017FF4B /* FruityRazer.swift */,
+				A0A091A32498AEDD00BE8AE7 /* PerformClosures.swift */,
 				A01649462448E2650017FF4B /* RazerDevice.swift */,
 				A0569E40247746B000D98B41 /* VersionedRazerDevice.swift */,
 				A01649482448E27A0017FF4B /* Supporting Files */,
@@ -219,6 +224,7 @@
 				A0ADA486244D22DA00FEAA12 /* Extensions.swift */,
 				A016494F2448EC990017FF4B /* FruityKitTests.swift */,
 				A0B1FDD3248ECCCC00E07C79 /* LightsOutTests.swift */,
+				A0A091A52498AF0200BE8AE7 /* PerformClosuresTests.swift */,
 				A0AC448C244CAB8C003CEDB4 /* Synapse2Tests.swift */,
 				A0AC448E244CAB93003CEDB4 /* Synapse3Tests.swift */,
 				A01649512448EC990017FF4B /* Info.plist */,
@@ -385,6 +391,7 @@
 				A01649472448E2650017FF4B /* RazerDevice.swift in Sources */,
 				A016491B2448D0B50017FF4B /* USBCommon.c in Sources */,
 				A0C838662495BA6C009A4912 /* Driver.swift in Sources */,
+				A0A091A42498AEDD00BE8AE7 /* PerformClosures.swift in Sources */,
 				A01649592448EEE70017FF4B /* SynapseHandle.swift in Sources */,
 				A0C838632495B8EA009A4912 /* razermouse_driver.c in Sources */,
 				A01649412448DDD60017FF4B /* Synapse3Handle.swift in Sources */,
@@ -404,6 +411,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A0A091A62498AF0200BE8AE7 /* PerformClosuresTests.swift in Sources */,
 				A0AC448D244CAB8C003CEDB4 /* Synapse2Tests.swift in Sources */,
 				A01649502448EC990017FF4B /* FruityKitTests.swift in Sources */,
 				A0AC448F244CAB93003CEDB4 /* Synapse3Tests.swift in Sources */,
@@ -549,7 +557,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 10;
+				CURRENT_PROJECT_VERSION = 11;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = 3D7R27DBRZ;
 				DYLIB_COMPATIBILITY_VERSION = 1;
@@ -579,7 +587,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 10;
+				CURRENT_PROJECT_VERSION = 11;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = 3D7R27DBRZ;
 				DYLIB_COMPATIBILITY_VERSION = 1;
