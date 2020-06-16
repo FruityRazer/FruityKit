@@ -6,22 +6,63 @@
 //  Copyright © 2020 Eduardo Almeida. All rights reserved.
 //
 
+//  TODO: Investigate the `speed` parameter on both `reactive`
+//  and `starlight`. It doesn't appear to be doing anything
+//  (and, worse, appears to need to be 1 on reactive).
+
 import Foundation
 
-public struct Synapse2Handle: SynapseHandle {
+public class Synapse2Handle: SynapseHandle {
     
     public enum Mode {
-        case wave(direction: Direction)
-        case spectrum
-        case reactive(speed: Int, color: Color)
-        case `static`(color: Color)
         case breath(color: Color)
+        case reactive(speed: Int, color: Color)
+        case spectrum
+        case starlight(speed: Int, color1: Color, color2: Color)
+        case `static`(color: Color)
+        case wave(direction: Direction)
+    }
+    
+    public enum BasicMode {
+        case breath
+        case reactive
+        case spectrum
+        case starlight
+        case `static`
+        case wave
+        
+        init(mode: Mode) {
+            switch mode {
+            case .breath:
+                self = .breath
+            case .reactive:
+                self = .reactive
+            case .spectrum:
+                self = .spectrum
+            case .starlight:
+                self = .starlight
+            case .static:
+                self = .static
+            case .wave:
+                self = .wave
+            }
+        }
+    }
+    
+    init(usbId: Int32) {
+        self.usbId = usbId
     }
     
     public let usbId: Int32
     
-    public func read() {
+    public var supportedModes: [BasicMode] {
+        assertionFailure("This class must be overidden.")
         
+        return []
+    }
+    
+    public func read() {
+        fatalError("Not implemented.")
     }
     
     public func write(mode: Mode) -> Bool {
@@ -38,10 +79,10 @@ public struct Synapse2Handle: SynapseHandle {
             let ptr = UnsafeMutablePointer<Int8>.allocate(capacity: 1)
             ptr.pointee = Int8(direction.rawValue)
             
-            razer_attr_write_mode_wave(deviceInterface, ptr, 1)
+            return write(mode: BasicMode(mode: mode), deviceInterface: deviceInterface, data: ptr, count: 1)
             
         case .spectrum:
-            razer_attr_write_mode_spectrum(deviceInterface)
+            return write(mode: BasicMode(mode: mode), deviceInterface: deviceInterface, data: nil, count: 0)
             
         case .reactive(let speed, let color):
             let colorPtr = color.cArray
@@ -62,31 +103,58 @@ public struct Synapse2Handle: SynapseHandle {
             //  No need to deallocate `ptr` since we aren't allocating anything, just
             //  changing the type of `intermediatePtr`.
             
-            razer_attr_write_mode_reactive(deviceInterface, ptr, 4)
+            return write(mode: BasicMode(mode: mode), deviceInterface: deviceInterface, data: ptr, count: 4)
             
-        case .`static`(let color):
+        case .`static`(let color), .breath(let color):
             let ptr = UnsafeRawPointer(color.cArray).assumingMemoryBound(to: Int8.self)
             
             defer {
                 ptr.deallocate()
             }
             
-            razer_attr_write_mode_static(deviceInterface, ptr, 3)
+            return write(mode: BasicMode(mode: mode), deviceInterface: deviceInterface, data: ptr, count: 3)
             
-        case .breath(let color):
-            let ptr = UnsafeRawPointer(color.cArray).assumingMemoryBound(to: Int8.self)
+        case .starlight(let speed, let color1, let color2):
+            let color1Ptr = color1.cArray
+            let color2Ptr = color2.cArray
+            
+            let intermediatePtr = UnsafeMutablePointer<UInt8>.allocate(capacity: 7)
             
             defer {
-                ptr.deallocate()
+                intermediatePtr.deallocate()
             }
             
-            razer_attr_write_mode_breath(deviceInterface, ptr, 3)
+            intermediatePtr.pointee = UInt8(speed)
+            intermediatePtr.advanced(by: 1).pointee = color1Ptr.pointee
+            intermediatePtr.advanced(by: 2).pointee = color1Ptr.advanced(by: 1).pointee
+            intermediatePtr.advanced(by: 3).pointee = color1Ptr.advanced(by: 2).pointee
+            intermediatePtr.advanced(by: 4).pointee = color2Ptr.pointee
+            intermediatePtr.advanced(by: 5).pointee = color2Ptr.advanced(by: 1).pointee
+            intermediatePtr.advanced(by: 6).pointee = color2Ptr.advanced(by: 2).pointee
+            
+            let ptr = UnsafeRawPointer(intermediatePtr).assumingMemoryBound(to: Int8.self)
+            
+            //  No need to deallocate `ptr` since we aren't allocating anything, just
+            //  changing the type of `intermediatePtr`.
+            
+            return write(mode: BasicMode(mode: mode), deviceInterface: deviceInterface, data: ptr, count: 7)
         }
+    }
+    
+    func write(mode: BasicMode, deviceInterface: UnsafeMutablePointer<UnsafeMutablePointer<IOUSBDeviceInterface>?>?, data: UnsafePointer<Int8>!, count: Int) -> Bool {
+        assertionFailure("This class must be overidden.")
         
-        return true
+        return false
     }
 }
 
 extension Synapse2Handle: Hashable {
     
+    public static func == (lhs: Synapse2Handle, rhs: Synapse2Handle) -> Bool {
+        return lhs.usbId == rhs.usbId
+    }
+    
+    public func hash(into hasher: inout Hasher) {
+        return hasher.combine(ObjectIdentifier(self))
+    }
 }

@@ -7,8 +7,10 @@
 //
 
 #include "razercommon.h"
+#include "razerchromacommon.h"
 
 #include "USBCommon.h"
+#include "USBDeviceIdentifiers.h"
 
 /**
  * Send USB control report to the keyboard
@@ -143,4 +145,77 @@ unsigned short clamp_u16(unsigned short value, unsigned short min, unsigned shor
     if(value < min)
         return min;
     return value;
+}
+
+bool is_blade_laptop(IOUSBDeviceInterface **usb_dev) {
+    UInt16 product = -1;
+    (*usb_dev)->GetDeviceProduct(usb_dev, &product);
+    
+    switch (product) {
+        case USB_DEVICE_ID_RAZER_BLADE_STEALTH:
+        case USB_DEVICE_ID_RAZER_BLADE_STEALTH_LATE_2016:
+        case USB_DEVICE_ID_RAZER_BLADE_PRO_LATE_2016:
+        case USB_DEVICE_ID_RAZER_BLADE_2018:
+        case USB_DEVICE_ID_RAZER_BLADE_2018_MERCURY:
+        case USB_DEVICE_ID_RAZER_BLADE_2018_BASE:
+        case USB_DEVICE_ID_RAZER_BLADE_2019_ADV:
+        case USB_DEVICE_ID_RAZER_BLADE_MID_2019_MERCURY:
+        case USB_DEVICE_ID_RAZER_BLADE_STUDIO_EDITION_2019:
+        case USB_DEVICE_ID_RAZER_BLADE_QHD:
+        case USB_DEVICE_ID_RAZER_BLADE_LATE_2016:
+        case USB_DEVICE_ID_RAZER_BLADE_STEALTH_MID_2017:
+        case USB_DEVICE_ID_RAZER_BLADE_STEALTH_LATE_2017:
+        case USB_DEVICE_ID_RAZER_BLADE_STEALTH_2019:
+        case USB_DEVICE_ID_RAZER_BLADE_PRO_2017:
+        case USB_DEVICE_ID_RAZER_BLADE_PRO_2017_FULLHD:
+        case USB_DEVICE_ID_RAZER_BLADE_2019_BASE:
+        case USB_DEVICE_ID_RAZER_BLADE_STEALTH_LATE_2019:
+        case USB_DEVICE_ID_RAZER_BLADE_PRO_2019:
+        case USB_DEVICE_ID_RAZER_BLADE_PRO_LATE_2019:
+            return true;
+    }
+    
+    return false;
+}
+
+void razer_set_device_mode(IOUSBDeviceInterface **dev, unsigned char mode, unsigned char param) {
+    UInt16 product = -1;
+    (*dev)->GetDeviceProduct(dev, &product);
+    
+    struct razer_report report = razer_chroma_standard_set_device_mode(mode, param);
+
+    if (is_blade_laptop(dev)) {
+        return;
+    }
+
+    switch(product) {
+        case USB_DEVICE_ID_RAZER_BLACKWIDOW_LITE:
+        case USB_DEVICE_ID_RAZER_ORNATA:
+        case USB_DEVICE_ID_RAZER_ORNATA_CHROMA:
+        case USB_DEVICE_ID_RAZER_CYNOSA_CHROMA:
+        case USB_DEVICE_ID_RAZER_NAGA_HEX_V2:
+        case USB_DEVICE_ID_RAZER_DEATHADDER_ELITE:
+        case USB_DEVICE_ID_RAZER_LANCEHEAD_WIRED:
+        case USB_DEVICE_ID_RAZER_LANCEHEAD_WIRELESS:
+        case USB_DEVICE_ID_RAZER_LANCEHEAD_TE_WIRED:
+        case USB_DEVICE_ID_RAZER_LANCEHEAD_WIRELESS_RECEIVER:
+        case USB_DEVICE_ID_RAZER_LANCEHEAD_WIRELESS_WIRED:
+        case USB_DEVICE_ID_RAZER_MAMBA_WIRELESS_RECEIVER:
+        case USB_DEVICE_ID_RAZER_MAMBA_WIRELESS_WIRED:
+        case USB_DEVICE_ID_RAZER_BASILISK:
+        case USB_DEVICE_ID_RAZER_DEATHADDER_V2:
+            report.transaction_id.id = 0x3F;
+            break;
+            
+        case USB_DEVICE_ID_RAZER_BLACKWIDOW_ELITE:
+        case USB_DEVICE_ID_RAZER_MAMBA_ELITE:
+            report.transaction_id.id = 0x1F;
+            break;
+            
+        case USB_DEVICE_ID_RAZER_OROCHI_2011:  // Doesn't have device mode
+        case USB_DEVICE_ID_RAZER_DEATHADDER_3_5G: // Doesn't support device mode, exit early
+            return;
+    }
+
+    razer_send_payload(dev, &report);
 }

@@ -36,6 +36,8 @@
 #define RED_PROFILE_LED   0x0E
 #define GREEN_PROFILE_LED 0x0C
 #define BLUE_PROFILE_LED  0x0D
+#define RIGHT_SIDE_LED    0x10
+#define LEFT_SIDE_LED     0x11
 
 // LED STORAGE Options
 #define NOSTORE          0x00
@@ -112,5 +114,8 @@ struct razer_report get_razer_report(unsigned char transaction_id, unsigned char
 unsigned char razer_calculate_crc(struct razer_report *report);
 unsigned char clamp_u8(unsigned char value, unsigned char min, unsigned char max);
 unsigned short clamp_u16(unsigned short value, unsigned short min, unsigned short max);
+
+bool is_blade_laptop(IOUSBDeviceInterface **usb_dev);
+void razer_set_device_mode(IOUSBDeviceInterface **dev, unsigned char mode, unsigned char param);
 
 #endif

@@ -25,6 +25,20 @@ class Synapse2Tests: XCTestCase {
         return driver
     }
     
+    var basiliskDriver: Synapse2Handle {
+        let devices = FruityRazer.devices
+        
+        let huntsmanEliteHardware = devices.filter { $0.shortName == "basilisk" }[0]
+        
+        guard case let Driver.v2(driver: driver) = huntsmanEliteHardware.driver else {
+            XCTFail("Basilisk not recognized as Synapse 2!")
+            
+            fatalError()
+        }
+        
+        return driver
+    }
+    
     func testHuntsmanElite_wave() {
         XCTAssertTrue(huntsmanEliteHWDriver.write(mode: .wave(direction: .right)))
     }
@@ -34,7 +48,7 @@ class Synapse2Tests: XCTestCase {
     }
     
     func testHuntsmanElite_reactive() {
-        XCTAssertTrue(huntsmanEliteHWDriver.write(mode: .reactive(speed: 100, color: .white)))
+        XCTAssertTrue(huntsmanEliteHWDriver.write(mode: .reactive(speed: 1, color: .white)))
     }
     
     func testHuntsmanElite_static() {
@@ -43,5 +57,37 @@ class Synapse2Tests: XCTestCase {
     
     func testHuntsmanElite_breath() {
         XCTAssertTrue(huntsmanEliteHWDriver.write(mode: .breath(color: .white)))
+    }
+    
+    func testHuntsmanElite_starlight() {
+        XCTAssertTrue(huntsmanEliteHWDriver.write(mode: .starlight(speed: 100,
+                                                                   color1: .white,
+                                                                   color2: .red)))
+    }
+    
+    func testBasilisk_wave() {
+        XCTAssertFalse(basiliskDriver.write(mode: .wave(direction: .right)))
+    }
+    
+    func testBasilisk_spectrum() {
+        XCTAssertTrue(basiliskDriver.write(mode: .spectrum))
+    }
+    
+    func testBasilisk_reactive() {
+        XCTAssertTrue(basiliskDriver.write(mode: .reactive(speed: 1, color: .white)))
+    }
+    
+    func testBasilisk_static() {
+        XCTAssertTrue(basiliskDriver.write(mode: .static(color: .white)))
+    }
+    
+    func testBasilisk_breath() {
+        XCTAssertTrue(basiliskDriver.write(mode: .breath(color: .white)))
+    }
+    
+    func testBasilisk_starlight() {
+        XCTAssertFalse(basiliskDriver.write(mode: .starlight(speed: 100,
+                                                             color1: .white,
+                                                             color2: .red)))
     }
 }

@@ -1,6 +1,6 @@
 //
 //  DeviceQuery.h
-//  fruityrazer
+//  FruityKit
 //
 //  Created by Eduardo Almeida on 07/07/18.
 //  Copyright © 2018 Eduardo Almeida. All rights reserved.
@@ -31,29 +31,7 @@
 #include <IOKit/IOKitLib.h>
 #include <IOKit/usb/IOUSBLib.h>
 
-typedef enum razer_synapse_version {
-    synapse2 = 2,
-    synapse3 = 3
-} razer_synapse_version;
-
-typedef enum device_type {
-    headphones,
-    keyboard,
-    keypad,
-    laptop,
-    misc_basestation,
-    misc_hyperflux,
-    mouse,
-    mousepad
-} razer_device_type;
-
-typedef struct razer_device {
-    const char *shortName;
-    const char *fullName;
-    UInt32 usbId;
-    razer_synapse_version synapse;
-    razer_device_type type;
-} razer_device;
+#include "DeviceQuery+Devices.h"
 
 typedef struct razer_device_r {
     razer_device *devices;

@@ -10,13 +10,12 @@ Open-source Razer drivers for macOS.
 
 Synapse 2 Mode is based on `openrazer`, Synapse 3 Mode was programmed for this project (while still using some ideas from `openrazer`).
 
-## Device Support
+# Device Support
 
-### Hardware-Based Effects (Synapse 2 Mode)
+## Hardware-Based Effects (Synapse 2 Mode)
 
- - Razer ManO' War
- - Razer Mamba
- - Razer Firefly
+### Keyboards
+
  - Razer BlackWidow Ultimate (2012)
  - Razer BlackWidow Stealth Edition
  - Razer Anansi
@@ -68,28 +67,83 @@ Synapse 2 Mode is based on `openrazer`, Synapse 3 Mode was programmed for this p
  - Razer Blade Stealth (Late 2019)
  - Razer Blade Pro (Late 2019)
  - Razer Blade Studio Edition (2019)
+ 
+### Mice
 
-### Software-Based Effects (Synapse 3 Mode)
+ - Razer Orochi (2011)
+ - Razer Deathadder 3.5G
+ - Razer Abyssus (1800 DPI)
+ - Razer Mamba (2012)
+ - Razer Mamba Wireless (2012)
+ - Razer Naga (2012)
+ - Razer Imperator
+ - Razer Ouroboros
+ - Razer Taipan
+ - Razer Naga Hex Red
+ - Razer Deathadder (2013)
+ - Razer Deathadder (1800 DPI)
+ - Razer Orochi (2013)
+ - Razer Naga (2014)
+ - Razer Naga Hex
+ - Razer Abyssus
+ - Razer Deathadder Chroma
+ - Razer Mamba Wired
+ - Razer Mamba Wireless
+ - Razer Mamba TE
+ - Razer Orochi Chroma
+ - Razer Diamondback Chroma
+ - Razer Naga Hex V2
+ - Razer Naga Chroma
+ - Razer Deathadder (3500 DPI)
+ - Razer Lancehead Wired
+ - Razer Lancehead Wireless
+ - Razer Abyssus V2
+ - Razer Lancehead TE
+ - Razer Basilisk
+ - Razer Naga Trinity
+ - Razer Abyssus Elite (D.Va Edition)
+ - Razer Abyssus Essential
+ - Razer Mamba Elite
+ - Razer Deathadder Essential
+ - Razer Lancehead Wireless (Wired Mode)
+ - Razer Lancehead Wireless (Wireless Mode)
+ - Razer Deathadder Essential (White Edition)
+ - Razer Mamba Wireless (Wired Mode)
+ - Razer Mamba Wireless (Wireless Mode)
+ - Razer Viper
+ - Razer Viper Ultimate (Wired Mode)
+ - Razer Viper Ultimate (Wireless Mode)
+ - Razer Deathadder V2
+
+## Software-Based Effects (Synapse 3 Mode)
+
+### Keyboards
+
+ - Razer Huntsman Elite
+
+### Mice
 
  - Razer Mamba Hyperflux
- - Razer Huntsman Elite
+
+### Miscellaneous
+
  - Razer Base Station Chroma
 
-## Compiling
+# Compiling
 
 Just compile the project using a recent version of Xcode.
 
-## Documentation
+# Documentation
 
-None so far.
+Documentation can be found on our umbrella wiki [here](https://github.com/FruityRazer/FruityRazer/wiki).
 
-Check out the [FruityServer](https://github.com/FruityRazer/FruityServer) project for some examples on how to use it, as well as the app tests under `FruityKitTests`.
+You can also check out the [FruityServer](https://github.com/FruityRazer/FruityServer) as an example implementation, as well as the app tests under `FruityKitTests`.
 
-## License
+# License
 
 This project uses the GPLv2 license.
 
-## Acknowledgements
+# Acknowledgements
 
 This project is based on code from the following projects:
 

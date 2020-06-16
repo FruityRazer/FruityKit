@@ -1,6 +1,6 @@
 //
 //  USBCommon.c
-//  fruityrazer
+//  FruityKit
 //
 //  Created by Eduardo Almeida on 08/07/18.
 //  Copyright © 2018 Eduardo Almeida. All rights reserved.
@@ -47,4 +47,57 @@ IOReturn perform_razer_usb_call(IOUSBDeviceInterface **dev, void *data, uint rep
         printf("Razer USB call failed!\n");
     
     return retval;
+}
+
+IOReturn razer_get_report(IOUSBDeviceInterface **dev, struct razer_report *request_report, struct razer_report *response_report) {
+    return razer_get_usb_response(dev, 0x00, request_report, 0x00, response_report);
+}
+
+bool razer_send_payload(IOUSBDeviceInterface **dev, struct razer_report *request_report) {
+    return razer_send_payload3(dev, request_report, NULL);
+}
+
+bool razer_send_payload3(IOUSBDeviceInterface **dev, struct razer_report *request_report, struct razer_report *response_report) {
+    IOReturn retval = -1;
+    
+    struct razer_report *loc_response_report = (struct razer_report *)malloc(sizeof(struct razer_report));
+    memset(loc_response_report, 0, sizeof(struct razer_report));
+    
+    request_report->crc = razer_calculate_crc(request_report);
+    
+    retval = razer_get_report(dev, request_report, loc_response_report);
+    
+    if (retval == kIOReturnSuccess) {
+        // Check the packet number, class and command are the same
+        if(request_report->remaining_packets != loc_response_report->remaining_packets ||
+           request_report->command_class != loc_response_report->command_class ||
+           request_report->command_id.id != loc_response_report->command_id.id) {
+            return false;
+//        } else if (loc_response_report->status == RAZER_CMD_BUSY) {
+//            return false;
+        } else if (loc_response_report->status == RAZER_CMD_FAILURE) {
+            return false;
+        } else if (loc_response_report->status == RAZER_CMD_NOT_SUPPORTED) {
+            return false;
+        } else if (loc_response_report->status == RAZER_CMD_TIMEOUT) {
+            return false;
+        }
+    } else {
+        return false;
+    }
+    
+    if (response_report != NULL) {
+        response_report = loc_response_report;
+    } else {
+        free(loc_response_report);
+    }
+    
+    return true;
+}
+
+UInt16 get_device_id(IOUSBDeviceInterface **dev) {
+    UInt16 product = -1;
+    (*dev)->GetDeviceProduct(dev, &product);
+    
+    return product;
 }
