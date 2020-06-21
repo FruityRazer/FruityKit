@@ -85,6 +85,10 @@ public class Synapse2Handle: SynapseHandle {
             return write(mode: BasicMode(mode: mode), deviceInterface: deviceInterface, data: nil, count: 0)
             
         case .reactive(let speed, let color):
+            if speed > UInt8.max {
+                return false
+            }
+            
             let colorPtr = color.cArray
             
             let intermediatePtr = UnsafeMutablePointer<UInt8>.allocate(capacity: 4)
@@ -115,6 +119,10 @@ public class Synapse2Handle: SynapseHandle {
             return write(mode: BasicMode(mode: mode), deviceInterface: deviceInterface, data: ptr, count: 3)
             
         case .starlight(let speed, let color1, let color2):
+            if speed > UInt8.max {
+                return false
+            }
+            
             let color1Ptr = color1.cArray
             let color2Ptr = color2.cArray
             

@@ -49,6 +49,7 @@
 		A0C8386D2495C603009A4912 /* Color+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0C8386C2495C603009A4912 /* Color+Extensions.swift */; };
 		A0D36DBF2449241C00276551 /* RazerHuntsmanEliteHandle.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0D36DBE2449241C00276551 /* RazerHuntsmanEliteHandle.swift */; };
 		A0D36DC1244929A900276551 /* RazerBaseStationHandle.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0D36DC0244929A900276551 /* RazerBaseStationHandle.swift */; };
+		A0F0B5E4249F67E1004D644F /* ConversionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0F0B5E3249F67E1004D644F /* ConversionTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -108,6 +109,7 @@
 		A0C8386C2495C603009A4912 /* Color+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Extensions.swift"; sourceTree = "<group>"; };
 		A0D36DBE2449241C00276551 /* RazerHuntsmanEliteHandle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RazerHuntsmanEliteHandle.swift; sourceTree = "<group>"; };
 		A0D36DC0244929A900276551 /* RazerBaseStationHandle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RazerBaseStationHandle.swift; sourceTree = "<group>"; };
+		A0F0B5E3249F67E1004D644F /* ConversionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversionTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -221,6 +223,7 @@
 			isa = PBXGroup;
 			children = (
 				A0C8386C2495C603009A4912 /* Color+Extensions.swift */,
+				A0F0B5E3249F67E1004D644F /* ConversionTests.swift */,
 				A0ADA486244D22DA00FEAA12 /* Extensions.swift */,
 				A016494F2448EC990017FF4B /* FruityKitTests.swift */,
 				A0B1FDD3248ECCCC00E07C79 /* LightsOutTests.swift */,
@@ -412,6 +415,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A0A091A62498AF0200BE8AE7 /* PerformClosuresTests.swift in Sources */,
+				A0F0B5E4249F67E1004D644F /* ConversionTests.swift in Sources */,
 				A0AC448D244CAB8C003CEDB4 /* Synapse2Tests.swift in Sources */,
 				A01649502448EC990017FF4B /* FruityKitTests.swift in Sources */,
 				A0AC448F244CAB93003CEDB4 /* Synapse3Tests.swift in Sources */,
@@ -557,7 +561,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 11;
+				CURRENT_PROJECT_VERSION = 12;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = 3D7R27DBRZ;
 				DYLIB_COMPATIBILITY_VERSION = 1;
@@ -571,7 +575,7 @@
 					"@loader_path/Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.9;
-				MARKETING_VERSION = 4.0;
+				MARKETING_VERSION = 4.0.1;
 				MODULEMAP_FILE = "$SRCROOT/FruityKit/Supporting Files/FruityKit.modulemap";
 				PRODUCT_BUNDLE_IDENTIFIER = io.edr.fruitykit;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
@@ -587,7 +591,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 11;
+				CURRENT_PROJECT_VERSION = 12;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = 3D7R27DBRZ;
 				DYLIB_COMPATIBILITY_VERSION = 1;
@@ -601,7 +605,7 @@
 					"@loader_path/Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.9;
-				MARKETING_VERSION = 4.0;
+				MARKETING_VERSION = 4.0.1;
 				MODULEMAP_FILE = "$SRCROOT/FruityKit/Supporting Files/FruityKit.modulemap";
 				PRODUCT_BUNDLE_IDENTIFIER = io.edr.fruitykit;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
