@@ -24,6 +24,7 @@ public final class RazerHuntsmanEliteHandle: Synapse3Handle {
                 parts.initialize(to: 0)
                 
                 defer {
+                    parts.deinitialize(count: 26 * 3)
                     parts.deallocate()
                 }
                 
@@ -31,6 +32,7 @@ public final class RazerHuntsmanEliteHandle: Synapse3Handle {
                     let current: UnsafeMutablePointer<UInt8> = Color.black.cArray
                     
                     defer {
+                        current.deinitialize(count: 3)
                         current.deallocate()
                     }
                     
@@ -56,6 +58,7 @@ public final class RazerHuntsmanEliteHandle: Synapse3Handle {
                 parts.initialize(to: 0)
                 
                 defer {
+                    parts.deinitialize(count: rows[rowIdx].count * 3)
                     parts.deallocate()
                 }
                 

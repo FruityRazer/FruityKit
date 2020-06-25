@@ -33,6 +33,7 @@ public class RazerSoftwareSingleRowHandle: Synapse3Handle {
         parts.initialize(to: 0)
         
         defer {
+            parts.deinitialize(count: 78)
             parts.deallocate()
         }
         

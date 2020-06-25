@@ -77,6 +77,12 @@ public class Synapse2Handle: SynapseHandle {
         switch mode {
         case .wave(let direction):
             let ptr = UnsafeMutablePointer<Int8>.allocate(capacity: 1)
+            
+            defer {
+                ptr.deinitialize(count: 1)
+                ptr.deallocate()
+            }
+            
             ptr.pointee = Int8(direction.rawValue)
             
             return write(mode: BasicMode(mode: mode), deviceInterface: deviceInterface, data: ptr, count: 1)
@@ -94,6 +100,7 @@ public class Synapse2Handle: SynapseHandle {
             let intermediatePtr = UnsafeMutablePointer<UInt8>.allocate(capacity: 4)
             
             defer {
+                intermediatePtr.deinitialize(count: 4)
                 intermediatePtr.deallocate()
             }
             
@@ -129,6 +136,7 @@ public class Synapse2Handle: SynapseHandle {
             let intermediatePtr = UnsafeMutablePointer<UInt8>.allocate(capacity: 7)
             
             defer {
+                intermediatePtr.deinitialize(count: 7)
                 intermediatePtr.deallocate()
             }
             
