@@ -20,11 +20,13 @@ public final class RazerHuntsmanEliteHandle: Synapse3Handle {
         switch mode {
         case .off:
             for rowIdx in 0..<9 {
-                let parts = UnsafeMutablePointer<UInt8>.allocate(capacity: 26*3)
+                let capacity = 26 * 3
+                
+                let parts = UnsafeMutablePointer<UInt8>.allocate(capacity: capacity)
                 parts.initialize(to: 0)
                 
                 defer {
-                    parts.deinitialize(count: 26 * 3)
+                    parts.deinitialize(count: capacity)
                     parts.deallocate()
                 }
                 
@@ -43,10 +45,12 @@ public final class RazerHuntsmanEliteHandle: Synapse3Handle {
                     parts.advanced(by: base + 2).pointee = current.advanced(by: 2).pointee
                 }
                 
-                razer_huntsman_set_row_raw(deviceInterface,
-                                           Int8(rowIdx),
-                                           UnsafeMutableRawPointer(parts).assumingMemoryBound(to: Int8.self),
-                                           Int32(25))
+                _ = parts.withMemoryRebound(to: Int8.self, capacity: capacity) {
+                    razer_huntsman_set_row_raw(deviceInterface,
+                                               Int8(rowIdx),
+                                               $0,
+                                               Int32(25))
+                }
             }
             
         case .raw:
@@ -54,11 +58,13 @@ public final class RazerHuntsmanEliteHandle: Synapse3Handle {
             
         case .rawRows(let rows):
             for rowIdx in 0..<rows.count {
-                let parts = UnsafeMutablePointer<UInt8>.allocate(capacity: rows[rowIdx].count * 3)
+                let capacity = rows[rowIdx].count * 3
+                
+                let parts = UnsafeMutablePointer<UInt8>.allocate(capacity: capacity)
                 parts.initialize(to: 0)
                 
                 defer {
-                    parts.deinitialize(count: rows[rowIdx].count * 3)
+                    parts.deinitialize(count: capacity)
                     parts.deallocate()
                 }
                 
@@ -82,10 +88,12 @@ public final class RazerHuntsmanEliteHandle: Synapse3Handle {
                     parts.advanced(by: base + 2).pointee = current.advanced(by: 2).pointee
                 }
                 
-                razer_huntsman_set_row_raw(deviceInterface,
-                                           Int8(rowIdx),
-                                           UnsafeMutableRawPointer(parts).assumingMemoryBound(to: Int8.self),
-                                           Int32(rows[rowIdx].count))
+                _ = parts.withMemoryRebound(to: Int8.self, capacity: capacity) {
+                    razer_huntsman_set_row_raw(deviceInterface,
+                                               Int8(rowIdx),
+                                               $0,
+                                               Int32(rows[rowIdx].count))
+                }
             }
         }
         
@@ -95,7 +103,7 @@ public final class RazerHuntsmanEliteHandle: Synapse3Handle {
 
 extension RazerHuntsmanEliteHandle {
     
-     func fakeWave(color: Color) {
+    func fakeWave(color: Color) {
         let deviceInterface = dq_get_device(usbId)
         
         defer {

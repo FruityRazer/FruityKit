@@ -97,33 +97,30 @@ public class Synapse2Handle: SynapseHandle {
             
             let colorPtr = color.cArray
             
-            let intermediatePtr = UnsafeMutablePointer<UInt8>.allocate(capacity: 4)
+            let capacity = 4
+            
+            let ptr = UnsafeMutablePointer<UInt8>.allocate(capacity: capacity)
             
             defer {
-                intermediatePtr.deinitialize(count: 4)
-                intermediatePtr.deallocate()
-            }
-            
-            intermediatePtr.pointee = UInt8(speed)
-            intermediatePtr.advanced(by: 1).pointee = colorPtr.pointee
-            intermediatePtr.advanced(by: 2).pointee = colorPtr.advanced(by: 1).pointee
-            intermediatePtr.advanced(by: 3).pointee = colorPtr.advanced(by: 2).pointee
-            
-            let ptr = UnsafeRawPointer(intermediatePtr).assumingMemoryBound(to: Int8.self)
-            
-            //  No need to deallocate `ptr` since we aren't allocating anything, just
-            //  changing the type of `intermediatePtr`.
-            
-            return write(mode: BasicMode(mode: mode), deviceInterface: deviceInterface, data: ptr, count: 4)
-            
-        case .`static`(let color), .breath(let color):
-            let ptr = UnsafeRawPointer(color.cArray).assumingMemoryBound(to: Int8.self)
-            
-            defer {
+                ptr.deinitialize(count: capacity)
                 ptr.deallocate()
             }
             
-            return write(mode: BasicMode(mode: mode), deviceInterface: deviceInterface, data: ptr, count: 3)
+            ptr.pointee = UInt8(speed)
+            ptr.advanced(by: 1).pointee = colorPtr.pointee
+            ptr.advanced(by: 2).pointee = colorPtr.advanced(by: 1).pointee
+            ptr.advanced(by: 3).pointee = colorPtr.advanced(by: 2).pointee
+            
+            return ptr.withMemoryRebound(to: Int8.self, capacity: capacity) {
+                write(mode: BasicMode(mode: mode), deviceInterface: deviceInterface, data: $0, count: capacity)
+            }
+            
+        case .`static`(let color), .breath(let color):
+            let capacity = 3
+            
+            return color.cArray.withMemoryRebound(to: Int8.self, capacity: capacity) {
+                write(mode: BasicMode(mode: mode), deviceInterface: deviceInterface, data: $0, count: capacity)
+            }
             
         case .starlight(let speed, let color1, let color2):
             if speed > UInt8.max {
@@ -133,27 +130,26 @@ public class Synapse2Handle: SynapseHandle {
             let color1Ptr = color1.cArray
             let color2Ptr = color2.cArray
             
-            let intermediatePtr = UnsafeMutablePointer<UInt8>.allocate(capacity: 7)
+            let capacity = 7
+            
+            let ptr = UnsafeMutablePointer<UInt8>.allocate(capacity: capacity)
             
             defer {
-                intermediatePtr.deinitialize(count: 7)
-                intermediatePtr.deallocate()
+                ptr.deinitialize(count: capacity)
+                ptr.deallocate()
             }
             
-            intermediatePtr.pointee = UInt8(speed)
-            intermediatePtr.advanced(by: 1).pointee = color1Ptr.pointee
-            intermediatePtr.advanced(by: 2).pointee = color1Ptr.advanced(by: 1).pointee
-            intermediatePtr.advanced(by: 3).pointee = color1Ptr.advanced(by: 2).pointee
-            intermediatePtr.advanced(by: 4).pointee = color2Ptr.pointee
-            intermediatePtr.advanced(by: 5).pointee = color2Ptr.advanced(by: 1).pointee
-            intermediatePtr.advanced(by: 6).pointee = color2Ptr.advanced(by: 2).pointee
+            ptr.pointee = UInt8(speed)
+            ptr.advanced(by: 1).pointee = color1Ptr.pointee
+            ptr.advanced(by: 2).pointee = color1Ptr.advanced(by: 1).pointee
+            ptr.advanced(by: 3).pointee = color1Ptr.advanced(by: 2).pointee
+            ptr.advanced(by: 4).pointee = color2Ptr.pointee
+            ptr.advanced(by: 5).pointee = color2Ptr.advanced(by: 1).pointee
+            ptr.advanced(by: 6).pointee = color2Ptr.advanced(by: 2).pointee
             
-            let ptr = UnsafeRawPointer(intermediatePtr).assumingMemoryBound(to: Int8.self)
-            
-            //  No need to deallocate `ptr` since we aren't allocating anything, just
-            //  changing the type of `intermediatePtr`.
-            
-            return write(mode: BasicMode(mode: mode), deviceInterface: deviceInterface, data: ptr, count: 7)
+            return ptr.withMemoryRebound(to: Int8.self, capacity: capacity) {
+                write(mode: BasicMode(mode: mode), deviceInterface: deviceInterface, data: $0, count: capacity)
+            }
         }
     }
     

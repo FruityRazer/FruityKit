@@ -29,11 +29,13 @@ public class RazerSoftwareSingleRowHandle: Synapse3Handle {
             dq_close_device(deviceInterface)
         }
         
-        let parts = UnsafeMutablePointer<UInt8>.allocate(capacity: 78)
+        let capacity = 78
+        
+        let parts = UnsafeMutablePointer<UInt8>.allocate(capacity: capacity)
         parts.initialize(to: 0)
         
         defer {
-            parts.deinitialize(count: 78)
+            parts.deinitialize(count: capacity)
             parts.deallocate()
         }
         
@@ -78,7 +80,9 @@ public class RazerSoftwareSingleRowHandle: Synapse3Handle {
             return false
         }
         
-        commitFunction(deviceInterface, UnsafeMutableRawPointer(parts).assumingMemoryBound(to: Int8.self))
+        _ = parts.withMemoryRebound(to: Int8.self, capacity: capacity) {
+            commitFunction(deviceInterface, $0)
+        }
         
         return true
     }
