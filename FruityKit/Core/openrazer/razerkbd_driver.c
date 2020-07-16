@@ -158,11 +158,14 @@ bool razer_kbd_attr_write_mode_reactive(IOUSBDeviceInterface **usb_dev, const ch
             case USB_DEVICE_ID_RAZER_ORNATA:
             case USB_DEVICE_ID_RAZER_ORNATA_CHROMA:
             case USB_DEVICE_ID_RAZER_HUNTSMAN_ELITE:
+            case USB_DEVICE_ID_RAZER_HUNTSMAN_TE:
             case USB_DEVICE_ID_RAZER_BLACKWIDOW_2019:
+            case USB_DEVICE_ID_RAZER_HUNTSMAN:
             case USB_DEVICE_ID_RAZER_CYNOSA_CHROMA:
                 report = razer_chroma_extended_matrix_effect_reactive(VARSTORE, BACKLIGHT_LED, speed, (struct razer_rgb*)&buf[1]);
                 break;
                 
+            case USB_DEVICE_ID_RAZER_TARTARUS_V2:
             case USB_DEVICE_ID_RAZER_BLACKWIDOW_ELITE:
                 report = razer_chroma_extended_matrix_effect_reactive(VARSTORE, BACKLIGHT_LED, speed, (struct razer_rgb*)&buf[1]);
                 report.transaction_id.id = 0x1F;
@@ -263,7 +266,10 @@ bool razer_kbd_attr_write_mode_static(IOUSBDeviceInterface **usb_dev, const char
         case USB_DEVICE_ID_RAZER_ORNATA:
         case USB_DEVICE_ID_RAZER_ORNATA_CHROMA:
         case USB_DEVICE_ID_RAZER_HUNTSMAN_ELITE:
+        case USB_DEVICE_ID_RAZER_HUNTSMAN_TE:
         case USB_DEVICE_ID_RAZER_BLACKWIDOW_2019:
+        case USB_DEVICE_ID_RAZER_HUNTSMAN:
+        case USB_DEVICE_ID_RAZER_BLACKWIDOW_ESSENTIAL:
         case USB_DEVICE_ID_RAZER_CYNOSA_CHROMA:
             if(count == 3) {
                 report = razer_chroma_extended_matrix_effect_static(VARSTORE, BACKLIGHT_LED, (struct razer_rgb*)&buf[0]);
@@ -334,6 +340,7 @@ bool razer_kbd_attr_write_mode_starlight(IOUSBDeviceInterface **usb_dev, const c
             
         case USB_DEVICE_ID_RAZER_ORNATA_CHROMA:
         case USB_DEVICE_ID_RAZER_HUNTSMAN_ELITE:
+        case USB_DEVICE_ID_RAZER_HUNTSMAN_TE:
         case USB_DEVICE_ID_RAZER_BLACKWIDOW_2019:
         case USB_DEVICE_ID_RAZER_HUNTSMAN:
         case USB_DEVICE_ID_RAZER_CYNOSA_CHROMA:
@@ -529,6 +536,7 @@ bool razer_kbd_attr_write_set_brightness(IOUSBDeviceInterface **usb_dev, const c
         case USB_DEVICE_ID_RAZER_ORNATA:
         case USB_DEVICE_ID_RAZER_ORNATA_CHROMA:
         case USB_DEVICE_ID_RAZER_HUNTSMAN_ELITE:
+        case USB_DEVICE_ID_RAZER_HUNTSMAN_TE:
         case USB_DEVICE_ID_RAZER_BLACKWIDOW_2019:
         case USB_DEVICE_ID_RAZER_HUNTSMAN:
         case USB_DEVICE_ID_RAZER_CYNOSA_CHROMA:
