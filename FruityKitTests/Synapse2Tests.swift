@@ -39,53 +39,77 @@ class Synapse2Tests: XCTestCase {
         return driver
     }
     
-    func testHuntsmanElite_wave() {
+    func testHuntsmanElite_wave() throws {
+        try XCTSkipIf(!huntsmanEliteHWDriver.connected, SkippedTestMessage.hardwareConfigurationUnsupported)
+        
         XCTAssertTrue(huntsmanEliteHWDriver.write(mode: .wave(direction: .right)))
     }
     
-    func testHuntsmanElite_spectrum() {
+    func testHuntsmanElite_spectrum() throws {
+        try XCTSkipIf(!huntsmanEliteHWDriver.connected, SkippedTestMessage.hardwareConfigurationUnsupported)
+        
         XCTAssertTrue(huntsmanEliteHWDriver.write(mode: .spectrum))
     }
     
-    func testHuntsmanElite_reactive() {
+    func testHuntsmanElite_reactive() throws {
+        try XCTSkipIf(!huntsmanEliteHWDriver.connected, SkippedTestMessage.hardwareConfigurationUnsupported)
+        
         XCTAssertTrue(huntsmanEliteHWDriver.write(mode: .reactive(speed: 1, color: .white)))
     }
     
-    func testHuntsmanElite_static() {
+    func testHuntsmanElite_static() throws {
+        try XCTSkipIf(!huntsmanEliteHWDriver.connected, SkippedTestMessage.hardwareConfigurationUnsupported)
+        
         XCTAssertTrue(huntsmanEliteHWDriver.write(mode: .static(color: .white)))
     }
     
-    func testHuntsmanElite_breath() {
+    func testHuntsmanElite_breath() throws {
+        try XCTSkipIf(!huntsmanEliteHWDriver.connected, SkippedTestMessage.hardwareConfigurationUnsupported)
+        
         XCTAssertTrue(huntsmanEliteHWDriver.write(mode: .breath(color: .white)))
     }
     
-    func testHuntsmanElite_starlight() {
+    func testHuntsmanElite_starlight() throws {
+        try XCTSkipIf(!huntsmanEliteHWDriver.connected, SkippedTestMessage.hardwareConfigurationUnsupported)
+        
         XCTAssertTrue(huntsmanEliteHWDriver.write(mode: .starlight(speed: 100,
                                                                    color1: .white,
                                                                    color2: .red)))
     }
     
-    func testBasilisk_wave() {
+    func testBasilisk_wave() throws {
+        try XCTSkipIf(!basiliskDriver.connected, SkippedTestMessage.hardwareConfigurationUnsupported)
+        
         XCTAssertFalse(basiliskDriver.write(mode: .wave(direction: .right)))
     }
     
-    func testBasilisk_spectrum() {
+    func testBasilisk_spectrum() throws {
+        try XCTSkipIf(!basiliskDriver.connected, SkippedTestMessage.hardwareConfigurationUnsupported)
+        
         XCTAssertTrue(basiliskDriver.write(mode: .spectrum))
     }
     
-    func testBasilisk_reactive() {
+    func testBasilisk_reactive() throws {
+        try XCTSkipIf(!basiliskDriver.connected, SkippedTestMessage.hardwareConfigurationUnsupported)
+        
         XCTAssertTrue(basiliskDriver.write(mode: .reactive(speed: 1, color: .white)))
     }
     
-    func testBasilisk_static() {
+    func testBasilisk_static() throws {
+        try XCTSkipIf(!basiliskDriver.connected, SkippedTestMessage.hardwareConfigurationUnsupported)
+        
         XCTAssertTrue(basiliskDriver.write(mode: .static(color: .white)))
     }
     
-    func testBasilisk_breath() {
+    func testBasilisk_breath() throws {
+        try XCTSkipIf(!basiliskDriver.connected, SkippedTestMessage.hardwareConfigurationUnsupported)
+        
         XCTAssertTrue(basiliskDriver.write(mode: .breath(color: .white)))
     }
     
-    func testBasilisk_starlight() {
+    func testBasilisk_starlight() throws {
+        try XCTSkipIf(!basiliskDriver.connected, SkippedTestMessage.hardwareConfigurationUnsupported)
+        
         XCTAssertFalse(basiliskDriver.write(mode: .starlight(speed: 100,
                                                              color1: .white,
                                                              color2: .red)))

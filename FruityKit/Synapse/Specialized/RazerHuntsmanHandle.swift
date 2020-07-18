@@ -8,7 +8,7 @@
 
 import Foundation
 
-public final class RazerHuntsmanEliteHandle: Synapse3Handle {
+public final class RazerHuntsmanHandle: Synapse3Handle {
     
     override public func write(mode: Mode) -> Bool {
         let deviceInterface = dq_get_device(usbId)
@@ -101,7 +101,7 @@ public final class RazerHuntsmanEliteHandle: Synapse3Handle {
     }
 }
 
-extension RazerHuntsmanEliteHandle {
+extension RazerHuntsmanHandle {
     
     func fakeWave(color: Color) {
         let deviceInterface = dq_get_device(usbId)

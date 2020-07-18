@@ -11,7 +11,7 @@ import XCTest
 
 class LightsOutTests: XCTestCase {
     
-    func testSpecialized_huntsmanElite() {
+    func testSpecialized_huntsmanElite() throws {
         let devices = FruityRazer.devices
         
         let huntsmanEliteSoftware = devices.filter { $0.shortName == "huntsman_elite_sw" }[0]
@@ -22,16 +22,18 @@ class LightsOutTests: XCTestCase {
             return
         }
         
-        guard let specializedDriver = driver as? RazerHuntsmanEliteHandle else {
+        guard let specializedDriver = driver as? RazerHuntsmanHandle else {
             XCTFail("Not a specialized huntsman driver!")
             
             return
         }
         
+        try XCTSkipIf(!driver.connected, SkippedTestMessage.hardwareConfigurationUnsupported)
+        
         XCTAssertTrue(specializedDriver.write(mode: .off))
     }
     
-    func testSpecialized_baseStation() {
+    func testSpecialized_baseStation() throws {
         let devices = FruityRazer.devices
         
         let baseStation = devices.filter { $0.shortName == "base_station" }[0]
@@ -48,10 +50,12 @@ class LightsOutTests: XCTestCase {
             return
         }
         
+        try XCTSkipIf(!driver.connected, SkippedTestMessage.hardwareConfigurationUnsupported)
+        
         XCTAssertTrue(specializedDriver.write(mode: .off))
     }
     
-    func testSpecialized_mambaHyperflux() {
+    func testSpecialized_mambaHyperflux() throws {
         let devices = FruityRazer.devices
         
         let baseStation = devices.filter { $0.shortName == "mamba_hyperflux" }[0]
@@ -67,6 +71,8 @@ class LightsOutTests: XCTestCase {
             
             return
         }
+        
+        try XCTSkipIf(!driver.connected, SkippedTestMessage.hardwareConfigurationUnsupported)
         
         XCTAssertTrue(specializedDriver.write(mode: .off))
     }

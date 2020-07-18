@@ -25,11 +25,13 @@ class ConversionTests: XCTestCase {
         return driver
     }
     
-    func testSynapse2_doesNotCrashWhenSpeedIsGreaterThanUInt8Max() {
+    func testSynapse2_doesNotCrashWhenSpeedIsGreaterThanUInt8Max() throws {
+        try XCTSkipIf(!huntsmanEliteHWDriver.connected, SkippedTestMessage.hardwareConfigurationUnsupported)
+        
         XCTAssertFalse(huntsmanEliteHWDriver.write(mode: .reactive(speed: 100000000, color: .white)))
     }
     
-    func testSynapse3_doesNotCrashWhenPassedInvalidColors() {
+    func testSynapse3_doesNotCrashWhenPassedInvalidColors() throws {
         let devices = FruityRazer.devices
         
         let baseStation = devices.filter { $0.shortName == "mamba_hyperflux" }[0]
@@ -45,6 +47,8 @@ class ConversionTests: XCTestCase {
             
             return
         }
+        
+        try XCTSkipIf(!driver.connected, SkippedTestMessage.hardwareConfigurationUnsupported)
         
         XCTAssertTrue(specializedDriver.write(mode: .raw(colors: try! Color(hex: "#zzzzzz").repeated(14))))
     }

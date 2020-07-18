@@ -581,7 +581,14 @@ razer_device __DQ_DEVICES[] = {
         .type = keyboard
     },
     {
-        .shortName = "huntsman",
+        .shortName = "huntsman_te_hw",
+        .fullName = "Razer Huntsman TE",
+        .usbId = 0x0243,
+        .synapse = synapse2,
+        .type = keyboard
+    },
+    {
+        .shortName = "huntsman_hw",
         .fullName = "Razer Huntsman",
         .usbId = 0x0227,
         .synapse = synapse2,
@@ -747,6 +754,27 @@ razer_device __DQ_DEVICES[] = {
         .shortName = "huntsman_elite_sw",
         .fullName = "Razer Huntsman Elite",
         .usbId = 0x0226,
+        .synapse = synapse3,
+        .type = keyboard
+    },
+    {
+        .shortName = "huntsman_te_sw",
+        .fullName = "Razer Huntsman TE",
+        .usbId = 0x0243,
+        .synapse = synapse3,
+        .type = keyboard
+    },
+    {
+        .shortName = "huntsman_sw",
+        .fullName = "Razer Huntsman",
+        .usbId = 0x0227,
+        .synapse = synapse3,
+        .type = keyboard
+    },
+    {
+        .shortName = "huntsman_mini",
+        .fullName = "Razer Huntsman Mini",
+        .usbId = 0x0257,
         .synapse = synapse3,
         .type = keyboard
     },

@@ -36,8 +36,11 @@ extension Driver {
         switch String(cString: device.shortName) {
         case "base_station":
             return .v3(driver: RazerBaseStationHandle(usbId: Int32(device.usbId)))
-        case "huntsman_elite_sw":
-            return .v3(driver: RazerHuntsmanEliteHandle(usbId: Int32(device.usbId)))
+        case "huntsman_sw",
+             "huntsman_te_sw",
+             "huntsman_elite_sw",
+             "huntsman_mini":
+            return .v3(driver: RazerHuntsmanHandle(usbId: Int32(device.usbId)))
         case "mamba_hyperflux":
             return .v3(driver: RazerMambaHyperfluxHandle(usbId: Int32(device.usbId)))
         default:
