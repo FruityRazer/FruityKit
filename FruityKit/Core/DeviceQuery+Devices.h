@@ -581,13 +581,6 @@ razer_device __DQ_DEVICES[] = {
         .type = keyboard
     },
     {
-        .shortName = "huntsman_te_hw",
-        .fullName = "Razer Huntsman TE",
-        .usbId = 0x0243,
-        .synapse = synapse2,
-        .type = keyboard
-    },
-    {
         .shortName = "huntsman_hw",
         .fullName = "Razer Huntsman",
         .usbId = 0x0227,
@@ -700,7 +693,7 @@ razer_device __DQ_DEVICES[] = {
         .type = keyboard
     },
     {
-        .shortName = "huntsman_te",
+        .shortName = "huntsman_te_hw",
         .fullName = "Razer Huntsman TE",
         .usbId = 0x0243,
         .synapse = synapse2,

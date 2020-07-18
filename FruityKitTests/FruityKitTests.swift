@@ -39,6 +39,10 @@ class FruityKitTests: XCTestCase {
         }
     }
     
+    func testHuntsmanTEAsGroupedDevice() {
+        XCTAssertEqual(FruityRazer.groupedDevices.filter { $0.fullName == "Razer Huntsman TE" }.count, 1)
+    }
+    
     func testSynapseDriverAssignment() {
         let devices = FruityRazer.devices
         
