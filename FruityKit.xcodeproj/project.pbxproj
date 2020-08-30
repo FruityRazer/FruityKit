@@ -155,15 +155,10 @@
 			isa = PBXGroup;
 			children = (
 				A01649092448D0B50017FF4B /* Core */,
+				A064EFAE24FBBF6B0091C6D7 /* Models */,
 				A016493F2448DDC50017FF4B /* Synapse */,
-				A016493B2448D86F0017FF4B /* Color.swift */,
-				A01649422448DEAE0017FF4B /* Direction.swift */,
-				A01649442448DEDB0017FF4B /* Device.swift */,
-				A0C838652495BA6C009A4912 /* Driver.swift */,
+				A064EFAD24FBBF500091C6D7 /* Utilities */,
 				A01649382448D1150017FF4B /* FruityRazer.swift */,
-				A0A091A32498AEDD00BE8AE7 /* PerformClosures.swift */,
-				A01649462448E2650017FF4B /* RazerDevice.swift */,
-				A0569E40247746B000D98B41 /* VersionedRazerDevice.swift */,
 				A01649482448E27A0017FF4B /* Supporting Files */,
 			);
 			path = FruityKit;
@@ -236,6 +231,27 @@
 				A01649512448EC990017FF4B /* Info.plist */,
 			);
 			path = FruityKitTests;
+			sourceTree = "<group>";
+		};
+		A064EFAD24FBBF500091C6D7 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				A0A091A32498AEDD00BE8AE7 /* PerformClosures.swift */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
+		A064EFAE24FBBF6B0091C6D7 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				A016493B2448D86F0017FF4B /* Color.swift */,
+				A01649422448DEAE0017FF4B /* Direction.swift */,
+				A01649442448DEDB0017FF4B /* Device.swift */,
+				A0C838652495BA6C009A4912 /* Driver.swift */,
+				A01649462448E2650017FF4B /* RazerDevice.swift */,
+				A0569E40247746B000D98B41 /* VersionedRazerDevice.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 		A0ADA48C244D262F00FEAA12 /* Synapse 3 Types */ = {
