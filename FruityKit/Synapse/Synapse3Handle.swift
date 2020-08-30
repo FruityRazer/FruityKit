@@ -32,6 +32,7 @@ public class Synapse3Handle: SynapseHandle {
 }
 
 extension Synapse3Handle: Hashable {
+    
     public static func == (lhs: Synapse3Handle, rhs: Synapse3Handle) -> Bool {
         return true
     }

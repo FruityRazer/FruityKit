@@ -24,6 +24,80 @@
 #include "USBCommon.h"
 #include "USBDeviceIdentifiers.h"
 
+#pragma mark Getters
+
+ssize_t razer_attr_read_mouse_dpi(IOUSBDeviceInterface **dev, char *buf) {
+    UInt16 product = -1;
+    (*dev)->GetDeviceProduct(dev, &product);
+    
+    struct razer_report report = {0};
+    struct razer_report response = {0};
+    unsigned short dpi_x;
+    unsigned short dpi_y;
+
+    // So far I think imperator uses varstore
+    switch (product) {
+    case USB_DEVICE_ID_RAZER_NAGA_HEX_RED:
+    case USB_DEVICE_ID_RAZER_NAGA_HEX:
+    case USB_DEVICE_ID_RAZER_NAGA_2012:
+    case USB_DEVICE_ID_RAZER_ABYSSUS_1800:
+    case USB_DEVICE_ID_RAZER_DEATHADDER_2013:
+    case USB_DEVICE_ID_RAZER_DEATHADDER_1800:
+        report = razer_chroma_misc_get_dpi_xy_byte();
+        break;
+
+    case USB_DEVICE_ID_RAZER_MAMBA_ELITE:
+        report = razer_chroma_misc_get_dpi_xy(NOSTORE);
+        report.transaction_id.id = 0x1f;
+        break;
+
+    case USB_DEVICE_ID_RAZER_OROCHI_2013:
+    case USB_DEVICE_ID_RAZER_IMPERATOR:
+        report = razer_chroma_misc_get_dpi_xy(VARSTORE);
+        break;
+
+    case USB_DEVICE_ID_RAZER_NAGA_HEX_V2:
+    case USB_DEVICE_ID_RAZER_DEATHADDER_ELITE:
+    case USB_DEVICE_ID_RAZER_LANCEHEAD_WIRED:
+    case USB_DEVICE_ID_RAZER_LANCEHEAD_WIRELESS:
+    case USB_DEVICE_ID_RAZER_LANCEHEAD_TE_WIRED:
+    case USB_DEVICE_ID_RAZER_LANCEHEAD_WIRELESS_RECEIVER:
+    case USB_DEVICE_ID_RAZER_LANCEHEAD_WIRELESS_WIRED:
+    case USB_DEVICE_ID_RAZER_MAMBA_WIRELESS_RECEIVER:
+    case USB_DEVICE_ID_RAZER_MAMBA_WIRELESS_WIRED:
+    case USB_DEVICE_ID_RAZER_BASILISK:
+    case USB_DEVICE_ID_RAZER_DEATHADDER_V2:
+        report = razer_chroma_misc_get_dpi_xy(NOSTORE);
+        report.transaction_id.id = 0x3f;
+        break;
+
+    default:
+        report = razer_chroma_misc_get_dpi_xy(NOSTORE);
+        break;
+    }
+
+    if (!razer_send_payload3(dev, &report, &response))
+        return -1;
+
+    // Byte, Byte for DPI not Short, Short
+    if (product == USB_DEVICE_ID_RAZER_NAGA_HEX ||
+        product == USB_DEVICE_ID_RAZER_NAGA_HEX_RED ||
+        product == USB_DEVICE_ID_RAZER_NAGA_2012 ||
+        product == USB_DEVICE_ID_RAZER_DEATHADDER_2013 ||
+        product == USB_DEVICE_ID_RAZER_ABYSSUS_1800) { // NagaHex is crap uses only byte for dpi
+        dpi_x = response.arguments[0];
+        dpi_y = response.arguments[1];
+    } else {
+        dpi_x = (response.arguments[1] << 8) | (response.arguments[2] & 0xFF); // Apparently the char buffer is rubbish, as buf[1] somehow can equal FFFFFF80????
+        dpi_y = (response.arguments[3] << 8) | (response.arguments[4] & 0xFF);
+    }
+
+    return sprintf(buf, "%u:%u\n", dpi_x, dpi_y);
+}
+
+#pragma mark -
+#pragma mark Setters
+
 /**
  * Write device file "mode_none"
  *

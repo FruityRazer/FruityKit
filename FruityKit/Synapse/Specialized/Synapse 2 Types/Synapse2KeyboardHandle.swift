@@ -10,7 +10,7 @@ import Foundation
 
 final class Synapse2KeyboardHandle: Synapse2Handle {
     
-    override var supportedModes: [BasicMode] {
+    override var supportedModes: [Mode.Basic] {
         [
             .breath,
             .reactive,
@@ -21,7 +21,7 @@ final class Synapse2KeyboardHandle: Synapse2Handle {
         ]
     }
     
-    override func write(mode: BasicMode, deviceInterface: UnsafeMutablePointer<UnsafeMutablePointer<IOUSBDeviceInterface>?>?, data: UnsafePointer<Int8>!, count: Int) -> Bool {
+    override func write(mode: Mode.Basic, deviceInterface: DeviceInterface, data: UnsafePointer<Int8>!, count: Int) -> Bool {
         switch mode {
         case .breath:
             return razer_kbd_attr_write_mode_breath(deviceInterface, data, count)
@@ -36,5 +36,9 @@ final class Synapse2KeyboardHandle: Synapse2Handle {
         case .wave:
             return razer_kbd_attr_write_mode_wave(deviceInterface, data, count)
         }
+    }
+    
+    override func read(setting: Synapse2Handle.Setting.Basic, deviceInterface: DeviceInterface) -> (data: UnsafePointer<Int8>, count: Int)? {
+        return nil
     }
 }

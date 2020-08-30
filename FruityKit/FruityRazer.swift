@@ -8,6 +8,8 @@
 
 import FruityKit.FruityKitC
 
+typealias DeviceInterface = UnsafeMutablePointer<UnsafeMutablePointer<IOUSBDeviceInterface>?>?
+
 public struct FruityRazer {
     
     public static var devices: [RazerDevice] {

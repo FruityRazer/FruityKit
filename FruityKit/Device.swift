@@ -11,6 +11,7 @@ import Foundation
 public enum DeviceType: Hashable {
     
     public enum KeyboardType {
+        
         case normal
         case keypad
         case laptop

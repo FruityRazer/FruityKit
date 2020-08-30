@@ -12,7 +12,7 @@ import IOKit.usb.IOUSBLib
 
 public class RazerSoftwareSingleRowHandle: Synapse3Handle {
     
-    typealias CommitFunction = (UnsafeMutablePointer<UnsafeMutablePointer<IOUSBDeviceInterface>?>?, UnsafeMutablePointer<Int8>) -> ()
+    typealias CommitFunction = (DeviceInterface, UnsafeMutablePointer<Int8>) -> ()
     
     let commitFunction: CommitFunction
     

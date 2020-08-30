@@ -73,8 +73,6 @@ bool razer_send_payload3(IOUSBDeviceInterface **dev, struct razer_report *reques
            request_report->command_class != loc_response_report->command_class ||
            request_report->command_id.id != loc_response_report->command_id.id) {
             return false;
-//        } else if (loc_response_report->status == RAZER_CMD_BUSY) {
-//            return false;
         } else if (loc_response_report->status == RAZER_CMD_FAILURE) {
             return false;
         } else if (loc_response_report->status == RAZER_CMD_NOT_SUPPORTED) {
