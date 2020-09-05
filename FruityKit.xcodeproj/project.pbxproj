@@ -219,15 +219,13 @@
 		A016494E2448EC990017FF4B /* FruityKitTests */ = {
 			isa = PBXGroup;
 			children = (
-				A0C8386C2495C603009A4912 /* Color+Extensions.swift */,
+				A0DBCEBF2503B01A00150334 /* Utilities */,
 				A0F0B5E3249F67E1004D644F /* ConversionTests.swift */,
-				A0ADA486244D22DA00FEAA12 /* Extensions.swift */,
 				A016494F2448EC990017FF4B /* FruityKitTests.swift */,
 				A0B1FDD3248ECCCC00E07C79 /* LightsOutTests.swift */,
 				A0A091A52498AF0200BE8AE7 /* PerformClosuresTests.swift */,
 				A0AC448C244CAB8C003CEDB4 /* Synapse2Tests.swift */,
 				A0AC448E244CAB93003CEDB4 /* Synapse3Tests.swift */,
-				A0D1CAEF24C2F1E200E9CB07 /* TestHelpers.swift */,
 				A01649512448EC990017FF4B /* Info.plist */,
 			);
 			path = FruityKitTests;
@@ -281,6 +279,16 @@
 				A0ADA48A244D262800FEAA12 /* RazerMambaHyperfluxHandle.swift */,
 			);
 			path = Specialized;
+			sourceTree = "<group>";
+		};
+		A0DBCEBF2503B01A00150334 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				A0C8386C2495C603009A4912 /* Color+Extensions.swift */,
+				A0ADA486244D22DA00FEAA12 /* Extensions.swift */,
+				A0D1CAEF24C2F1E200E9CB07 /* TestHelpers.swift */,
+			);
+			path = Utilities;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

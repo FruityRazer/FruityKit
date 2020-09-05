@@ -74,8 +74,17 @@ final class Synapse2MouseHandle: Synapse2Handle {
     }
     
     override func read(setting: Synapse2Handle.Setting.Basic, deviceInterface: DeviceInterface) -> (data: UnsafePointer<Int8>, count: Int)? {
-        assertionFailure("Not implemented.")
-        
-        return nil
+        switch setting {
+        case .dpi:
+            let capacity = 32
+            
+            let ptr = UnsafeMutablePointer<Int8>.allocate(capacity: capacity)
+            
+            ptr.initialize(repeating: 0, count: capacity)
+            
+            guard razer_attr_read_mouse_dpi(deviceInterface, ptr) != -1 else { return nil }
+            
+            return (UnsafePointer(ptr), capacity)
+        }
     }
 }

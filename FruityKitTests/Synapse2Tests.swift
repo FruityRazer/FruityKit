@@ -11,21 +11,9 @@ import XCTest
 
 class Synapse2Tests: XCTestCase {
     
-    var huntsmanEliteHWDriver: Synapse2Handle {
-        let devices = FruityRazer.devices
-        
-        let huntsmanEliteHardware = devices.filter { $0.shortName == "huntsman_elite_hw" }[0]
-        
-        guard case let Driver.v2(driver: driver) = huntsmanEliteHardware.driver else {
-            XCTFail("Huntsman Elite not recognized as Synapse 2!")
-            
-            fatalError()
-        }
-        
-        return driver
-    }
+    //  MARK: - Driver Instances
     
-    var basiliskDriver: Synapse2Handle {
+    lazy var basiliskDriver: Synapse2Handle = {
         let devices = FruityRazer.devices
         
         let huntsmanEliteHardware = devices.filter { $0.shortName == "basilisk" }[0]
@@ -37,7 +25,23 @@ class Synapse2Tests: XCTestCase {
         }
         
         return driver
-    }
+    }()
+    
+    lazy var huntsmanEliteHWDriver: Synapse2Handle = {
+        let devices = FruityRazer.devices
+        
+        let huntsmanEliteHardware = devices.filter { $0.shortName == "huntsman_elite_hw" }[0]
+        
+        guard case let Driver.v2(driver: driver) = huntsmanEliteHardware.driver else {
+            XCTFail("Huntsman Elite not recognized as Synapse 2!")
+            
+            fatalError()
+        }
+        
+        return driver
+    }()
+    
+    //  MARK: - Tests for Razer Huntsman Elite
     
     func testHuntsmanElite_wave() throws {
         try XCTSkipIf(!huntsmanEliteHWDriver.connected, SkippedTestMessage.hardwareConfigurationUnsupported)
@@ -76,6 +80,8 @@ class Synapse2Tests: XCTestCase {
                                                                    color1: .white,
                                                                    color2: .red)))
     }
+    
+    //  MARK: - Tests for Razer Basilisk
     
     func testBasilisk_wave() throws {
         try XCTSkipIf(!basiliskDriver.connected, SkippedTestMessage.hardwareConfigurationUnsupported)

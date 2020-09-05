@@ -23,13 +23,15 @@ extension Driver {
     
     static func handle(for device: razer_device, type: DeviceType) -> Driver {
         guard device.synapse.rawValue == 3 else {
+            let usbId = Int32(device.usbId)
+            
             switch type {
             case .keyboard:
-                return .v2(driver: Synapse2KeyboardHandle(usbId: Int32(device.usbId)))
+                return .v2(driver: Synapse2KeyboardHandle(usbId: usbId))
             case .mouse:
-                return .v2(driver: Synapse2MouseHandle(usbId: Int32(device.usbId)))
+                return .v2(driver: Synapse2MouseHandle(usbId: usbId))
             default:
-                return .v2(driver: Synapse2Handle(usbId: Int32(device.usbId)))
+                return .v2(driver: Synapse2Handle(usbId: usbId))
             }
         }
         
