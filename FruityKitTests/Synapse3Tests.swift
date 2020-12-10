@@ -23,22 +23,7 @@
  */
 
 import XCTest
-@testable import FruityKit
-
-extension RazerHuntsmanHandle {
-    
-    func fakeWave(color: Color) {
-        let deviceInterface = dq_get_device(usbId)
-        
-        defer {
-            dq_close_device(deviceInterface)
-        }
-        
-        var rgb = color.razerRGB
-        
-        razer_huntsman_fake_wave_one_run(deviceInterface, &rgb)
-    }
-}
+import FruityKit
 
 class Synapse3Tests: XCTestCase {
 

@@ -23,7 +23,7 @@
  */
 
 import XCTest
-@testable import FruityKit
+import FruityKit
 
 class Synapse2Tests: XCTestCase {
     
@@ -129,11 +129,5 @@ class Synapse2Tests: XCTestCase {
         XCTAssertFalse(basiliskDriver.write(mode: .starlight(speed: 100,
                                                              color1: .white,
                                                              color2: .red)))
-    }
-    
-    func testBasilisk_readDPI() throws {
-        try XCTSkipIf(!basiliskDriver.connected, SkippedTestMessage.hardwareConfigurationUnsupported)
-        
-        _ = basiliskDriver.readSetting(.dpi)
     }
 }

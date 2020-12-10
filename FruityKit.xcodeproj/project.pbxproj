@@ -28,6 +28,7 @@
 		A01649502448EC990017FF4B /* FruityKitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A016494F2448EC990017FF4B /* FruityKitTests.swift */; };
 		A01649522448EC990017FF4B /* FruityKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A01648FE2448D0910017FF4B /* FruityKit.framework */; };
 		A01649592448EEE70017FF4B /* SynapseHandle.swift in Sources */ = {isa = PBXBuildFile; fileRef = A01649582448EEE70017FF4B /* SynapseHandle.swift */; };
+		A031EFD62582A7C800E944F1 /* RazerHuntsmanHandle+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A031EFD52582A7C800E944F1 /* RazerHuntsmanHandle+Extensions.swift */; };
 		A0569E41247746B000D98B41 /* VersionedRazerDevice.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0569E40247746B000D98B41 /* VersionedRazerDevice.swift */; };
 		A08E1F68249640EF00D13454 /* DeviceQuery+Devices.h in Headers */ = {isa = PBXBuildFile; fileRef = A08E1F67249640EF00D13454 /* DeviceQuery+Devices.h */; settings = {ATTRIBUTES = (Private, ); }; };
 		A0A091A42498AEDD00BE8AE7 /* PerformClosures.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0A091A32498AEDD00BE8AE7 /* PerformClosures.swift */; };
@@ -89,6 +90,7 @@
 		A016494F2448EC990017FF4B /* FruityKitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FruityKitTests.swift; sourceTree = "<group>"; };
 		A01649512448EC990017FF4B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A01649582448EEE70017FF4B /* SynapseHandle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SynapseHandle.swift; sourceTree = "<group>"; };
+		A031EFD52582A7C800E944F1 /* RazerHuntsmanHandle+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RazerHuntsmanHandle+Extensions.swift"; sourceTree = "<group>"; };
 		A0569E40247746B000D98B41 /* VersionedRazerDevice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VersionedRazerDevice.swift; sourceTree = "<group>"; };
 		A08E1F67249640EF00D13454 /* DeviceQuery+Devices.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "DeviceQuery+Devices.h"; sourceTree = "<group>"; };
 		A0A091A32498AEDD00BE8AE7 /* PerformClosures.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PerformClosures.swift; sourceTree = "<group>"; };
@@ -230,6 +232,7 @@
 				A016494F2448EC990017FF4B /* FruityKitTests.swift */,
 				A0B1FDD3248ECCCC00E07C79 /* LightsOutTests.swift */,
 				A0A091A52498AF0200BE8AE7 /* PerformClosuresTests.swift */,
+				A031EFD52582A7C800E944F1 /* RazerHuntsmanHandle+Extensions.swift */,
 				A0AC448C244CAB8C003CEDB4 /* Synapse2Tests.swift */,
 				A0AC448E244CAB93003CEDB4 /* Synapse3Tests.swift */,
 				A0D1CAEF24C2F1E200E9CB07 /* TestHelpers.swift */,
@@ -421,6 +424,7 @@
 				A0F0B5E4249F67E1004D644F /* ConversionTests.swift in Sources */,
 				A0AC448D244CAB8C003CEDB4 /* Synapse2Tests.swift in Sources */,
 				A01649502448EC990017FF4B /* FruityKitTests.swift in Sources */,
+				A031EFD62582A7C800E944F1 /* RazerHuntsmanHandle+Extensions.swift in Sources */,
 				A0AC448F244CAB93003CEDB4 /* Synapse3Tests.swift in Sources */,
 				A0ADA487244D22DA00FEAA12 /* Extensions.swift in Sources */,
 				A0B1FDD4248ECCCC00E07C79 /* LightsOutTests.swift in Sources */,
