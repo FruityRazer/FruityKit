@@ -2,9 +2,6 @@
 //  DeviceQuery+Devices.h
 //  FruityKit
 //
-//  Created by Eduardo Almeida on 14/06/2020.
-//  Copyright © 2020 Eduardo Almeida. All rights reserved.
-//
 
 /*
 * This program is free software; you can redistribute it and/or modify

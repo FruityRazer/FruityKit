@@ -2,9 +2,25 @@
 //  Color.swift
 //  FruityKit
 //
-//  Created by Eduardo Almeida on 16/04/2020.
-//  Copyright © 2020 Eduardo Almeida. All rights reserved.
-//
+
+/*
+ * This program is free software; you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation; either version 2 of the License, or
+ * (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program; if not, write to the Free Software
+ * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA
+ *
+ * Should you need to contact me, the author, you can do so by
+ * e-mail - Eduardo Almeida <hello [_at_] edr [_dot_] io>
+ */
 
 import Foundation
 
@@ -25,22 +41,24 @@ public struct Color: Hashable {
         b = blue
     }
     
-    public init(hex: String) throws {
-        guard hex.count == 6 || hex.count == 7 else {
-            throw InitializationError.invalidHexLength
-        }
-        
-        let cleantHex: String
-        
-        if hex.count == 7 {
-            guard hex.first! == "#" else {
+    private static func parseHex(from string: String) throws -> String {
+        switch string.count {
+        case 6:
+            return string
+            
+        case 7:
+            guard string.first! == "#" else {
                 throw InitializationError.invalidHexData
             }
+            return String(string.dropFirst())
             
-            cleantHex = String(hex.dropFirst())
-        } else {
-            cleantHex = hex
+        default:
+            throw InitializationError.invalidHexLength
         }
+    }
+    
+    public init(hex: String) throws {
+        let cleantHex = try Color.parseHex(from: hex)
         
         let redComponent = cleantHex[cleantHex.startIndex..<cleantHex.index(cleantHex.startIndex, offsetBy: 2)]
         let greenComponent = cleantHex[cleantHex.index(cleantHex.startIndex, offsetBy: 2)..<cleantHex.index(cleantHex.startIndex, offsetBy: 4)]
@@ -66,7 +84,7 @@ public struct Color: Hashable {
     }
 }
 
-extension Color {
+public extension Color {
     
     static var black: Color {
         Color(red: 0, green: 0, blue: 0)

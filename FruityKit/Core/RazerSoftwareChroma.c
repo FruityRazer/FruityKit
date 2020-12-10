@@ -2,9 +2,6 @@
 //  RazerSoftwareChroma.c
 //  FruityKit
 //
-//  Created by Eduardo Almeida on 08/07/18.
-//  Copyright © 2018 Eduardo Almeida. All rights reserved.
-//
 
 /*
  * This program is free software; you can redistribute it and/or modify
