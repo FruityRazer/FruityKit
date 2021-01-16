@@ -192,6 +192,7 @@ void razer_set_device_mode(IOUSBDeviceInterface **dev, unsigned char mode, unsig
         case USB_DEVICE_ID_RAZER_BLACKWIDOW_LITE:
         case USB_DEVICE_ID_RAZER_ORNATA:
         case USB_DEVICE_ID_RAZER_ORNATA_CHROMA:
+        case USB_DEVICE_ID_RAZER_ORNATA_CHROMA_V2:
         case USB_DEVICE_ID_RAZER_CYNOSA_CHROMA:
         case USB_DEVICE_ID_RAZER_NAGA_HEX_V2:
         case USB_DEVICE_ID_RAZER_DEATHADDER_ELITE:

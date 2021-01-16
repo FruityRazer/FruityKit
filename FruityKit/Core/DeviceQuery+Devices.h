@@ -676,6 +676,13 @@ razer_device __DQ_DEVICES[] = {
         .type = laptop
     },
     {
+        .shortName = "cynosa_lite",
+        .fullName = "Razer Cynosa Lite",
+        .usbId = 0x023F,
+        .synapse = synapse2,
+        .type = keyboard
+    },
+    {
         .shortName = "blade_2019_mercury",
         .fullName = "Razer Blade (2019) Mercury",
         .usbId = 0x0240,
@@ -724,13 +731,54 @@ razer_device __DQ_DEVICES[] = {
         .synapse = synapse2,
         .type = laptop
     },
-    
     {
         .shortName = "blade_studio_2019",
         .fullName = "Razer Blade Studio Edition (2019)",
         .usbId = 0x024D,
         .synapse = synapse2,
         .type = laptop
+    },
+    {
+        .shortName = "blade_stealth_early_2020",
+        .fullName = "Razer Blade Stealth (Early 2020)",
+        .usbId = 0x0252,
+        .synapse = synapse2,
+        .type = laptop
+    },
+    {
+        .shortName = "blade_blade_15_adv_2020",
+        .fullName = "Razer Blade 15 Advanced (2020)",
+        .usbId = 0x0253,
+        .synapse = synapse2,
+        .type = laptop
+    },
+    {
+        .shortName = "blade_early_2020",
+        .fullName = "Razer Blade (Early 2020)",
+        .usbId = 0x0255,
+        .synapse = synapse2,
+        .type = laptop
+    },
+    {
+        .shortName = "blade_stealth_late_2020",
+        .fullName = "Razer Blade Stealth (Late 2020)",
+        .usbId = 0x0259,
+        .synapse = synapse2,
+        .type = laptop
+    },
+    {
+        .shortName = "ornata_chroma_v2",
+        .fullName = "Razer Ornata Chroma V2",
+        .usbId = 0x025D,
+        .synapse = synapse2,
+        .type = keyboard
+    },
+    {
+        .shortName = "cynosa_v2",
+        .fullName = "Razer Cynosa V2",
+        .usbId = 0x025E,
+        .synapse = synapse2,
+        .type = keyboard
     },
     //  ...
     {

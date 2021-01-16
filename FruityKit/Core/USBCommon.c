@@ -23,6 +23,7 @@
  */
 
 #include "USBCommon.h"
+#include "USBDeviceIdentifiers.h"
 
 #include "razercommon.h"
 
@@ -47,7 +48,23 @@ IOReturn perform_razer_usb_call(IOUSBDeviceInterface **dev, void *data, uint rep
 }
 
 IOReturn razer_get_report(IOUSBDeviceInterface **dev, struct razer_report *request_report, struct razer_report *response_report) {
-    return razer_get_usb_response(dev, 0x00, request_report, 0x00, response_report);
+    uint report_index;
+    uint response_index;
+    
+    switch (get_device_id(dev)) {
+        case USB_DEVICE_ID_RAZER_ANANSI:
+        case USB_DEVICE_ID_RAZER_HUNTSMAN_TE:
+        case USB_DEVICE_ID_RAZER_ORNATA_CHROMA_V2:
+            report_index = 0x02;
+            response_index = 0x02;
+            break;
+        default:
+            report_index = 0x01;
+            response_index = 0x01;
+            break;
+    }
+    
+    return razer_get_usb_response(dev, report_index, request_report, response_index, response_report);
 }
 
 bool razer_send_payload(IOUSBDeviceInterface **dev, struct razer_report *request_report) {
