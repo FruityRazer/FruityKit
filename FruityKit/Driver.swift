@@ -44,20 +44,22 @@ extension Driver {
                 return .v2(driver: Synapse2KeyboardHandle(usbId: Int32(device.usbId)))
             case .mouse:
                 return .v2(driver: Synapse2MouseHandle(usbId: Int32(device.usbId)))
+            case .other(type: "accessory"):
+                return .v2(driver: Synapse2AccessoryHandle(usbId: Int32(device.usbId)))
             default:
                 return .v2(driver: Synapse2Handle(usbId: Int32(device.usbId)))
             }
         }
         
         switch String(cString: device.shortName) {
-        case "base_station":
+        case "base_station_sw":
             return .v3(driver: RazerBaseStationHandle(usbId: Int32(device.usbId)))
         case "huntsman_sw",
              "huntsman_te_sw",
              "huntsman_elite_sw",
              "huntsman_mini":
             return .v3(driver: RazerHuntsmanHandle(usbId: Int32(device.usbId)))
-        case "mamba_hyperflux":
+        case "mamba_hyperflux_sw":
             return .v3(driver: RazerMambaHyperfluxHandle(usbId: Int32(device.usbId)))
         default:
             return .v3(driver: Synapse3Handle(usbId: Int32(device.usbId)))

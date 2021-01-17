@@ -59,6 +59,7 @@ Synapse 2 Mode is based on `openrazer`, Synapse 3 Mode was programmed for this p
  - Razer Blade Stealth (2019)
  - Razer Blade (2019) Advanced
  - Razer Blade (2019)
+ - Razer Cynosa Lite
  - Razer Blade (2019) Mercury
  - Razer BlackWidow (2019)
  - Razer Huntsman TE
@@ -67,6 +68,12 @@ Synapse 2 Mode is based on `openrazer`, Synapse 3 Mode was programmed for this p
  - Razer Blade Stealth (Late 2019)
  - Razer Blade Pro (Late 2019)
  - Razer Blade Studio Edition (2019)
+ - Razer Blade Stealth (Early 2020)
+ - Razer Blade 15 Advanced (2020)
+ - Razer Blade (Early 2020)
+ - Razer Blade Stealth (Late 2020)
+ - Razer Ornata Chroma V2
+ - Razer Cynosa V2
  
 ### Mice
 
@@ -114,6 +121,21 @@ Synapse 2 Mode is based on `openrazer`, Synapse 3 Mode was programmed for this p
  - Razer Viper Ultimate (Wired Mode)
  - Razer Viper Ultimate (Wireless Mode)
  - Razer Deathadder V2
+ 
+ ### Accessories
+ 
+ - Razer Hyperflux
+ - Razer Core
+ - Razer Nommo Chroma
+ - Razer Nommo Pro
+ - Razer Firefly
+ - Razer Goliathus Chroma
+ - Razer Goliathus Chroma Extended
+ - Razer Chroma Mug
+ - Razer Chroma Base
+ - Razer Chroma HDK
+ - Razer Kraken Kitty Edition
+ - Razer Mouse Bungee V3 Chroma
 
 ## Software-Based Effects (Synapse 3 Mode)
 
@@ -123,7 +145,7 @@ Synapse 2 Mode is based on `openrazer`, Synapse 3 Mode was programmed for this p
 
 ### Mice
 
- - Razer Mamba Hyperflux
+ - Razer Hyperflux
 
 ### Miscellaneous
 

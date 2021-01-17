@@ -38,7 +38,8 @@ typedef enum device_type {
     misc_basestation,
     misc_hyperflux,
     mouse,
-    mousepad
+    mousepad,
+    accessory
 } razer_device_type;
 
 typedef struct razer_device {
@@ -780,10 +781,95 @@ razer_device __DQ_DEVICES[] = {
         .synapse = synapse2,
         .type = keyboard
     },
-    //  ...
+    //  Accessories
     {
-        .shortName = "mamba_hyperflux",
-        .fullName = "Razer Mamba Hyperflux",
+        .shortName = "mamba_hyperflux_hw",
+        .fullName = "Razer Hyperflux",
+        .usbId = 0x0068,
+        .synapse = synapse2,
+        .type = accessory
+    },
+    {
+        .shortName = "core",
+        .fullName = "Razer Core",
+        .usbId = 0x0215,
+        .synapse = synapse2,
+        .type = accessory
+    },
+    {
+        .shortName = "nommo_chroma",
+        .fullName = "Razer Nommo Chroma",
+        .usbId = 0x0517,
+        .synapse = synapse2,
+        .type = accessory
+    },
+    {
+        .shortName = "nommo_pro",
+        .fullName = "Razer Nommo Pro",
+        .usbId = 0x0518,
+        .synapse = synapse2,
+        .type = accessory
+    },
+    {
+        .shortName = "firefly",
+        .fullName = "Razer Firefly",
+        .usbId = 0x0C00,
+        .synapse = synapse2,
+        .type = accessory
+    },
+    {
+        .shortName = "goliathus_chroma",
+        .fullName = "Razer Goliathus Chroma",
+        .usbId = 0x0C01,
+        .synapse = synapse2,
+        .type = accessory
+    },
+    {
+        .shortName = "goliathus_chroma_extended",
+        .fullName = "Razer Goliathus Chroma Extended",
+        .usbId = 0x0C02,
+        .synapse = synapse2,
+        .type = accessory
+    },
+    {
+        .shortName = "chroma_mug",
+        .fullName = "Razer Chroma Mug",
+        .usbId = 0x0F07,
+        .synapse = synapse2,
+        .type = accessory
+    },
+    {
+        .shortName = "base_station_hw",
+        .fullName = "Razer Base Station Chroma",
+        .usbId = 0x0F08,
+        .synapse = synapse2,
+        .type = accessory
+    },
+    {
+        .shortName = "chroma_hdk",
+        .fullName = "Razer Chroma HDK",
+        .usbId = 0x0F09,
+        .synapse = synapse2,
+        .type = accessory
+    },
+    {
+        .shortName = "kraken_kitty",
+        .fullName = "Razer Kraken Kitty Edition",
+        .usbId = 0x0F19,
+        .synapse = synapse2,
+        .type = accessory
+    },
+    {
+        .shortName = "mouse_bungee_v3_chroma",
+        .fullName = "Razer Mouse Bungee V3 Chroma",
+        .usbId = 0x0F1D,
+        .synapse = synapse2,
+        .type = accessory
+    },
+    //  Synapse 3 Specific
+    {
+        .shortName = "mamba_hyperflux_sw",
+        .fullName = "Razer Hyperflux",
         .usbId = 0x0068,
         .synapse = synapse3,
         .type = misc_hyperflux
@@ -817,7 +903,7 @@ razer_device __DQ_DEVICES[] = {
         .type = keyboard
     },
     {
-        .shortName = "base_station",
+        .shortName = "base_station_sw",
         .fullName = "Razer Base Station Chroma",
         .usbId = 0x0F08,
         .synapse = synapse3,

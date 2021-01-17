@@ -130,4 +130,8 @@ class Synapse2Tests: XCTestCase {
                                                              color1: .white,
                                                              color2: .red)))
     }
+    
+    func testMambaHyperflux_static() throws {
+        
+    }
 }

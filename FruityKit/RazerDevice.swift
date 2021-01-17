@@ -56,6 +56,8 @@ extension RazerDevice {
             type = .mouse
         case 7:
             type = .other(type: "mousepad")
+        case 8:
+            type = .other(type: "accessory")
         default:
             type = .other(type: "unknown")
         }

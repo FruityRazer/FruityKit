@@ -4,6 +4,7 @@ framework module FruityKit {
     explicit module FruityKitC {
         private header "razerkbd_driver.h"
         private header "razermouse_driver.h"
+        private header "razeraccessory_driver.h"
         private header "razercommon.h"
         private header "razerchromacommon.h"
         private header "RazerSoftwareChroma.h"

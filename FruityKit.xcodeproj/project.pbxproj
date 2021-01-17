@@ -52,6 +52,9 @@
 		A0D36DBF2449241C00276551 /* RazerHuntsmanHandle.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0D36DBE2449241C00276551 /* RazerHuntsmanHandle.swift */; };
 		A0D36DC1244929A900276551 /* RazerBaseStationHandle.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0D36DC0244929A900276551 /* RazerBaseStationHandle.swift */; };
 		A0F0B5E4249F67E1004D644F /* ConversionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0F0B5E3249F67E1004D644F /* ConversionTests.swift */; };
+		A0F1CA8225B3BBFC00DFC194 /* razeraccessory_driver.h in Headers */ = {isa = PBXBuildFile; fileRef = A0F1CA8025B3BBFC00DFC194 /* razeraccessory_driver.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		A0F1CA8325B3BBFC00DFC194 /* razeraccessory_driver.c in Sources */ = {isa = PBXBuildFile; fileRef = A0F1CA8125B3BBFC00DFC194 /* razeraccessory_driver.c */; };
+		A0F1CA8925B3C0E000DFC194 /* Synapse2AccessoryHandle.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0F1CA8825B3C0E000DFC194 /* Synapse2AccessoryHandle.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -114,6 +117,9 @@
 		A0D36DBE2449241C00276551 /* RazerHuntsmanHandle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RazerHuntsmanHandle.swift; sourceTree = "<group>"; };
 		A0D36DC0244929A900276551 /* RazerBaseStationHandle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RazerBaseStationHandle.swift; sourceTree = "<group>"; };
 		A0F0B5E3249F67E1004D644F /* ConversionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversionTests.swift; sourceTree = "<group>"; };
+		A0F1CA8025B3BBFC00DFC194 /* razeraccessory_driver.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = razeraccessory_driver.h; sourceTree = "<group>"; };
+		A0F1CA8125B3BBFC00DFC194 /* razeraccessory_driver.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = razeraccessory_driver.c; sourceTree = "<group>"; };
+		A0F1CA8825B3C0E000DFC194 /* Synapse2AccessoryHandle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Synapse2AccessoryHandle.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -198,6 +204,8 @@
 				A0C8385F2495B8EA009A4912 /* razermouse_driver.c */,
 				A01649162448D0B50017FF4B /* razerchromacommon.h */,
 				A01649132448D0B50017FF4B /* razerchromacommon.c */,
+				A0F1CA8025B3BBFC00DFC194 /* razeraccessory_driver.h */,
+				A0F1CA8125B3BBFC00DFC194 /* razeraccessory_driver.c */,
 			);
 			path = openrazer;
 			sourceTree = "<group>";
@@ -252,6 +260,7 @@
 		A0C838672495BF84009A4912 /* Synapse 2 Types */ = {
 			isa = PBXGroup;
 			children = (
+				A0F1CA8825B3C0E000DFC194 /* Synapse2AccessoryHandle.swift */,
 				A0C838682495BF90009A4912 /* Synapse2KeyboardHandle.swift */,
 				A0C8386A2495BF9B009A4912 /* Synapse2MouseHandle.swift */,
 			);
@@ -285,6 +294,7 @@
 				A01649212448D0B50017FF4B /* razercommon.h in Headers */,
 				A01649032448D0910017FF4B /* FruityKit.h in Headers */,
 				A0C838612495B8EA009A4912 /* razerkbd_driver.h in Headers */,
+				A0F1CA8225B3BBFC00DFC194 /* razeraccessory_driver.h in Headers */,
 				A01649222448D0B50017FF4B /* razerchromacommon.h in Headers */,
 				A01649192448D0B50017FF4B /* USBCommon.h in Headers */,
 			);
@@ -396,8 +406,10 @@
 				A016491A2448D0B50017FF4B /* RazerSoftwareChroma.c in Sources */,
 				A0D36DC1244929A900276551 /* RazerBaseStationHandle.swift in Sources */,
 				A01649452448DEDB0017FF4B /* Device.swift in Sources */,
+				A0F1CA8925B3C0E000DFC194 /* Synapse2AccessoryHandle.swift in Sources */,
 				A0ADA489244D23CA00FEAA12 /* RazerSoftwareSingleRowHandle.swift in Sources */,
 				A01649472448E2650017FF4B /* RazerDevice.swift in Sources */,
+				A0F1CA8325B3BBFC00DFC194 /* razeraccessory_driver.c in Sources */,
 				A016491B2448D0B50017FF4B /* USBCommon.c in Sources */,
 				A0C838662495BA6C009A4912 /* Driver.swift in Sources */,
 				A0A091A42498AEDD00BE8AE7 /* PerformClosures.swift in Sources */,
@@ -571,7 +583,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 16;
+				CURRENT_PROJECT_VERSION = 17;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = 3D7R27DBRZ;
 				DYLIB_COMPATIBILITY_VERSION = 1;
@@ -585,7 +597,7 @@
 					"@loader_path/Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.9;
-				MARKETING_VERSION = 4.2;
+				MARKETING_VERSION = 5.0;
 				MODULEMAP_FILE = "$SRCROOT/FruityKit/Supporting Files/FruityKit.modulemap";
 				PRODUCT_BUNDLE_IDENTIFIER = io.edr.fruitykit;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
@@ -601,7 +613,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 16;
+				CURRENT_PROJECT_VERSION = 17;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = 3D7R27DBRZ;
 				DYLIB_COMPATIBILITY_VERSION = 1;
@@ -615,7 +627,7 @@
 					"@loader_path/Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.9;
-				MARKETING_VERSION = 4.2;
+				MARKETING_VERSION = 5.0;
 				MODULEMAP_FILE = "$SRCROOT/FruityKit/Supporting Files/FruityKit.modulemap";
 				PRODUCT_BUNDLE_IDENTIFIER = io.edr.fruitykit;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
