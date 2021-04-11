@@ -206,6 +206,13 @@ razer_device __DQ_DEVICES[] = {
         .type = mouse
     },
     {
+        .shortName = "deathadder_2000",
+        .fullName = "Razer Deathadder (2000)",
+        .usbId = 0x004F,
+        .synapse = synapse2,
+        .type = mouse
+    },
+    {
         .shortName = "naga_hex_v2",
         .fullName = "Razer Naga Hex V2",
         .usbId = 0x0050,
@@ -265,6 +272,13 @@ razer_device __DQ_DEVICES[] = {
         .shortName = "lancehead_te_wired",
         .fullName = "Razer Lancehead TE",
         .usbId = 0x0060,
+        .synapse = synapse2,
+        .type = mouse
+    },
+    {
+        .shortName = "atheris_receiver",
+        .fullName = "Razer Atheris (Receiver)",
+        .usbId = 0x0062,
         .synapse = synapse2,
         .type = mouse
     },
@@ -367,9 +381,72 @@ razer_device __DQ_DEVICES[] = {
         .type = mouse
     },
     {
+        .shortName = "deathadder_v2_pro",
+        .fullName = "Razer Deathadder V2 Pro (Wired)",
+        .usbId = 0x007C,
+        .synapse = synapse2,
+        .type = mouse
+    },
+    {
+        .shortName = "deathadder_v2_pro_wireless",
+        .fullName = "Razer Deathadder V2 Pro (Wireless)",
+        .usbId = 0x007D,
+        .synapse = synapse2,
+        .type = mouse
+    },
+    {
+        .shortName = "basilisk_x_hyperspeed",
+        .fullName = "Razer Basilisk X Hyperspeed",
+        .usbId = 0x0083,
+        .synapse = synapse2,
+        .type = mouse
+    },
+    {
         .shortName = "deathadder_v2",
         .fullName = "Razer Deathadder V2",
         .usbId = 0x0084,
+        .synapse = synapse2,
+        .type = mouse
+    },
+    {
+        .shortName = "basilisk_v2",
+        .fullName = "Razer Basilisk V2",
+        .usbId = 0x0085,
+        .synapse = synapse2,
+        .type = mouse
+    },
+    {
+        .shortName = "basilisk_v2_ultimate",
+        .fullName = "Razer Basilisk V2 Ultimate (Wired)",
+        .usbId = 0x0086,
+        .synapse = synapse2,
+        .type = mouse
+    },
+    {
+        .shortName = "basilisk_v2_ultimate_wireless",
+        .fullName = "Razer Basilisk V2 Ultimate (Wireless)",
+        .usbId = 0x0088,
+        .synapse = synapse2,
+        .type = mouse
+    },
+    {
+        .shortName = "viper_mini",
+        .fullName = "Razer Viper Mini",
+        .usbId = 0x008A,
+        .synapse = synapse2,
+        .type = mouse
+    },
+    {
+        .shortName = "deathadder_v2_mini",
+        .fullName = "Razer Deathadder V2 Mini",
+        .usbId = 0x008C,
+        .synapse = synapse2,
+        .type = mouse
+    },
+    {
+        .shortName = "naga_lh_2020",
+        .fullName = "Razer Naga Left-Handed (2020)",
+        .usbId = 0x008D,
         .synapse = synapse2,
         .type = mouse
     },
