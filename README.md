@@ -120,7 +120,16 @@ Synapse 2 Mode is based on `openrazer`, Synapse 3 Mode was programmed for this p
  - Razer Viper
  - Razer Viper Ultimate (Wired Mode)
  - Razer Viper Ultimate (Wireless Mode)
+ - Razer Deathadder V2 Pro (Wired Mode)
+ - Razer Deathadder V2 Pro (Wireless Mode)
+ - Razer Basilisk X Hyperspeed
  - Razer Deathadder V2
+ - Razer Basilisk V2
+ - Razer Basilisk V2 Ultimate (Wired Mode)
+ - Razer Basilisk V2 Ultimate (Wlreless Mode)
+ - Razer Viper Mini
+ - Razer Deathadder V2 Mini
+ - Razer Naga Left-Handed (2020)
  
  ### Accessories
  
