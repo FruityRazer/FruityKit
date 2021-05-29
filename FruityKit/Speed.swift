@@ -38,31 +38,3 @@ public enum Speed: Int {
     case fastest = 0x25
     case unacceptablyFast = 0x10
 }
-
-//  TODO: For FruityUI.
-
-extension Speed {
-    
-    var stringValue: String {
-        switch self {
-        case .unacceptablySlow:
-            return "Unacceptably Slow"
-        case .slowest:
-            return "Slowest"
-        case .slower:
-            return "Slower"
-        case .slow:
-            return "Slow"
-        case .default:
-            return "Default"
-        case .fast:
-            return "Fast"
-        case .faster:
-            return "Faster"
-        case .fastest:
-            return "Fastest"
-        case .unacceptablyFast:
-            return "Unacceptably Fast"
-        }
-    }
-}
