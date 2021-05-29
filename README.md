@@ -138,6 +138,7 @@ Synapse 2 Mode is based on `openrazer`, Synapse 3 Mode was programmed for this p
  - Razer Nommo Chroma
  - Razer Nommo Pro
  - Razer Firefly
+ - Razer Firefly V2
  - Razer Goliathus Chroma
  - Razer Goliathus Chroma Extended
  - Razer Chroma Mug
@@ -145,6 +146,7 @@ Synapse 2 Mode is based on `openrazer`, Synapse 3 Mode was programmed for this p
  - Razer Chroma HDK
  - Razer Kraken Kitty Edition
  - Razer Mouse Bungee V3 Chroma
+ - Razer Base Station V2 Chroma
 
 ## Software-Based Effects (Synapse 3 Mode)
 
