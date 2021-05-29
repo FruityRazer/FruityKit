@@ -55,10 +55,22 @@ class Synapse2Tests: XCTestCase {
         return driver
     }
     
-    func testHuntsmanElite_wave() throws {
+    func testHuntsmanElite_wave_unacceptablySlowSpeed() throws {
         try XCTSkipIf(!huntsmanEliteHWDriver.connected, SkippedTestMessage.hardwareConfigurationUnsupported)
         
-        XCTAssertTrue(huntsmanEliteHWDriver.write(mode: .wave(direction: .right)))
+        XCTAssertTrue(huntsmanEliteHWDriver.write(mode: .wave(speed: .unacceptablySlow, direction: .right)))
+    }
+    
+    func testHuntsmanElite_wave_defaultSpeed() throws {
+        try XCTSkipIf(!huntsmanEliteHWDriver.connected, SkippedTestMessage.hardwareConfigurationUnsupported)
+        
+        XCTAssertTrue(huntsmanEliteHWDriver.write(mode: .wave(speed: .default, direction: .right)))
+    }
+    
+    func testHuntsmanElite_wave_unacceptablyFastSpeed() throws {
+        try XCTSkipIf(!huntsmanEliteHWDriver.connected, SkippedTestMessage.hardwareConfigurationUnsupported)
+        
+        XCTAssertTrue(huntsmanEliteHWDriver.write(mode: .wave(speed: .unacceptablyFast, direction: .right)))
     }
     
     func testHuntsmanElite_spectrum() throws {
@@ -70,7 +82,7 @@ class Synapse2Tests: XCTestCase {
     func testHuntsmanElite_reactive() throws {
         try XCTSkipIf(!huntsmanEliteHWDriver.connected, SkippedTestMessage.hardwareConfigurationUnsupported)
         
-        XCTAssertTrue(huntsmanEliteHWDriver.write(mode: .reactive(speed: 1, color: .white)))
+        XCTAssertTrue(huntsmanEliteHWDriver.write(mode: .reactive(speed: .default, color: .white)))
     }
     
     func testHuntsmanElite_static() throws {
@@ -88,7 +100,7 @@ class Synapse2Tests: XCTestCase {
     func testHuntsmanElite_starlight() throws {
         try XCTSkipIf(!huntsmanEliteHWDriver.connected, SkippedTestMessage.hardwareConfigurationUnsupported)
         
-        XCTAssertTrue(huntsmanEliteHWDriver.write(mode: .starlight(speed: 100,
+        XCTAssertTrue(huntsmanEliteHWDriver.write(mode: .starlight(speed: .unacceptablyFast,
                                                                    color1: .white,
                                                                    color2: .red)))
     }
@@ -96,7 +108,7 @@ class Synapse2Tests: XCTestCase {
     func testBasilisk_wave() throws {
         try XCTSkipIf(!basiliskDriver.connected, SkippedTestMessage.hardwareConfigurationUnsupported)
         
-        XCTAssertFalse(basiliskDriver.write(mode: .wave(direction: .right)))
+        XCTAssertFalse(basiliskDriver.write(mode: .wave(speed: .default, direction: .right)))
     }
     
     func testBasilisk_spectrum() throws {
@@ -108,7 +120,7 @@ class Synapse2Tests: XCTestCase {
     func testBasilisk_reactive() throws {
         try XCTSkipIf(!basiliskDriver.connected, SkippedTestMessage.hardwareConfigurationUnsupported)
         
-        XCTAssertTrue(basiliskDriver.write(mode: .reactive(speed: 1, color: .white)))
+        XCTAssertTrue(basiliskDriver.write(mode: .reactive(speed: .default, color: .white)))
     }
     
     func testBasilisk_static() throws {
@@ -126,12 +138,8 @@ class Synapse2Tests: XCTestCase {
     func testBasilisk_starlight() throws {
         try XCTSkipIf(!basiliskDriver.connected, SkippedTestMessage.hardwareConfigurationUnsupported)
         
-        XCTAssertFalse(basiliskDriver.write(mode: .starlight(speed: 100,
+        XCTAssertFalse(basiliskDriver.write(mode: .starlight(speed: .default,
                                                              color1: .white,
                                                              color2: .red)))
-    }
-    
-    func testMambaHyperflux_static() throws {
-        
     }
 }
