@@ -92,7 +92,7 @@ public class Synapse2Handle: SynapseHandle {
             dq_close_device(deviceInterface)
         }
         
-        razer_set_device_mode(deviceInterface, 0x00, 0x00)
+        //  razer_set_device_mode(deviceInterface, 0x00, 0x00)
         
         switch mode {
         case .wave(let direction):

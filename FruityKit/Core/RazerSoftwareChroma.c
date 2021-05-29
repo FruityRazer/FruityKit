@@ -26,8 +26,23 @@
 
 #include "USBCommon.h"
 
+struct razer_report get_razer_report4(unsigned char transaction_id, unsigned char command_class, unsigned char command_id, unsigned char data_size) {
+    struct razer_report new_report;
+    memset(&new_report, 0, sizeof(struct razer_report));
+    
+    new_report.status = 0x00;
+    new_report.transaction_id.id = transaction_id;
+    new_report.remaining_packets = 0x00;
+    new_report.protocol_type = 0x00;
+    new_report.command_class = command_class;
+    new_report.command_id.id = command_id;
+    new_report.data_size = data_size;
+    
+    return new_report;
+}
+
 IOReturn razer_huntsman_set_row_raw(IOUSBDeviceInterface **dev, char row_number, char *keys, int len) {
-    struct razer_report report = get_razer_report(0x1f, 0x0f, 0x03, 0x4a);
+    struct razer_report report = get_razer_report4(0x1f, 0x0f, 0x03, 0x4a);
 
     report.arguments[0] = 0x00;
     report.arguments[1] = 0x00;
@@ -51,7 +66,7 @@ IOReturn razer_huntsman_set_row_raw(IOUSBDeviceInterface **dev, char row_number,
 }
 
 IOReturn razer_huntsman_set_static_color(IOUSBDeviceInterface **dev, char row_number, struct razer_rgb *rgb) {
-    struct razer_report report = get_razer_report(0x1f, 0x0f, 0x03, 0x4a);
+    struct razer_report report = get_razer_report4(0x1f, 0x0f, 0x03, 0x4a);
     
     report.arguments[0] = 0x00;
     report.arguments[1] = 0x00;
@@ -77,7 +92,7 @@ IOReturn razer_huntsman_set_static_color(IOUSBDeviceInterface **dev, char row_nu
 IOReturn razer_huntsman_fake_wave_one_run(IOUSBDeviceInterface **dev, struct razer_rgb *rgb) {
     for (int current_key = 0; current_key <= 25; current_key++) {
         for (char row = 0x00; row < 6; row++) {
-            struct razer_report report = get_razer_report(0x1f, 0x0f, 0x03, 0x4a);
+            struct razer_report report = get_razer_report4(0x1f, 0x0f, 0x03, 0x4a);
             
             report.arguments[0] = 0x00;
             report.arguments[1] = 0x00;
@@ -102,7 +117,7 @@ IOReturn razer_huntsman_fake_wave_one_run(IOUSBDeviceInterface **dev, struct raz
 
 IOReturn razer_base_station_pre(IOUSBDeviceInterface **dev) {
     {
-        struct razer_report report = get_razer_report(0x1f, 0x00, 0x00, 0x00);
+        struct razer_report report = get_razer_report4(0x1f, 0x00, 0x00, 0x00);
         
         ((char *) &report)[5] = 0x02;
         ((char *) &report)[7] = 0x84;
@@ -115,7 +130,7 @@ IOReturn razer_base_station_pre(IOUSBDeviceInterface **dev) {
     usleep(100000);
     
     {
-        struct razer_report report = get_razer_report(0x1f, 0x00, 0x00, 0x00);
+        struct razer_report report = get_razer_report4(0x1f, 0x00, 0x00, 0x00);
         
         ((char *) &report)[5] = 0x02;
         ((char *) &report)[7] = 0x04;
@@ -129,7 +144,7 @@ IOReturn razer_base_station_pre(IOUSBDeviceInterface **dev) {
     usleep(100000);
     
     {
-        struct razer_report report = get_razer_report(0x1f, 0x00, 0x00, 0x00);
+        struct razer_report report = get_razer_report4(0x1f, 0x00, 0x00, 0x00);
         
         ((char *) &report)[5] = 0x06;
         ((char *) &report)[6] = 0x0f;
@@ -148,7 +163,7 @@ IOReturn razer_base_station_pre(IOUSBDeviceInterface **dev) {
 }
 
 IOReturn razer_base_station_set_static_color(IOUSBDeviceInterface **dev, struct razer_rgb *rgb) {
-    struct razer_report report = get_razer_report(0x1f, 0x0f, 0x03, 0x32);
+    struct razer_report report = get_razer_report4(0x1f, 0x0f, 0x03, 0x32);
     
     report.arguments[0] = 0x00;
     report.arguments[1] = 0x00;
@@ -170,7 +185,7 @@ IOReturn razer_base_station_set_static_color(IOUSBDeviceInterface **dev, struct 
 }
 
 IOReturn razer_base_station_set_colors(IOUSBDeviceInterface **dev, char *parts) {
-    struct razer_report report = get_razer_report(0x1f, 0x0f, 0x03, 0x32);
+    struct razer_report report = get_razer_report4(0x1f, 0x0f, 0x03, 0x32);
     
     report.arguments[0] = 0x00;
     report.arguments[1] = 0x00;
@@ -192,7 +207,7 @@ IOReturn razer_base_station_set_colors(IOUSBDeviceInterface **dev, char *parts) 
 }
 
 IOReturn razer_hyperflux_set_colors(IOUSBDeviceInterface **dev, char *parts) {
-    struct razer_report report = get_razer_report(0x1f, 0x0f, 0x03, 0x38);
+    struct razer_report report = get_razer_report4(0x1f, 0x0f, 0x03, 0x38);
     
     report.arguments[0] = 0x00;
     report.arguments[1] = 0x00;
