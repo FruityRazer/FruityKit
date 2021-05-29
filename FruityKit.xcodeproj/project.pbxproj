@@ -44,6 +44,7 @@
 		A0233FA7266274200081A8F6 /* razermouse_driver.c in Sources */ = {isa = PBXBuildFile; fileRef = A0233F9C266274200081A8F6 /* razermouse_driver.c */; };
 		A0233FA8266274200081A8F6 /* razermousedock_driver.c in Sources */ = {isa = PBXBuildFile; fileRef = A0233F9D266274200081A8F6 /* razermousedock_driver.c */; };
 		A0233FA9266274200081A8F6 /* razermousemat_driver.c in Sources */ = {isa = PBXBuildFile; fileRef = A0233F9E266274200081A8F6 /* razermousemat_driver.c */; };
+		A0233FAB266280560081A8F6 /* Speed.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0233FAA266280560081A8F6 /* Speed.swift */; };
 		A031EFD62582A7C800E944F1 /* RazerHuntsmanHandle+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A031EFD52582A7C800E944F1 /* RazerHuntsmanHandle+Extensions.swift */; };
 		A0569E41247746B000D98B41 /* VersionedRazerDevice.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0569E40247746B000D98B41 /* VersionedRazerDevice.swift */; };
 		A08E1F68249640EF00D13454 /* DeviceQuery+Devices.h in Headers */ = {isa = PBXBuildFile; fileRef = A08E1F67249640EF00D13454 /* DeviceQuery+Devices.h */; settings = {ATTRIBUTES = (Private, ); }; };
@@ -119,6 +120,7 @@
 		A0233F9C266274200081A8F6 /* razermouse_driver.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = razermouse_driver.c; path = librazermacos/src/lib/razermouse_driver.c; sourceTree = SOURCE_ROOT; };
 		A0233F9D266274200081A8F6 /* razermousedock_driver.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = razermousedock_driver.c; path = librazermacos/src/lib/razermousedock_driver.c; sourceTree = SOURCE_ROOT; };
 		A0233F9E266274200081A8F6 /* razermousemat_driver.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = razermousemat_driver.c; path = librazermacos/src/lib/razermousemat_driver.c; sourceTree = SOURCE_ROOT; };
+		A0233FAA266280560081A8F6 /* Speed.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Speed.swift; sourceTree = "<group>"; };
 		A031EFD52582A7C800E944F1 /* RazerHuntsmanHandle+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RazerHuntsmanHandle+Extensions.swift"; sourceTree = "<group>"; };
 		A0569E40247746B000D98B41 /* VersionedRazerDevice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VersionedRazerDevice.swift; sourceTree = "<group>"; };
 		A0700DA626624A950011B299 /* librazermacos.so */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = librazermacos.so; path = librazermacos/librazermacos.so; sourceTree = "<group>"; };
@@ -194,6 +196,7 @@
 				A01649382448D1150017FF4B /* FruityRazer.swift */,
 				A0A091A32498AEDD00BE8AE7 /* PerformClosures.swift */,
 				A01649462448E2650017FF4B /* RazerDevice.swift */,
+				A0233FAA266280560081A8F6 /* Speed.swift */,
 				A0569E40247746B000D98B41 /* VersionedRazerDevice.swift */,
 				A01649482448E27A0017FF4B /* Supporting Files */,
 			);
@@ -491,6 +494,7 @@
 				A01649592448EEE70017FF4B /* SynapseHandle.swift in Sources */,
 				A01649412448DDD60017FF4B /* Synapse3Handle.swift in Sources */,
 				A0C8386B2495BF9B009A4912 /* Synapse2MouseHandle.swift in Sources */,
+				A0233FAB266280560081A8F6 /* Speed.swift in Sources */,
 				A01649432448DEAE0017FF4B /* Direction.swift in Sources */,
 				A0233FA6266274200081A8F6 /* razerkraken_driver.c in Sources */,
 				A016493C2448D86F0017FF4B /* Color.swift in Sources */,
@@ -657,7 +661,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 18;
+				CURRENT_PROJECT_VERSION = 19;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = 3D7R27DBRZ;
 				DYLIB_COMPATIBILITY_VERSION = 1;
@@ -672,7 +676,7 @@
 				);
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				MACOSX_DEPLOYMENT_TARGET = 10.9;
-				MARKETING_VERSION = 5.1;
+				MARKETING_VERSION = 6.0;
 				MODULEMAP_FILE = "$SRCROOT/FruityKit/Supporting Files/FruityKit.modulemap";
 				PRODUCT_BUNDLE_IDENTIFIER = io.edr.fruitykit;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
@@ -688,7 +692,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 18;
+				CURRENT_PROJECT_VERSION = 19;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = 3D7R27DBRZ;
 				DYLIB_COMPATIBILITY_VERSION = 1;
@@ -703,7 +707,7 @@
 				);
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				MACOSX_DEPLOYMENT_TARGET = 10.9;
-				MARKETING_VERSION = 5.1;
+				MARKETING_VERSION = 6.0;
 				MODULEMAP_FILE = "$SRCROOT/FruityKit/Supporting Files/FruityKit.modulemap";
 				PRODUCT_BUNDLE_IDENTIFIER = io.edr.fruitykit;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";

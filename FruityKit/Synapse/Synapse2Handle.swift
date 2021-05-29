@@ -22,25 +22,17 @@
  * e-mail - Eduardo Almeida <hello [_at_] edr [_dot_] io>
  */
 
-//////////////////////////////////////////////////////////////////////////
-//////////////////////////////////////////////////////////////////////////
-//////  TODO: Investigate the `speed` parameter on both `reactive`  //////
-//////  and `starlight`. It doesn't appear to be doing anything     //////
-//////  (and, worse, appears to need to be 1 on reactive).          //////
-//////////////////////////////////////////////////////////////////////////
-//////////////////////////////////////////////////////////////////////////
-
 import Foundation
 
 public class Synapse2Handle: SynapseHandle {
     
     public enum Mode {
         case breath(color: Color)
-        case reactive(speed: Int, color: Color)
+        case reactive(speed: Speed, color: Color)
         case spectrum
-        case starlight(speed: Int, color1: Color, color2: Color)
+        case starlight(speed: Speed, color1: Color, color2: Color)
         case `static`(color: Color)
-        case wave(direction: Direction)
+        case wave(speed: Speed, direction: Direction)
     }
     
     public enum BasicMode {
@@ -92,10 +84,8 @@ public class Synapse2Handle: SynapseHandle {
             dq_close_device(deviceInterface)
         }
         
-        //  razer_set_device_mode(deviceInterface, 0x00, 0x00)
-        
         switch mode {
-        case .wave(let direction):
+        case .wave(let speed, let direction):
             let ptr = UnsafeMutablePointer<Int8>.allocate(capacity: 1)
             
             defer {
@@ -105,16 +95,16 @@ public class Synapse2Handle: SynapseHandle {
             
             ptr.pointee = Int8(direction.rawValue)
             
-            return write(mode: BasicMode(mode: mode), deviceInterface: deviceInterface, data: ptr, count: 1)
+            return write(mode: BasicMode(mode: mode),
+                         deviceInterface: deviceInterface,
+                         data: ptr,
+                         count: 1,
+                         additionalData: Int32(speed.rawValue))
             
         case .spectrum:
             return write(mode: BasicMode(mode: mode), deviceInterface: deviceInterface, data: nil, count: 0)
             
         case .reactive(let speed, let color):
-            if speed > UInt8.max {
-                return false
-            }
-            
             let colorPtr = color.cArray
             
             let capacity = 4
@@ -126,7 +116,7 @@ public class Synapse2Handle: SynapseHandle {
                 ptr.deallocate()
             }
             
-            ptr.pointee = UInt8(speed)
+            ptr.pointee = UInt8(speed.rawValue)
             ptr.advanced(by: 1).pointee = colorPtr.pointee
             ptr.advanced(by: 2).pointee = colorPtr.advanced(by: 1).pointee
             ptr.advanced(by: 3).pointee = colorPtr.advanced(by: 2).pointee
@@ -143,10 +133,6 @@ public class Synapse2Handle: SynapseHandle {
             }
             
         case .starlight(let speed, let color1, let color2):
-            if speed > UInt8.max {
-                return false
-            }
-            
             let color1Ptr = color1.cArray
             let color2Ptr = color2.cArray
             
@@ -159,7 +145,7 @@ public class Synapse2Handle: SynapseHandle {
                 ptr.deallocate()
             }
             
-            ptr.pointee = UInt8(speed)
+            ptr.pointee = UInt8(speed.rawValue)
             ptr.advanced(by: 1).pointee = color1Ptr.pointee
             ptr.advanced(by: 2).pointee = color1Ptr.advanced(by: 1).pointee
             ptr.advanced(by: 3).pointee = color1Ptr.advanced(by: 2).pointee
@@ -173,7 +159,7 @@ public class Synapse2Handle: SynapseHandle {
         }
     }
     
-    func write(mode: BasicMode, deviceInterface: UnsafeMutablePointer<UnsafeMutablePointer<IOUSBDeviceInterface>?>?, data: UnsafePointer<Int8>!, count: Int) -> Bool {
+    func write(mode: BasicMode, deviceInterface: UnsafeMutablePointer<UnsafeMutablePointer<IOUSBDeviceInterface>?>?, data: UnsafePointer<Int8>!, count: Int, additionalData: Int32? = nil) -> Bool {
         assertionFailure("This class must be overidden.")
         
         return false

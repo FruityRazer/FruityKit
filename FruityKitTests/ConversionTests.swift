@@ -41,12 +41,6 @@ class ConversionTests: XCTestCase {
         return driver
     }
     
-    func testSynapse2_doesNotCrashWhenSpeedIsGreaterThanUInt8Max() throws {
-        try XCTSkipIf(!huntsmanEliteHWDriver.connected, SkippedTestMessage.hardwareConfigurationUnsupported)
-        
-        XCTAssertFalse(huntsmanEliteHWDriver.write(mode: .reactive(speed: 100000000, color: .white)))
-    }
-    
     func testSynapse3_doesNotCrashWhenPassedInvalidColors() throws {
         let devices = FruityRazer.devices
         
