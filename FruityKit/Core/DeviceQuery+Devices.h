@@ -35,8 +35,6 @@ typedef enum device_type {
     keyboard,
     keypad,
     laptop,
-    misc_basestation,
-    misc_hyperflux,
     mouse,
     mousepad,
     accessory
@@ -892,21 +890,28 @@ razer_device __DQ_DEVICES[] = {
         .fullName = "Razer Firefly",
         .usbId = 0x0C00,
         .synapse = synapse2,
-        .type = accessory
+        .type = mousepad
+    },
+    {
+        .shortName = "firefly_v2",
+        .fullName = "Razer Firefly V2",
+        .usbId = 0x0C04,
+        .synapse = synapse2,
+        .type = mousepad
     },
     {
         .shortName = "goliathus_chroma",
         .fullName = "Razer Goliathus Chroma",
         .usbId = 0x0C01,
         .synapse = synapse2,
-        .type = accessory
+        .type = mousepad
     },
     {
         .shortName = "goliathus_chroma_extended",
         .fullName = "Razer Goliathus Chroma Extended",
         .usbId = 0x0C02,
         .synapse = synapse2,
-        .type = accessory
+        .type = mousepad
     },
     {
         .shortName = "chroma_mug",
@@ -943,13 +948,20 @@ razer_device __DQ_DEVICES[] = {
         .synapse = synapse2,
         .type = accessory
     },
+    {
+        .shortName = "base_station_v2_chroma",
+        .fullName = "Razer Base Station V2 Chroma",
+        .usbId = 0x0F20,
+        .synapse = synapse2,
+        .type = accessory
+    },
     //  Synapse 3 Specific
     {
         .shortName = "mamba_hyperflux_sw",
         .fullName = "Razer Hyperflux",
         .usbId = 0x0068,
         .synapse = synapse3,
-        .type = misc_hyperflux
+        .type = mousepad
     },
     {
         .shortName = "huntsman_elite_sw",
@@ -984,7 +996,7 @@ razer_device __DQ_DEVICES[] = {
         .fullName = "Razer Base Station Chroma",
         .usbId = 0x0F08,
         .synapse = synapse3,
-        .type = misc_basestation
+        .type = accessory
     },
 };
 

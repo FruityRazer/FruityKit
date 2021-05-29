@@ -39,25 +39,26 @@ extension Driver {
     
     static func handle(for device: razer_device, type: DeviceType) -> Driver {
         guard device.synapse.rawValue == 3 else {
+            let usbId = Int32(device.usbId)
+            
             switch type {
             case .keyboard:
-                return .v2(driver: Synapse2KeyboardHandle(usbId: Int32(device.usbId)))
+                return .v2(driver: Synapse2KeyboardHandle(usbId: usbId))
             case .mouse:
-                return .v2(driver: Synapse2MouseHandle(usbId: Int32(device.usbId)))
-            case .other(type: "accessory"):
-                return .v2(driver: Synapse2AccessoryHandle(usbId: Int32(device.usbId)))
+                return .v2(driver: Synapse2MouseHandle(usbId: usbId))
+            case .mousepad:
+                return .v2(driver: Synapse2MousepadHandle(usbId: usbId))
+            case .accessory:
+                return .v2(driver: Synapse2AccessoryHandle(usbId: usbId))
             default:
-                return .v2(driver: Synapse2Handle(usbId: Int32(device.usbId)))
+                return .v2(driver: Synapse2Handle(usbId: usbId))
             }
         }
         
         switch String(cString: device.shortName) {
         case "base_station_sw":
             return .v3(driver: RazerBaseStationHandle(usbId: Int32(device.usbId)))
-        case "huntsman_sw",
-             "huntsman_te_sw",
-             "huntsman_elite_sw",
-             "huntsman_mini":
+        case let d where d.hasPrefix("huntsman_"):
             return .v3(driver: RazerHuntsmanHandle(usbId: Int32(device.usbId)))
         case "mamba_hyperflux_sw":
             return .v3(driver: RazerMambaHyperfluxHandle(usbId: Int32(device.usbId)))

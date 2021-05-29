@@ -50,6 +50,7 @@
 		A08E1F68249640EF00D13454 /* DeviceQuery+Devices.h in Headers */ = {isa = PBXBuildFile; fileRef = A08E1F67249640EF00D13454 /* DeviceQuery+Devices.h */; settings = {ATTRIBUTES = (Private, ); }; };
 		A0A091A42498AEDD00BE8AE7 /* PerformClosures.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0A091A32498AEDD00BE8AE7 /* PerformClosures.swift */; };
 		A0A091A62498AF0200BE8AE7 /* PerformClosuresTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0A091A52498AF0200BE8AE7 /* PerformClosuresTests.swift */; };
+		A0A2E5282662D7BD0025E330 /* Synapse2MousepadHandle.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0A2E5272662D7BD0025E330 /* Synapse2MousepadHandle.swift */; };
 		A0AC448D244CAB8C003CEDB4 /* Synapse2Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0AC448C244CAB8C003CEDB4 /* Synapse2Tests.swift */; };
 		A0AC448F244CAB93003CEDB4 /* Synapse3Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0AC448E244CAB93003CEDB4 /* Synapse3Tests.swift */; };
 		A0ADA487244D22DA00FEAA12 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0ADA486244D22DA00FEAA12 /* Extensions.swift */; };
@@ -127,6 +128,7 @@
 		A08E1F67249640EF00D13454 /* DeviceQuery+Devices.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "DeviceQuery+Devices.h"; sourceTree = "<group>"; };
 		A0A091A32498AEDD00BE8AE7 /* PerformClosures.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PerformClosures.swift; sourceTree = "<group>"; };
 		A0A091A52498AF0200BE8AE7 /* PerformClosuresTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PerformClosuresTests.swift; sourceTree = "<group>"; };
+		A0A2E5272662D7BD0025E330 /* Synapse2MousepadHandle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Synapse2MousepadHandle.swift; sourceTree = "<group>"; };
 		A0AC448C244CAB8C003CEDB4 /* Synapse2Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Synapse2Tests.swift; sourceTree = "<group>"; };
 		A0AC448E244CAB93003CEDB4 /* Synapse3Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Synapse3Tests.swift; sourceTree = "<group>"; };
 		A0ADA486244D22DA00FEAA12 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
@@ -330,6 +332,7 @@
 				A0F1CA8825B3C0E000DFC194 /* Synapse2AccessoryHandle.swift */,
 				A0C838682495BF90009A4912 /* Synapse2KeyboardHandle.swift */,
 				A0C8386A2495BF9B009A4912 /* Synapse2MouseHandle.swift */,
+				A0A2E5272662D7BD0025E330 /* Synapse2MousepadHandle.swift */,
 			);
 			path = "Synapse 2 Types";
 			sourceTree = "<group>";
@@ -483,6 +486,7 @@
 				A0D36DC1244929A900276551 /* RazerBaseStationHandle.swift in Sources */,
 				A01649452448DEDB0017FF4B /* Device.swift in Sources */,
 				A0233F9F266274200081A8F6 /* razeraccessory_driver.c in Sources */,
+				A0A2E5282662D7BD0025E330 /* Synapse2MousepadHandle.swift in Sources */,
 				A0233FA5266274200081A8F6 /* razerchromacommon.c in Sources */,
 				A0233FA0266274200081A8F6 /* razeregpu_driver.c in Sources */,
 				A0F1CA8925B3C0E000DFC194 /* Synapse2AccessoryHandle.swift in Sources */,
@@ -661,7 +665,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 19;
+				CURRENT_PROJECT_VERSION = 20;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = 3D7R27DBRZ;
 				DYLIB_COMPATIBILITY_VERSION = 1;
@@ -692,7 +696,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 19;
+				CURRENT_PROJECT_VERSION = 20;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = 3D7R27DBRZ;
 				DYLIB_COMPATIBILITY_VERSION = 1;
