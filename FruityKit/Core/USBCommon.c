@@ -64,7 +64,7 @@ IOReturn razer_get_report(IOUSBDeviceInterface **dev, struct razer_report *reque
             break;
     }
     
-    return razer_get_usb_response(dev, report_index, request_report, response_index, response_report);
+    return razer_get_usb_response(dev, report_index, request_report, response_index, response_report, 100);
 }
 
 bool razer_send_payload(IOUSBDeviceInterface **dev, struct razer_report *request_report) {

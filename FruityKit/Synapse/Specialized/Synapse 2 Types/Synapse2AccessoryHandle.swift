@@ -29,7 +29,6 @@ final class Synapse2AccessoryHandle: Synapse2Handle {
     override var supportedModes: [BasicMode] {
         [
             .breath,
-            .reactive,
             .spectrum,
             .static,
             .wave
@@ -39,17 +38,15 @@ final class Synapse2AccessoryHandle: Synapse2Handle {
     override func write(mode: BasicMode, deviceInterface: UnsafeMutablePointer<UnsafeMutablePointer<IOUSBDeviceInterface>?>?, data: UnsafePointer<Int8>!, count: Int) -> Bool {
         switch mode {
         case .breath:
-            return razer_accessory_attr_write_mode_breath(deviceInterface, data, count)
-        case .reactive:
-            return razer_accessory_attr_write_mode_reactive(deviceInterface, data, count)
+            return razer_accessory_attr_write_mode_breath(deviceInterface, data, count) == count
         case .spectrum:
-            return razer_accessory_attr_write_mode_spectrum(deviceInterface)
-        case .starlight:
-            return false
+            return razer_accessory_attr_write_mode_spectrum(deviceInterface, nil, count) == count
         case .static:
-            return razer_accessory_attr_write_mode_static(deviceInterface, data, count)
+            return razer_accessory_attr_write_mode_static(deviceInterface, data, count) == count
         case .wave:
-            return razer_accessory_attr_write_mode_wave(deviceInterface, data, count)
+            return razer_accessory_attr_write_mode_wave(deviceInterface, data, count, 1) == count
+        case .reactive, .starlight:
+            return false
         }
     }
 }

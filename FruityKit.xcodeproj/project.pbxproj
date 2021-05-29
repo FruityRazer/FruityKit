@@ -14,10 +14,6 @@
 		A016491A2448D0B50017FF4B /* RazerSoftwareChroma.c in Sources */ = {isa = PBXBuildFile; fileRef = A016490D2448D0B50017FF4B /* RazerSoftwareChroma.c */; };
 		A016491B2448D0B50017FF4B /* USBCommon.c in Sources */ = {isa = PBXBuildFile; fileRef = A016490E2448D0B50017FF4B /* USBCommon.c */; };
 		A016491C2448D0B50017FF4B /* DeviceQuery.h in Headers */ = {isa = PBXBuildFile; fileRef = A016490F2448D0B50017FF4B /* DeviceQuery.h */; settings = {ATTRIBUTES = (Private, ); }; };
-		A016491E2448D0B50017FF4B /* razercommon.c in Sources */ = {isa = PBXBuildFile; fileRef = A01649122448D0B50017FF4B /* razercommon.c */; };
-		A016491F2448D0B50017FF4B /* razerchromacommon.c in Sources */ = {isa = PBXBuildFile; fileRef = A01649132448D0B50017FF4B /* razerchromacommon.c */; };
-		A01649212448D0B50017FF4B /* razercommon.h in Headers */ = {isa = PBXBuildFile; fileRef = A01649152448D0B50017FF4B /* razercommon.h */; settings = {ATTRIBUTES = (Private, ); }; };
-		A01649222448D0B50017FF4B /* razerchromacommon.h in Headers */ = {isa = PBXBuildFile; fileRef = A01649162448D0B50017FF4B /* razerchromacommon.h */; settings = {ATTRIBUTES = (Private, ); }; };
 		A01649392448D1150017FF4B /* FruityRazer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A01649382448D1150017FF4B /* FruityRazer.swift */; };
 		A016493C2448D86F0017FF4B /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = A016493B2448D86F0017FF4B /* Color.swift */; };
 		A016493E2448DD590017FF4B /* Synapse2Handle.swift in Sources */ = {isa = PBXBuildFile; fileRef = A016493D2448DD590017FF4B /* Synapse2Handle.swift */; };
@@ -28,6 +24,26 @@
 		A01649502448EC990017FF4B /* FruityKitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A016494F2448EC990017FF4B /* FruityKitTests.swift */; };
 		A01649522448EC990017FF4B /* FruityKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A01648FE2448D0910017FF4B /* FruityKit.framework */; };
 		A01649592448EEE70017FF4B /* SynapseHandle.swift in Sources */ = {isa = PBXBuildFile; fileRef = A01649582448EEE70017FF4B /* SynapseHandle.swift */; };
+		A0233F89266274170081A8F6 /* razeregpu_driver.h in Headers */ = {isa = PBXBuildFile; fileRef = A0233F7E266274170081A8F6 /* razeregpu_driver.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		A0233F8A266274170081A8F6 /* razercommon.h in Headers */ = {isa = PBXBuildFile; fileRef = A0233F7F266274170081A8F6 /* razercommon.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		A0233F8B266274170081A8F6 /* razerkbd_driver.h in Headers */ = {isa = PBXBuildFile; fileRef = A0233F80266274170081A8F6 /* razerkbd_driver.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		A0233F8C266274170081A8F6 /* razerheadphone_driver.h in Headers */ = {isa = PBXBuildFile; fileRef = A0233F81266274170081A8F6 /* razerheadphone_driver.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		A0233F8D266274170081A8F6 /* razermousemat_driver.h in Headers */ = {isa = PBXBuildFile; fileRef = A0233F82266274170081A8F6 /* razermousemat_driver.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		A0233F8E266274170081A8F6 /* razeraccessory_driver.h in Headers */ = {isa = PBXBuildFile; fileRef = A0233F83266274170081A8F6 /* razeraccessory_driver.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		A0233F8F266274170081A8F6 /* razermousedock_driver.h in Headers */ = {isa = PBXBuildFile; fileRef = A0233F84266274170081A8F6 /* razermousedock_driver.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		A0233F90266274170081A8F6 /* razerkraken_driver.h in Headers */ = {isa = PBXBuildFile; fileRef = A0233F85266274170081A8F6 /* razerkraken_driver.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		A0233F91266274170081A8F6 /* razerchromacommon.h in Headers */ = {isa = PBXBuildFile; fileRef = A0233F86266274170081A8F6 /* razerchromacommon.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		A0233F92266274170081A8F6 /* razermouse_driver.h in Headers */ = {isa = PBXBuildFile; fileRef = A0233F87266274170081A8F6 /* razermouse_driver.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		A0233F9F266274200081A8F6 /* razeraccessory_driver.c in Sources */ = {isa = PBXBuildFile; fileRef = A0233F94266274200081A8F6 /* razeraccessory_driver.c */; };
+		A0233FA0266274200081A8F6 /* razeregpu_driver.c in Sources */ = {isa = PBXBuildFile; fileRef = A0233F95266274200081A8F6 /* razeregpu_driver.c */; };
+		A0233FA2266274200081A8F6 /* razercommon.c in Sources */ = {isa = PBXBuildFile; fileRef = A0233F97266274200081A8F6 /* razercommon.c */; };
+		A0233FA3266274200081A8F6 /* razerkbd_driver.c in Sources */ = {isa = PBXBuildFile; fileRef = A0233F98266274200081A8F6 /* razerkbd_driver.c */; };
+		A0233FA4266274200081A8F6 /* razerheadphone_driver.c in Sources */ = {isa = PBXBuildFile; fileRef = A0233F99266274200081A8F6 /* razerheadphone_driver.c */; };
+		A0233FA5266274200081A8F6 /* razerchromacommon.c in Sources */ = {isa = PBXBuildFile; fileRef = A0233F9A266274200081A8F6 /* razerchromacommon.c */; };
+		A0233FA6266274200081A8F6 /* razerkraken_driver.c in Sources */ = {isa = PBXBuildFile; fileRef = A0233F9B266274200081A8F6 /* razerkraken_driver.c */; };
+		A0233FA7266274200081A8F6 /* razermouse_driver.c in Sources */ = {isa = PBXBuildFile; fileRef = A0233F9C266274200081A8F6 /* razermouse_driver.c */; };
+		A0233FA8266274200081A8F6 /* razermousedock_driver.c in Sources */ = {isa = PBXBuildFile; fileRef = A0233F9D266274200081A8F6 /* razermousedock_driver.c */; };
+		A0233FA9266274200081A8F6 /* razermousemat_driver.c in Sources */ = {isa = PBXBuildFile; fileRef = A0233F9E266274200081A8F6 /* razermousemat_driver.c */; };
 		A031EFD62582A7C800E944F1 /* RazerHuntsmanHandle+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A031EFD52582A7C800E944F1 /* RazerHuntsmanHandle+Extensions.swift */; };
 		A0569E41247746B000D98B41 /* VersionedRazerDevice.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0569E40247746B000D98B41 /* VersionedRazerDevice.swift */; };
 		A08E1F68249640EF00D13454 /* DeviceQuery+Devices.h in Headers */ = {isa = PBXBuildFile; fileRef = A08E1F67249640EF00D13454 /* DeviceQuery+Devices.h */; settings = {ATTRIBUTES = (Private, ); }; };
@@ -40,10 +56,6 @@
 		A0ADA48B244D262800FEAA12 /* RazerMambaHyperfluxHandle.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0ADA48A244D262800FEAA12 /* RazerMambaHyperfluxHandle.swift */; };
 		A0B1FDD4248ECCCC00E07C79 /* LightsOutTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0B1FDD3248ECCCC00E07C79 /* LightsOutTests.swift */; };
 		A0C838582495B3C1009A4912 /* USBDeviceIdentifiers.h in Headers */ = {isa = PBXBuildFile; fileRef = A0C838572495B3C1009A4912 /* USBDeviceIdentifiers.h */; settings = {ATTRIBUTES = (Private, ); }; };
-		A0C838612495B8EA009A4912 /* razerkbd_driver.h in Headers */ = {isa = PBXBuildFile; fileRef = A0C8385D2495B8E9009A4912 /* razerkbd_driver.h */; settings = {ATTRIBUTES = (Private, ); }; };
-		A0C838622495B8EA009A4912 /* razermouse_driver.h in Headers */ = {isa = PBXBuildFile; fileRef = A0C8385E2495B8E9009A4912 /* razermouse_driver.h */; settings = {ATTRIBUTES = (Private, ); }; };
-		A0C838632495B8EA009A4912 /* razermouse_driver.c in Sources */ = {isa = PBXBuildFile; fileRef = A0C8385F2495B8EA009A4912 /* razermouse_driver.c */; };
-		A0C838642495B8EA009A4912 /* razerkbd_driver.c in Sources */ = {isa = PBXBuildFile; fileRef = A0C838602495B8EA009A4912 /* razerkbd_driver.c */; };
 		A0C838662495BA6C009A4912 /* Driver.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0C838652495BA6C009A4912 /* Driver.swift */; };
 		A0C838692495BF90009A4912 /* Synapse2KeyboardHandle.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0C838682495BF90009A4912 /* Synapse2KeyboardHandle.swift */; };
 		A0C8386B2495BF9B009A4912 /* Synapse2MouseHandle.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0C8386A2495BF9B009A4912 /* Synapse2MouseHandle.swift */; };
@@ -52,8 +64,6 @@
 		A0D36DBF2449241C00276551 /* RazerHuntsmanHandle.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0D36DBE2449241C00276551 /* RazerHuntsmanHandle.swift */; };
 		A0D36DC1244929A900276551 /* RazerBaseStationHandle.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0D36DC0244929A900276551 /* RazerBaseStationHandle.swift */; };
 		A0F0B5E4249F67E1004D644F /* ConversionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0F0B5E3249F67E1004D644F /* ConversionTests.swift */; };
-		A0F1CA8225B3BBFC00DFC194 /* razeraccessory_driver.h in Headers */ = {isa = PBXBuildFile; fileRef = A0F1CA8025B3BBFC00DFC194 /* razeraccessory_driver.h */; settings = {ATTRIBUTES = (Private, ); }; };
-		A0F1CA8325B3BBFC00DFC194 /* razeraccessory_driver.c in Sources */ = {isa = PBXBuildFile; fileRef = A0F1CA8125B3BBFC00DFC194 /* razeraccessory_driver.c */; };
 		A0F1CA8925B3C0E000DFC194 /* Synapse2AccessoryHandle.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0F1CA8825B3C0E000DFC194 /* Synapse2AccessoryHandle.swift */; };
 /* End PBXBuildFile section */
 
@@ -77,10 +87,6 @@
 		A016490D2448D0B50017FF4B /* RazerSoftwareChroma.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = RazerSoftwareChroma.c; sourceTree = "<group>"; };
 		A016490E2448D0B50017FF4B /* USBCommon.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = USBCommon.c; sourceTree = "<group>"; };
 		A016490F2448D0B50017FF4B /* DeviceQuery.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DeviceQuery.h; sourceTree = "<group>"; };
-		A01649122448D0B50017FF4B /* razercommon.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = razercommon.c; sourceTree = "<group>"; };
-		A01649132448D0B50017FF4B /* razerchromacommon.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = razerchromacommon.c; sourceTree = "<group>"; };
-		A01649152448D0B50017FF4B /* razercommon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = razercommon.h; sourceTree = "<group>"; };
-		A01649162448D0B50017FF4B /* razerchromacommon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = razerchromacommon.h; sourceTree = "<group>"; };
 		A01649382448D1150017FF4B /* FruityRazer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FruityRazer.swift; sourceTree = "<group>"; };
 		A016493A2448D2170017FF4B /* FruityKit.modulemap */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.module-map"; path = FruityKit.modulemap; sourceTree = "<group>"; };
 		A016493B2448D86F0017FF4B /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
@@ -93,8 +99,29 @@
 		A016494F2448EC990017FF4B /* FruityKitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FruityKitTests.swift; sourceTree = "<group>"; };
 		A01649512448EC990017FF4B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A01649582448EEE70017FF4B /* SynapseHandle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SynapseHandle.swift; sourceTree = "<group>"; };
+		A0233F7E266274170081A8F6 /* razeregpu_driver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = razeregpu_driver.h; path = librazermacos/src/include/razeregpu_driver.h; sourceTree = SOURCE_ROOT; };
+		A0233F7F266274170081A8F6 /* razercommon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = razercommon.h; path = librazermacos/src/include/razercommon.h; sourceTree = SOURCE_ROOT; };
+		A0233F80266274170081A8F6 /* razerkbd_driver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = razerkbd_driver.h; path = librazermacos/src/include/razerkbd_driver.h; sourceTree = SOURCE_ROOT; };
+		A0233F81266274170081A8F6 /* razerheadphone_driver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = razerheadphone_driver.h; path = librazermacos/src/include/razerheadphone_driver.h; sourceTree = SOURCE_ROOT; };
+		A0233F82266274170081A8F6 /* razermousemat_driver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = razermousemat_driver.h; path = librazermacos/src/include/razermousemat_driver.h; sourceTree = SOURCE_ROOT; };
+		A0233F83266274170081A8F6 /* razeraccessory_driver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = razeraccessory_driver.h; path = librazermacos/src/include/razeraccessory_driver.h; sourceTree = SOURCE_ROOT; };
+		A0233F84266274170081A8F6 /* razermousedock_driver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = razermousedock_driver.h; path = librazermacos/src/include/razermousedock_driver.h; sourceTree = SOURCE_ROOT; };
+		A0233F85266274170081A8F6 /* razerkraken_driver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = razerkraken_driver.h; path = librazermacos/src/include/razerkraken_driver.h; sourceTree = SOURCE_ROOT; };
+		A0233F86266274170081A8F6 /* razerchromacommon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = razerchromacommon.h; path = librazermacos/src/include/razerchromacommon.h; sourceTree = SOURCE_ROOT; };
+		A0233F87266274170081A8F6 /* razermouse_driver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = razermouse_driver.h; path = librazermacos/src/include/razermouse_driver.h; sourceTree = SOURCE_ROOT; };
+		A0233F94266274200081A8F6 /* razeraccessory_driver.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = razeraccessory_driver.c; path = librazermacos/src/lib/razeraccessory_driver.c; sourceTree = SOURCE_ROOT; };
+		A0233F95266274200081A8F6 /* razeregpu_driver.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = razeregpu_driver.c; path = librazermacos/src/lib/razeregpu_driver.c; sourceTree = SOURCE_ROOT; };
+		A0233F97266274200081A8F6 /* razercommon.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = razercommon.c; path = librazermacos/src/lib/razercommon.c; sourceTree = SOURCE_ROOT; };
+		A0233F98266274200081A8F6 /* razerkbd_driver.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = razerkbd_driver.c; path = librazermacos/src/lib/razerkbd_driver.c; sourceTree = SOURCE_ROOT; };
+		A0233F99266274200081A8F6 /* razerheadphone_driver.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = razerheadphone_driver.c; path = librazermacos/src/lib/razerheadphone_driver.c; sourceTree = SOURCE_ROOT; };
+		A0233F9A266274200081A8F6 /* razerchromacommon.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = razerchromacommon.c; path = librazermacos/src/lib/razerchromacommon.c; sourceTree = SOURCE_ROOT; };
+		A0233F9B266274200081A8F6 /* razerkraken_driver.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = razerkraken_driver.c; path = librazermacos/src/lib/razerkraken_driver.c; sourceTree = SOURCE_ROOT; };
+		A0233F9C266274200081A8F6 /* razermouse_driver.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = razermouse_driver.c; path = librazermacos/src/lib/razermouse_driver.c; sourceTree = SOURCE_ROOT; };
+		A0233F9D266274200081A8F6 /* razermousedock_driver.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = razermousedock_driver.c; path = librazermacos/src/lib/razermousedock_driver.c; sourceTree = SOURCE_ROOT; };
+		A0233F9E266274200081A8F6 /* razermousemat_driver.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = razermousemat_driver.c; path = librazermacos/src/lib/razermousemat_driver.c; sourceTree = SOURCE_ROOT; };
 		A031EFD52582A7C800E944F1 /* RazerHuntsmanHandle+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RazerHuntsmanHandle+Extensions.swift"; sourceTree = "<group>"; };
 		A0569E40247746B000D98B41 /* VersionedRazerDevice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VersionedRazerDevice.swift; sourceTree = "<group>"; };
+		A0700DA626624A950011B299 /* librazermacos.so */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = librazermacos.so; path = librazermacos/librazermacos.so; sourceTree = "<group>"; };
 		A08E1F67249640EF00D13454 /* DeviceQuery+Devices.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "DeviceQuery+Devices.h"; sourceTree = "<group>"; };
 		A0A091A32498AEDD00BE8AE7 /* PerformClosures.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PerformClosures.swift; sourceTree = "<group>"; };
 		A0A091A52498AF0200BE8AE7 /* PerformClosuresTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PerformClosuresTests.swift; sourceTree = "<group>"; };
@@ -105,10 +132,6 @@
 		A0ADA48A244D262800FEAA12 /* RazerMambaHyperfluxHandle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RazerMambaHyperfluxHandle.swift; sourceTree = "<group>"; };
 		A0B1FDD3248ECCCC00E07C79 /* LightsOutTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LightsOutTests.swift; sourceTree = "<group>"; };
 		A0C838572495B3C1009A4912 /* USBDeviceIdentifiers.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = USBDeviceIdentifiers.h; sourceTree = "<group>"; };
-		A0C8385D2495B8E9009A4912 /* razerkbd_driver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = razerkbd_driver.h; sourceTree = "<group>"; };
-		A0C8385E2495B8E9009A4912 /* razermouse_driver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = razermouse_driver.h; sourceTree = "<group>"; };
-		A0C8385F2495B8EA009A4912 /* razermouse_driver.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = razermouse_driver.c; sourceTree = "<group>"; };
-		A0C838602495B8EA009A4912 /* razerkbd_driver.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = razerkbd_driver.c; sourceTree = "<group>"; };
 		A0C838652495BA6C009A4912 /* Driver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Driver.swift; sourceTree = "<group>"; };
 		A0C838682495BF90009A4912 /* Synapse2KeyboardHandle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Synapse2KeyboardHandle.swift; sourceTree = "<group>"; };
 		A0C8386A2495BF9B009A4912 /* Synapse2MouseHandle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Synapse2MouseHandle.swift; sourceTree = "<group>"; };
@@ -117,8 +140,6 @@
 		A0D36DBE2449241C00276551 /* RazerHuntsmanHandle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RazerHuntsmanHandle.swift; sourceTree = "<group>"; };
 		A0D36DC0244929A900276551 /* RazerBaseStationHandle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RazerBaseStationHandle.swift; sourceTree = "<group>"; };
 		A0F0B5E3249F67E1004D644F /* ConversionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversionTests.swift; sourceTree = "<group>"; };
-		A0F1CA8025B3BBFC00DFC194 /* razeraccessory_driver.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = razeraccessory_driver.h; sourceTree = "<group>"; };
-		A0F1CA8125B3BBFC00DFC194 /* razeraccessory_driver.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = razeraccessory_driver.c; sourceTree = "<group>"; };
 		A0F1CA8825B3C0E000DFC194 /* Synapse2AccessoryHandle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Synapse2AccessoryHandle.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -147,6 +168,7 @@
 				A01649002448D0910017FF4B /* FruityKit */,
 				A016494E2448EC990017FF4B /* FruityKitTests */,
 				A01648FF2448D0910017FF4B /* Products */,
+				A0700DA526624A950011B299 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -163,6 +185,7 @@
 			isa = PBXGroup;
 			children = (
 				A01649092448D0B50017FF4B /* Core */,
+				A0700DD726624F1A0011B299 /* External */,
 				A016493F2448DDC50017FF4B /* Synapse */,
 				A016493B2448D86F0017FF4B /* Color.swift */,
 				A01649422448DEAE0017FF4B /* Direction.swift */,
@@ -180,7 +203,6 @@
 		A01649092448D0B50017FF4B /* Core */ = {
 			isa = PBXGroup;
 			children = (
-				A01649102448D0B50017FF4B /* openrazer */,
 				A08E1F67249640EF00D13454 /* DeviceQuery+Devices.h */,
 				A016490F2448D0B50017FF4B /* DeviceQuery.h */,
 				A016490B2448D0B50017FF4B /* DeviceQuery.c */,
@@ -191,23 +213,6 @@
 				A0C838572495B3C1009A4912 /* USBDeviceIdentifiers.h */,
 			);
 			path = Core;
-			sourceTree = "<group>";
-		};
-		A01649102448D0B50017FF4B /* openrazer */ = {
-			isa = PBXGroup;
-			children = (
-				A01649152448D0B50017FF4B /* razercommon.h */,
-				A01649122448D0B50017FF4B /* razercommon.c */,
-				A0C8385D2495B8E9009A4912 /* razerkbd_driver.h */,
-				A0C838602495B8EA009A4912 /* razerkbd_driver.c */,
-				A0C8385E2495B8E9009A4912 /* razermouse_driver.h */,
-				A0C8385F2495B8EA009A4912 /* razermouse_driver.c */,
-				A01649162448D0B50017FF4B /* razerchromacommon.h */,
-				A01649132448D0B50017FF4B /* razerchromacommon.c */,
-				A0F1CA8025B3BBFC00DFC194 /* razeraccessory_driver.h */,
-				A0F1CA8125B3BBFC00DFC194 /* razeraccessory_driver.c */,
-			);
-			path = openrazer;
 			sourceTree = "<group>";
 		};
 		A016493F2448DDC50017FF4B /* Synapse */ = {
@@ -249,6 +254,65 @@
 			path = FruityKitTests;
 			sourceTree = "<group>";
 		};
+		A0233F7B266273FF0081A8F6 /* librazermacos */ = {
+			isa = PBXGroup;
+			children = (
+				A0233F7D2662740C0081A8F6 /* include */,
+				A0233F7C266274080081A8F6 /* lib */,
+			);
+			name = librazermacos;
+			sourceTree = "<group>";
+		};
+		A0233F7C266274080081A8F6 /* lib */ = {
+			isa = PBXGroup;
+			children = (
+				A0233F94266274200081A8F6 /* razeraccessory_driver.c */,
+				A0233F9A266274200081A8F6 /* razerchromacommon.c */,
+				A0233F97266274200081A8F6 /* razercommon.c */,
+				A0233F95266274200081A8F6 /* razeregpu_driver.c */,
+				A0233F99266274200081A8F6 /* razerheadphone_driver.c */,
+				A0233F98266274200081A8F6 /* razerkbd_driver.c */,
+				A0233F9B266274200081A8F6 /* razerkraken_driver.c */,
+				A0233F9C266274200081A8F6 /* razermouse_driver.c */,
+				A0233F9D266274200081A8F6 /* razermousedock_driver.c */,
+				A0233F9E266274200081A8F6 /* razermousemat_driver.c */,
+			);
+			name = lib;
+			sourceTree = "<group>";
+		};
+		A0233F7D2662740C0081A8F6 /* include */ = {
+			isa = PBXGroup;
+			children = (
+				A0233F83266274170081A8F6 /* razeraccessory_driver.h */,
+				A0233F86266274170081A8F6 /* razerchromacommon.h */,
+				A0233F7F266274170081A8F6 /* razercommon.h */,
+				A0233F7E266274170081A8F6 /* razeregpu_driver.h */,
+				A0233F81266274170081A8F6 /* razerheadphone_driver.h */,
+				A0233F80266274170081A8F6 /* razerkbd_driver.h */,
+				A0233F85266274170081A8F6 /* razerkraken_driver.h */,
+				A0233F87266274170081A8F6 /* razermouse_driver.h */,
+				A0233F84266274170081A8F6 /* razermousedock_driver.h */,
+				A0233F82266274170081A8F6 /* razermousemat_driver.h */,
+			);
+			name = include;
+			sourceTree = "<group>";
+		};
+		A0700DA526624A950011B299 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				A0700DA626624A950011B299 /* librazermacos.so */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		A0700DD726624F1A0011B299 /* External */ = {
+			isa = PBXGroup;
+			children = (
+				A0233F7B266273FF0081A8F6 /* librazermacos */,
+			);
+			path = External;
+			sourceTree = "<group>";
+		};
 		A0ADA48C244D262F00FEAA12 /* Synapse 3 Types */ = {
 			isa = PBXGroup;
 			children = (
@@ -288,14 +352,19 @@
 			files = (
 				A0C838582495B3C1009A4912 /* USBDeviceIdentifiers.h in Headers */,
 				A08E1F68249640EF00D13454 /* DeviceQuery+Devices.h in Headers */,
+				A0233F8A266274170081A8F6 /* razercommon.h in Headers */,
+				A0233F92266274170081A8F6 /* razermouse_driver.h in Headers */,
+				A0233F8C266274170081A8F6 /* razerheadphone_driver.h in Headers */,
+				A0233F8B266274170081A8F6 /* razerkbd_driver.h in Headers */,
+				A0233F8D266274170081A8F6 /* razermousemat_driver.h in Headers */,
+				A0233F8F266274170081A8F6 /* razermousedock_driver.h in Headers */,
+				A0233F90266274170081A8F6 /* razerkraken_driver.h in Headers */,
+				A0233F91266274170081A8F6 /* razerchromacommon.h in Headers */,
+				A0233F8E266274170081A8F6 /* razeraccessory_driver.h in Headers */,
+				A0233F89266274170081A8F6 /* razeregpu_driver.h in Headers */,
 				A01649172448D0B50017FF4B /* RazerSoftwareChroma.h in Headers */,
 				A016491C2448D0B50017FF4B /* DeviceQuery.h in Headers */,
-				A0C838622495B8EA009A4912 /* razermouse_driver.h in Headers */,
-				A01649212448D0B50017FF4B /* razercommon.h in Headers */,
 				A01649032448D0910017FF4B /* FruityKit.h in Headers */,
-				A0C838612495B8EA009A4912 /* razerkbd_driver.h in Headers */,
-				A0F1CA8225B3BBFC00DFC194 /* razeraccessory_driver.h in Headers */,
-				A01649222448D0B50017FF4B /* razerchromacommon.h in Headers */,
 				A01649192448D0B50017FF4B /* USBCommon.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -400,30 +469,35 @@
 			buildActionMask = 2147483647;
 			files = (
 				A01649182448D0B50017FF4B /* DeviceQuery.c in Sources */,
+				A0233FA9266274200081A8F6 /* razermousemat_driver.c in Sources */,
 				A0ADA48B244D262800FEAA12 /* RazerMambaHyperfluxHandle.swift in Sources */,
+				A0233FA7266274200081A8F6 /* razermouse_driver.c in Sources */,
 				A0D36DBF2449241C00276551 /* RazerHuntsmanHandle.swift in Sources */,
 				A01649392448D1150017FF4B /* FruityRazer.swift in Sources */,
 				A016491A2448D0B50017FF4B /* RazerSoftwareChroma.c in Sources */,
+				A0233FA2266274200081A8F6 /* razercommon.c in Sources */,
+				A0233FA4266274200081A8F6 /* razerheadphone_driver.c in Sources */,
 				A0D36DC1244929A900276551 /* RazerBaseStationHandle.swift in Sources */,
 				A01649452448DEDB0017FF4B /* Device.swift in Sources */,
+				A0233F9F266274200081A8F6 /* razeraccessory_driver.c in Sources */,
+				A0233FA5266274200081A8F6 /* razerchromacommon.c in Sources */,
+				A0233FA0266274200081A8F6 /* razeregpu_driver.c in Sources */,
 				A0F1CA8925B3C0E000DFC194 /* Synapse2AccessoryHandle.swift in Sources */,
 				A0ADA489244D23CA00FEAA12 /* RazerSoftwareSingleRowHandle.swift in Sources */,
 				A01649472448E2650017FF4B /* RazerDevice.swift in Sources */,
-				A0F1CA8325B3BBFC00DFC194 /* razeraccessory_driver.c in Sources */,
 				A016491B2448D0B50017FF4B /* USBCommon.c in Sources */,
 				A0C838662495BA6C009A4912 /* Driver.swift in Sources */,
 				A0A091A42498AEDD00BE8AE7 /* PerformClosures.swift in Sources */,
 				A01649592448EEE70017FF4B /* SynapseHandle.swift in Sources */,
-				A0C838632495B8EA009A4912 /* razermouse_driver.c in Sources */,
 				A01649412448DDD60017FF4B /* Synapse3Handle.swift in Sources */,
 				A0C8386B2495BF9B009A4912 /* Synapse2MouseHandle.swift in Sources */,
 				A01649432448DEAE0017FF4B /* Direction.swift in Sources */,
+				A0233FA6266274200081A8F6 /* razerkraken_driver.c in Sources */,
 				A016493C2448D86F0017FF4B /* Color.swift in Sources */,
-				A016491F2448D0B50017FF4B /* razerchromacommon.c in Sources */,
-				A0C838642495B8EA009A4912 /* razerkbd_driver.c in Sources */,
+				A0233FA8266274200081A8F6 /* razermousedock_driver.c in Sources */,
+				A0233FA3266274200081A8F6 /* razerkbd_driver.c in Sources */,
 				A016493E2448DD590017FF4B /* Synapse2Handle.swift in Sources */,
 				A0C838692495BF90009A4912 /* Synapse2KeyboardHandle.swift in Sources */,
-				A016491E2448D0B50017FF4B /* razercommon.c in Sources */,
 				A0569E41247746B000D98B41 /* VersionedRazerDevice.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -596,6 +670,7 @@
 					"@executable_path/../Frameworks",
 					"@loader_path/Frameworks",
 				);
+				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				MACOSX_DEPLOYMENT_TARGET = 10.9;
 				MARKETING_VERSION = 5.1;
 				MODULEMAP_FILE = "$SRCROOT/FruityKit/Supporting Files/FruityKit.modulemap";
@@ -626,6 +701,7 @@
 					"@executable_path/../Frameworks",
 					"@loader_path/Frameworks",
 				);
+				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				MACOSX_DEPLOYMENT_TARGET = 10.9;
 				MARKETING_VERSION = 5.1;
 				MODULEMAP_FILE = "$SRCROOT/FruityKit/Supporting Files/FruityKit.modulemap";

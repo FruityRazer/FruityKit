@@ -40,17 +40,17 @@ final class Synapse2KeyboardHandle: Synapse2Handle {
     override func write(mode: BasicMode, deviceInterface: UnsafeMutablePointer<UnsafeMutablePointer<IOUSBDeviceInterface>?>?, data: UnsafePointer<Int8>!, count: Int) -> Bool {
         switch mode {
         case .breath:
-            return razer_kbd_attr_write_mode_breath(deviceInterface, data, count)
+            return razer_attr_write_mode_breath(deviceInterface, data, Int32(count)) == count
         case .reactive:
-            return razer_kbd_attr_write_mode_reactive(deviceInterface, data, count)
+            return razer_attr_write_mode_reactive(deviceInterface, data, Int32(count)) == count
         case .spectrum:
-            return razer_kbd_attr_write_mode_spectrum(deviceInterface)
+            return razer_attr_write_mode_spectrum(deviceInterface, nil, 0) == count
         case .starlight:
-            return razer_kbd_attr_write_mode_starlight(deviceInterface, data, count)
+            return razer_attr_write_mode_starlight(deviceInterface, data, Int32(count)) == count
         case .static:
-            return razer_kbd_attr_write_mode_static(deviceInterface, data, count)
+            return razer_attr_write_mode_static(deviceInterface, data, Int32(count)) == count
         case .wave:
-            return razer_kbd_attr_write_mode_wave(deviceInterface, data, count)
+            return razer_attr_write_mode_wave(deviceInterface, data, Int32(count), 1) == count
         }
     }
 }

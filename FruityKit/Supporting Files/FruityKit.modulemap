@@ -2,11 +2,16 @@ framework module FruityKit {
     umbrella header "FruityKit.h"
     
     explicit module FruityKitC {
-        private header "razerkbd_driver.h"
-        private header "razermouse_driver.h"
         private header "razeraccessory_driver.h"
-        private header "razercommon.h"
         private header "razerchromacommon.h"
+        private header "razercommon.h"
+        private header "razeregpu_driver.h"
+        private header "razerkbd_driver.h"
+        private header "razerkraken_driver.h"
+        private header "razermouse_driver.h"
+        private header "razermousedock_driver.h"
+        private header "razermousemat_driver.h"
+       
         private header "RazerSoftwareChroma.h"
         private header "USBCommon.h"
         private header "USBDeviceIdentifiers.h"
