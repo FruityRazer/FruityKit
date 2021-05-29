@@ -178,5 +178,6 @@ This project uses the GPLv2 license.
 
 This project is based on code from the following projects:
 
- - https://github.com/openrazer/openrazer
- - https://github.com/kprinssu/osx-razer-blade
+ - [librazermacos](https://github.com/1kc/librazermacos)
+ - [openrazer](https://github.com/openrazer/openrazer)
+ - [osx-razer-blade](https://github.com/kprinssu/osx-razer-blade)
