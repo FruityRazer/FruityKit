@@ -40,7 +40,7 @@ final class Synapse2AccessoryHandle: Synapse2Handle {
         case .breath:
             return razer_accessory_attr_write_mode_breath(deviceInterface, data, count) == count
         case .spectrum:
-            return razer_accessory_attr_write_mode_spectrum(deviceInterface, nil, count) == count
+            return razer_accessory_attr_write_mode_spectrum(deviceInterface, data, count) == count
         case .static:
             return razer_accessory_attr_write_mode_static(deviceInterface, data, count) == count
         case .wave:

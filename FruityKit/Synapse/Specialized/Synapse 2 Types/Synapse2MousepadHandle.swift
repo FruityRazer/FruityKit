@@ -42,9 +42,9 @@ final class Synapse2MousepadHandle: Synapse2Handle {
         case .spectrum:
             return razer_mouse_mat_attr_write_mode_spectrum(deviceInterface, data, count) == count
         case .static:
-            return razer_mouse_mat_attr_write_mode_static(deviceInterface, nil, count) == count
+            return razer_mouse_mat_attr_write_mode_static(deviceInterface, data, count) == count
         case .wave:
-            return razer_mouse_mat_attr_write_mode_wave(deviceInterface, nil, count) == count
+            return razer_mouse_mat_attr_write_mode_wave(deviceInterface, data, count) == count
         case .reactive, .starlight:
             return false
         }

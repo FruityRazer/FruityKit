@@ -30,9 +30,9 @@ class Synapse2Tests: XCTestCase {
     var huntsmanEliteHWDriver: Synapse2Handle {
         let devices = FruityRazer.devices
         
-        let huntsmanEliteHardware = devices.filter { $0.shortName == "huntsman_elite_hw" }[0]
+        let hardware = devices.filter { $0.shortName == "huntsman_elite_hw" }[0]
         
-        guard case let Driver.v2(driver: driver) = huntsmanEliteHardware.driver else {
+        guard case let Driver.v2(driver: driver) = hardware.driver else {
             XCTFail("Huntsman Elite not recognized as Synapse 2!")
             
             fatalError()
@@ -44,9 +44,9 @@ class Synapse2Tests: XCTestCase {
     var basiliskDriver: Synapse2Handle {
         let devices = FruityRazer.devices
         
-        let huntsmanEliteHardware = devices.filter { $0.shortName == "basilisk" }[0]
+        let hardware = devices.filter { $0.shortName == "basilisk" }[0]
         
-        guard case let Driver.v2(driver: driver) = huntsmanEliteHardware.driver else {
+        guard case let Driver.v2(driver: driver) = hardware.driver else {
             XCTFail("Basilisk not recognized as Synapse 2!")
             
             fatalError()
@@ -54,6 +54,22 @@ class Synapse2Tests: XCTestCase {
         
         return driver
     }
+    
+    var fireflyDriver: Synapse2Handle {
+        let devices = FruityRazer.devices
+        
+        let hardware = devices.filter { $0.shortName == "firefly" }[0]
+        
+        guard case let Driver.v2(driver: driver) = hardware.driver else {
+            XCTFail("Firefly not recognized as Synapse 2!")
+            
+            fatalError()
+        }
+        
+        return driver
+    }
+    
+    //  MARK: - [Keyboard] Razer Huntsman Elite
     
     func testHuntsmanElite_wave_unacceptablySlowSpeed() throws {
         try XCTSkipIf(!huntsmanEliteHWDriver.connected, SkippedTestMessage.hardwareConfigurationUnsupported)
@@ -105,6 +121,8 @@ class Synapse2Tests: XCTestCase {
                                                                    color2: .red)))
     }
     
+    //  MARK: - [Mouse] Razer Basilisk
+    
     func testBasilisk_wave() throws {
         try XCTSkipIf(!basiliskDriver.connected, SkippedTestMessage.hardwareConfigurationUnsupported)
         
@@ -141,5 +159,45 @@ class Synapse2Tests: XCTestCase {
         XCTAssertFalse(basiliskDriver.write(mode: .starlight(speed: .default,
                                                              color1: .white,
                                                              color2: .red)))
+    }
+    
+    //  MARK: - [Mouse Mat] Razer Firefly
+    
+    func testFirefly_wave() throws {
+        try XCTSkipIf(!fireflyDriver.connected, SkippedTestMessage.hardwareConfigurationUnsupported)
+        
+        XCTAssertTrue(fireflyDriver.write(mode: .wave(speed: .default, direction: .right)))
+    }
+    
+    func testFirefly_spectrum() throws {
+        try XCTSkipIf(!fireflyDriver.connected, SkippedTestMessage.hardwareConfigurationUnsupported)
+        
+        XCTAssertTrue(fireflyDriver.write(mode: .spectrum))
+    }
+    
+    func testFirefly_reactive() throws {
+        try XCTSkipIf(!fireflyDriver.connected, SkippedTestMessage.hardwareConfigurationUnsupported)
+        
+        XCTAssertFalse(fireflyDriver.write(mode: .reactive(speed: .default, color: .white)))
+    }
+    
+    func testFirefly_static() throws {
+        try XCTSkipIf(!fireflyDriver.connected, SkippedTestMessage.hardwareConfigurationUnsupported)
+        
+        XCTAssertTrue(fireflyDriver.write(mode: .static(color: .white)))
+    }
+    
+    func testFirefly_breath() throws {
+        try XCTSkipIf(!fireflyDriver.connected, SkippedTestMessage.hardwareConfigurationUnsupported)
+        
+        XCTAssertTrue(fireflyDriver.write(mode: .breath(color: .white)))
+    }
+    
+    func testFirefly_starlight() throws {
+        try XCTSkipIf(!fireflyDriver.connected, SkippedTestMessage.hardwareConfigurationUnsupported)
+        
+        XCTAssertFalse(fireflyDriver.write(mode: .starlight(speed: .default,
+                                                            color1: .white,
+                                                            color2: .red)))
     }
 }

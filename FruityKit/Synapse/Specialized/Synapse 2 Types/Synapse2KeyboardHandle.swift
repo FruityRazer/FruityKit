@@ -44,7 +44,7 @@ final class Synapse2KeyboardHandle: Synapse2Handle {
         case .reactive:
             return razer_attr_write_mode_reactive(deviceInterface, data, Int32(count)) == count
         case .spectrum:
-            return razer_attr_write_mode_spectrum(deviceInterface, nil, Int32(count)) == count
+            return razer_attr_write_mode_spectrum(deviceInterface, data, Int32(count)) == count
         case .starlight:
             return razer_attr_write_mode_starlight(deviceInterface, data, Int32(count)) == count
         case .static:
