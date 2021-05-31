@@ -77,6 +77,16 @@ public class Synapse2Handle: SynapseHandle {
         fatalError("Not implemented.")
     }
     
+    public var speedSupported: Bool {
+        //  TODO: Maybe figure out a better way to implement this?
+        //  As it is, the `speed` parameter still needs to be passed,
+        //  even though it will be ignored.
+        
+        assertionFailure("This class must be overidden.")
+        
+        return false
+    }
+    
     public func write(mode: Mode) -> Bool {
         let deviceInterface = dq_get_device(usbId)
         

@@ -35,6 +35,8 @@ final class Synapse2MousepadHandle: Synapse2Handle {
         ]
     }
     
+    override var speedSupported: Bool { false }
+    
     override func write(mode: BasicMode, deviceInterface: UnsafeMutablePointer<UnsafeMutablePointer<IOUSBDeviceInterface>?>?, data: UnsafePointer<Int8>!, count: Int, additionalData: Int32? = nil) -> Bool {
         switch mode {
         case .breath:
