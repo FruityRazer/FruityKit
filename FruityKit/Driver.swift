@@ -24,11 +24,13 @@
 
 import Foundation
 
+/// A protocol that objects that contain a driver can conform to.
 public protocol HasDriver {
     
     var driver: Driver { get }
 }
 
+/// A struct representing a device driver.
 public enum Driver: Hashable {
     
     case v2(driver: Synapse2Handle)

@@ -24,12 +24,14 @@
 
 import Foundation
 
+/// A struct representing a Razer device.
 public struct RazerDevice: Device, HasDriver, Hashable {
     
     public let shortName: String
     public let fullName: String
     public let type: DeviceType
     
+    /// The driver that controls the device.
     public let driver: Driver
 }
 
@@ -64,6 +66,7 @@ extension RazerDevice {
 
 public extension RazerDevice {
     
+    /// The connection status of the device.
     var connected: Bool {
         switch driver {
         case .v2(driver: let d):

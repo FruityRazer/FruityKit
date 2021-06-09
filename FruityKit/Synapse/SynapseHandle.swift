@@ -24,15 +24,24 @@
 
 import Foundation
 
+/// A protocol that driver handles can conform to.
 public protocol SynapseHandle {
     
     associatedtype SynapseMode
     
+    /// The USB identifier of the device.
     var usbId: Int32 { get }
     
+    /// The connection status of the device.
     var connected: Bool { get }
     
+    /// Reads data from the device.
     func read()
+    
+    /// Writes data to the device.
+    ///
+    /// - Parameters:
+    ///     - mode: The mode to be written to the device.
     func write(mode: SynapseMode) -> Bool
 }
 

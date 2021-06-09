@@ -24,6 +24,7 @@
 
 import Foundation
 
+/// An enum representing a direction.
 public enum Direction: Int {
     
     case left = 0x32

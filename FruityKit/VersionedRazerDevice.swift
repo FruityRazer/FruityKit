@@ -24,10 +24,16 @@
 
 import Foundation
 
+/// An enum representing a Razer device, differentiated by its driver version.
 public enum VersionedRazerDevice: Device, Hashable {
     
+    /// A Synapse 2 device.
     case v2(RazerDevice)
+    
+    /// A Synapse 3 device.
     case v3(RazerDevice)
+    
+    /// A device that supports both Synapse 2 and 3.
     case both(v2: RazerDevice, v3: RazerDevice)
     
     private var device: Device {

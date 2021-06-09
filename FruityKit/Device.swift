@@ -24,6 +24,7 @@
 
 import Foundation
 
+/// An enum representing a device type.
 public enum DeviceType: Hashable {
     
     public enum KeyboardType {
@@ -39,9 +40,15 @@ public enum DeviceType: Hashable {
     case other(type: String)
 }
 
+/// A protocol that all devices conform to.
 public protocol Device {
     
+    /// The short name of the device, used internally.
     var shortName: String { get }
+    
+    /// The full name of the device, to be presented to the user.
     var fullName: String { get }
+    
+    /// The type of the device.
     var type: DeviceType { get }
 }

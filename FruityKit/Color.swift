@@ -24,6 +24,7 @@
 
 import Foundation
 
+/// A struct representing a color.
 public struct Color: Hashable {
     
     public enum InitializationError: Error {
@@ -31,10 +32,21 @@ public struct Color: Hashable {
         case invalidHexLength
     }
     
+    /// The red component of the color.
     public let r: UInt8
+    
+    /// The green component of the color.
     public let g: UInt8
+    
+    /// The blue component of the color.
     public let b: UInt8
     
+    /// Creates a color with specified components.
+    ///
+    /// - Parameters:
+    ///     - red: The red component of the color.
+    ///     - green: The green component of the color.
+    ///     - blue: The blue component of the color.
     public init(red: UInt8, green: UInt8, blue: UInt8) {
         r = red
         g = green
@@ -57,6 +69,10 @@ public struct Color: Hashable {
         }
     }
     
+    /// Creates a color from a hex string.
+    ///
+    /// - Parameters:
+    ///     - hex: The hex string representing the color.
     public init(hex: String) throws {
         let cleantHex = try Color.parseHex(from: hex)
         

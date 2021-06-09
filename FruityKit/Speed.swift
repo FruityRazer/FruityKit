@@ -24,6 +24,7 @@
 
 import Foundation
 
+/// An enum representing the speed of a mode.
 public enum Speed: Int {
     
     case unacceptablySlow = 0xFF

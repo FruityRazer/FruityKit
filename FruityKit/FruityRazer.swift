@@ -24,8 +24,10 @@
 
 import FruityKit.FruityKitC
 
+/// The main entry point of the framework.
 public struct FruityRazer {
     
+    /// A list of all devices supported by the framework.
     public static var devices: [RazerDevice] {
         let deviceList = dq_get_device_list()
         
@@ -36,10 +38,14 @@ public struct FruityRazer {
         }
     }
     
+    /// A list of all devices supported by the framework and currently
+    /// connected to the computer.
     public static var connectedDevices: [RazerDevice] {
         devices.filter { $0.connected }
     }
     
+    /// A list of all devices supported by the framework, grouped by
+    /// device version.
     public static var groupedDevices: [VersionedRazerDevice] {
         devices.reduce(into: []) { result, currentDevice in
             if currentDevice.shortName.contains("_hw") {
@@ -65,6 +71,8 @@ public struct FruityRazer {
         }
     }
     
+    /// A list of all devices supported by the framework and currently
+    /// connected to the computer, grouped by device version.
     public static var groupedConnectedDevices: [VersionedRazerDevice] {
         return groupedDevices.filter { $0.connected }
     }
