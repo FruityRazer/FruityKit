@@ -448,6 +448,34 @@ razer_device __DQ_DEVICES[] = {
         .synapse = synapse2,
         .type = mouse
     },
+    {
+        .shortName = "naga_pro_wireless",
+        .fullName = "Razer Naga Pro Wireless",
+        .usbId = 0x0090,
+        .synapse = synapse2,
+        .type = mouse
+    },
+    {
+        .shortName = "naga_pro_wired",
+        .fullName = "Razer Naga Pro Wired",
+        .usbId = 0x008F,
+        .synapse = synapse2,
+        .type = mouse
+    },
+    {
+        .shortName = "deathadder_essential_2021",
+        .fullName = "Razer DeathAdder Essential (2021)",
+        .usbId = 0x0098,
+        .synapse = synapse2,
+        .type = mouse
+    },
+    {
+        .shortName = "basilisk_v3",
+        .fullName = "Razer Basilisk V3",
+        .usbId = 0x0099,
+        .synapse = synapse2,
+        .type = mouse
+    },
     //  Keyboards
     //  ...
     {
@@ -856,6 +884,20 @@ razer_device __DQ_DEVICES[] = {
         .synapse = synapse2,
         .type = keyboard
     },
+    {
+        .shortName = "huntsman_v2_hw",
+        .fullName = "Razer Huntsman V2",
+        .usbId = 0x026c,
+        .synapse = synapse2,
+        .type = keyboard
+    },
+    {
+        .shortName = "huntsman_hw",
+        .fullName = "Razer Huntsman V2 Analog",
+        .usbId = 0x0266,
+        .synapse = synapse2,
+        .type = keyboard
+    },
     //  Accessories
     {
         .shortName = "mamba_hyperflux_hw",
@@ -988,6 +1030,20 @@ razer_device __DQ_DEVICES[] = {
         .shortName = "huntsman_mini",
         .fullName = "Razer Huntsman Mini",
         .usbId = 0x0257,
+        .synapse = synapse3,
+        .type = keyboard
+    },
+    {
+        .shortName = "huntsman_v2_sw",
+        .fullName = "Razer Huntsman V2",
+        .usbId = 0x026c,
+        .synapse = synapse3,
+        .type = keyboard
+    },
+    {
+        .shortName = "huntsman_sw",
+        .fullName = "Razer Huntsman V2 Analog",
+        .usbId = 0x0266,
         .synapse = synapse3,
         .type = keyboard
     },
