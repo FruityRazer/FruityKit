@@ -46,6 +46,8 @@ extension Driver {
             switch type {
             case .keyboard:
                 return .v2(driver: Synapse2KeyboardHandle(usbId: usbId))
+            case .kraken:
+                return .v2(driver: Synapse2HeadphonesHandle(usbId: usbId))
             case .mouse:
                 return .v2(driver: Synapse2MouseHandle(usbId: usbId))
             case .mousepad:

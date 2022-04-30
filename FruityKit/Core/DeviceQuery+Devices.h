@@ -49,7 +49,12 @@ typedef struct razer_device {
 } razer_device;
 
 razer_device __DQ_DEVICES[] = {
-    //  Mice
+    //  Headphones
+    //    {
+    //        ...
+    //    },
+    
+    //  Mouse
     {
         .shortName = "orochi_2011",
         .fullName = "Razer Orochi (2011)",
@@ -288,6 +293,13 @@ razer_device __DQ_DEVICES[] = {
         .type = mouse
     },
     {
+        .shortName = "basilisk_essential",
+        .fullName = "Razer Basilisk Essential",
+        .usbId = 0x0065,
+        .synapse = synapse2,
+        .type = mouse
+    },
+    {
         .shortName = "naga_trinity",
         .fullName = "Razer Naga Trinity",
         .usbId = 0x0067,
@@ -476,8 +488,28 @@ razer_device __DQ_DEVICES[] = {
         .synapse = synapse2,
         .type = mouse
     },
+    {
+        .shortName = "orochi_v2_receiver",
+        .fullName = "Razer Orochi V2 (Receiver)",
+        .usbId = 0x0094,
+        .synapse = synapse2,
+        .type = mouse
+    },
+    {
+        .shortName = "orochi_v2",
+        .fullName = "Razer Orochi V2",
+        .usbId = 0x0095,
+        .synapse = synapse2,
+        .type = mouse
+    },
+    {
+        .shortName = "orochi_v2_bluetooth",
+        .fullName = "Razer Orochi V2 (Bluetooth)",
+        .usbId = 0x0095,
+        .synapse = synapse2,
+        .type = mouse
+    },
     //  Keyboards
-    //  ...
     {
         .shortName = "blackwidow_ultimate_2012",
         .fullName = "Razer BlackWidow Ultimate (2012)",
@@ -703,6 +735,13 @@ razer_device __DQ_DEVICES[] = {
         .type = keyboard
     },
     {
+        .shortName = "cynosa_chroma_pro",
+        .fullName = "Razer Cynosa Chroma Pro",
+        .usbId = 0x022C,
+        .synapse = synapse2,
+        .type = keyboard
+    },
+    {
         .shortName = "tartarus_V2",
         .fullName = "Razer Tartarus V2",
         .usbId = 0x022B,
@@ -740,7 +779,7 @@ razer_device __DQ_DEVICES[] = {
     {
         .shortName = "blade_pro_2019",
         .fullName = "Razer Blade Pro (2019)",
-        .usbId = 0x0233,
+        .usbId = 0x024a,
         .synapse = synapse2,
         .type = laptop
     },
@@ -898,6 +937,34 @@ razer_device __DQ_DEVICES[] = {
         .synapse = synapse2,
         .type = keyboard
     },
+    {
+        .shortName = "blackwidow_v3_mini_wired",
+        .fullName = "Razer BlackWidow V3 Mini (Wired)",
+        .usbId = 0x0258,
+        .synapse = synapse2,
+        .type = keyboard
+    },
+    {
+        .shortName = "blackwidow_v3_pro_wired",
+        .fullName = "Razer BlackWidow V3 Pro (Wired)",
+        .usbId = 0x025a,
+        .synapse = synapse2,
+        .type = keyboard
+    },
+    {
+        .shortName = "blackwidow_v2_tkl",
+        .fullName = "Razer BlackWidow V2 TKL",
+        .usbId = 0x026b,
+        .synapse = synapse2,
+        .type = keyboard
+    },
+    {
+        .shortName = "blackwidow_v3_mini_wireless",
+        .fullName = "Razer BlackWidow V3 Mini (Wireless)",
+        .usbId = 0x0271,
+        .synapse = synapse2,
+        .type = keyboard
+    },
     //  Accessories
     {
         .shortName = "mamba_hyperflux_hw",
@@ -994,6 +1061,20 @@ razer_device __DQ_DEVICES[] = {
         .shortName = "base_station_v2_chroma",
         .fullName = "Razer Base Station V2 Chroma",
         .usbId = 0x0F20,
+        .synapse = synapse2,
+        .type = accessory
+    },
+    {
+        .shortName = "mouse_dock",
+        .fullName = "Razer Mouse Dock",
+        .usbId = 0x007E,
+        .synapse = synapse2,
+        .type = accessory
+    },
+    {
+        .shortName = "thunderbolt_4_dock_chroma",
+        .fullName = "Razer Thunderbolt 4 Dock Chroma",
+        .usbId = 0x0F21,
         .synapse = synapse2,
         .type = accessory
     },

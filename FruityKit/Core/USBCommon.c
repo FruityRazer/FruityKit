@@ -23,9 +23,6 @@
  */
 
 #include "USBCommon.h"
-#include "USBDeviceIdentifiers.h"
-
-#include "razercommon.h"
 
 IOReturn perform_razer_usb_call(IOUSBDeviceInterface **dev, void *data, uint report_index) {
     IOReturn retval;
@@ -48,21 +45,10 @@ IOReturn perform_razer_usb_call(IOUSBDeviceInterface **dev, void *data, uint rep
 }
 
 IOReturn razer_get_report(IOUSBDeviceInterface **dev, struct razer_report *request_report, struct razer_report *response_report) {
-    uint report_index;
-    uint response_index;
+    //  This won't work fror Anansi / Huntsman TE / Ornata Chroma V2!!!
     
-    switch (get_device_id(dev)) {
-        case USB_DEVICE_ID_RAZER_ANANSI:
-        case USB_DEVICE_ID_RAZER_HUNTSMAN_TE:
-        case USB_DEVICE_ID_RAZER_ORNATA_CHROMA_V2:
-            report_index = 0x02;
-            response_index = 0x02;
-            break;
-        default:
-            report_index = 0x01;
-            response_index = 0x01;
-            break;
-    }
+    uint report_index = 0x01;
+    uint response_index = 0x01;
     
     return razer_get_usb_response(dev, report_index, request_report, response_index, response_report, 100);
 }
@@ -87,8 +73,6 @@ bool razer_send_payload3(IOUSBDeviceInterface **dev, struct razer_report *reques
            request_report->command_class != loc_response_report->command_class ||
            request_report->command_id.id != loc_response_report->command_id.id) {
             return false;
-//        } else if (loc_response_report->status == RAZER_CMD_BUSY) {
-//            return false;
         } else if (loc_response_report->status == RAZER_CMD_FAILURE) {
             return false;
         } else if (loc_response_report->status == RAZER_CMD_NOT_SUPPORTED) {

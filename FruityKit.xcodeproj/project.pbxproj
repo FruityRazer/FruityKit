@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A0033397281D736700B3E474 /* Synapse2HeadphonesHandle.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0033396281D736700B3E474 /* Synapse2HeadphonesHandle.swift */; };
 		A01649032448D0910017FF4B /* FruityKit.h in Headers */ = {isa = PBXBuildFile; fileRef = A01649012448D0910017FF4B /* FruityKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A01649172448D0B50017FF4B /* RazerSoftwareChroma.h in Headers */ = {isa = PBXBuildFile; fileRef = A016490A2448D0B50017FF4B /* RazerSoftwareChroma.h */; settings = {ATTRIBUTES = (Private, ); }; };
 		A01649182448D0B50017FF4B /* DeviceQuery.c in Sources */ = {isa = PBXBuildFile; fileRef = A016490B2448D0B50017FF4B /* DeviceQuery.c */; };
@@ -57,7 +58,6 @@
 		A0ADA489244D23CA00FEAA12 /* RazerSoftwareSingleRowHandle.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0ADA488244D23CA00FEAA12 /* RazerSoftwareSingleRowHandle.swift */; };
 		A0ADA48B244D262800FEAA12 /* RazerMambaHyperfluxHandle.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0ADA48A244D262800FEAA12 /* RazerMambaHyperfluxHandle.swift */; };
 		A0B1FDD4248ECCCC00E07C79 /* LightsOutTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0B1FDD3248ECCCC00E07C79 /* LightsOutTests.swift */; };
-		A0C838582495B3C1009A4912 /* USBDeviceIdentifiers.h in Headers */ = {isa = PBXBuildFile; fileRef = A0C838572495B3C1009A4912 /* USBDeviceIdentifiers.h */; settings = {ATTRIBUTES = (Private, ); }; };
 		A0C838662495BA6C009A4912 /* Driver.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0C838652495BA6C009A4912 /* Driver.swift */; };
 		A0C838692495BF90009A4912 /* Synapse2KeyboardHandle.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0C838682495BF90009A4912 /* Synapse2KeyboardHandle.swift */; };
 		A0C8386B2495BF9B009A4912 /* Synapse2MouseHandle.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0C8386A2495BF9B009A4912 /* Synapse2MouseHandle.swift */; };
@@ -80,6 +80,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		A0033396281D736700B3E474 /* Synapse2HeadphonesHandle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Synapse2HeadphonesHandle.swift; sourceTree = "<group>"; };
 		A01648FE2448D0910017FF4B /* FruityKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = FruityKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A01649012448D0910017FF4B /* FruityKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FruityKit.h; sourceTree = "<group>"; };
 		A01649022448D0910017FF4B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -135,7 +136,6 @@
 		A0ADA488244D23CA00FEAA12 /* RazerSoftwareSingleRowHandle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RazerSoftwareSingleRowHandle.swift; sourceTree = "<group>"; };
 		A0ADA48A244D262800FEAA12 /* RazerMambaHyperfluxHandle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RazerMambaHyperfluxHandle.swift; sourceTree = "<group>"; };
 		A0B1FDD3248ECCCC00E07C79 /* LightsOutTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LightsOutTests.swift; sourceTree = "<group>"; };
-		A0C838572495B3C1009A4912 /* USBDeviceIdentifiers.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = USBDeviceIdentifiers.h; sourceTree = "<group>"; };
 		A0C838652495BA6C009A4912 /* Driver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Driver.swift; sourceTree = "<group>"; };
 		A0C838682495BF90009A4912 /* Synapse2KeyboardHandle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Synapse2KeyboardHandle.swift; sourceTree = "<group>"; };
 		A0C8386A2495BF9B009A4912 /* Synapse2MouseHandle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Synapse2MouseHandle.swift; sourceTree = "<group>"; };
@@ -215,7 +215,6 @@
 				A016490D2448D0B50017FF4B /* RazerSoftwareChroma.c */,
 				A016490C2448D0B50017FF4B /* USBCommon.h */,
 				A016490E2448D0B50017FF4B /* USBCommon.c */,
-				A0C838572495B3C1009A4912 /* USBDeviceIdentifiers.h */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -331,6 +330,7 @@
 			children = (
 				A0F1CA8825B3C0E000DFC194 /* Synapse2AccessoryHandle.swift */,
 				A0C838682495BF90009A4912 /* Synapse2KeyboardHandle.swift */,
+				A0033396281D736700B3E474 /* Synapse2HeadphonesHandle.swift */,
 				A0C8386A2495BF9B009A4912 /* Synapse2MouseHandle.swift */,
 				A0A2E5272662D7BD0025E330 /* Synapse2MousepadHandle.swift */,
 			);
@@ -356,7 +356,6 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A0C838582495B3C1009A4912 /* USBDeviceIdentifiers.h in Headers */,
 				A08E1F68249640EF00D13454 /* DeviceQuery+Devices.h in Headers */,
 				A0233F8A266274170081A8F6 /* razercommon.h in Headers */,
 				A0233F92266274170081A8F6 /* razermouse_driver.h in Headers */,
@@ -498,6 +497,7 @@
 				A01649592448EEE70017FF4B /* SynapseHandle.swift in Sources */,
 				A01649412448DDD60017FF4B /* Synapse3Handle.swift in Sources */,
 				A0C8386B2495BF9B009A4912 /* Synapse2MouseHandle.swift in Sources */,
+				A0033397281D736700B3E474 /* Synapse2HeadphonesHandle.swift in Sources */,
 				A0233FAB266280560081A8F6 /* Speed.swift in Sources */,
 				A01649432448DEAE0017FF4B /* Direction.swift in Sources */,
 				A0233FA6266274200081A8F6 /* razerkraken_driver.c in Sources */,

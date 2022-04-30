@@ -34,6 +34,7 @@ public enum DeviceType: Hashable {
     }
     
     case keyboard(type: KeyboardType)
+    case kraken
     case mouse
     case mousepad
     case accessory

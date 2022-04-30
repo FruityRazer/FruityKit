@@ -14,7 +14,6 @@ framework module FruityKit {
        
         private header "RazerSoftwareChroma.h"
         private header "USBCommon.h"
-        private header "USBDeviceIdentifiers.h"
         private header "DeviceQuery.h"
         private header "DeviceQuery+Devices.h"
     }
